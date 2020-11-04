@@ -1,7 +1,8 @@
 import { utilService } from './utilService.js';
 
 export const keepsService = {
-    getNotes
+    getNotes,
+    addNewNote
 }
 
 var gNotes = [
@@ -35,11 +36,18 @@ var gNotes = [
 ];
 
 
+
+function addNewNote(note){
+    gNotes.push(note);
+    console.log(gNotes);
+}
+
+
 function getNotes(){
     return Promise.resolve(gNotes);
 }
 
 
-console.log(gNotes);
+console.log('not the function',gNotes);
 
 

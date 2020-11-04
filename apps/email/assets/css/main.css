@@ -32,8 +32,6 @@
     margin: 4px 20px 4px 0;
 }
 
-
-
 .email-nav ul {
     list-style: none;
     padding: 0;
@@ -62,6 +60,7 @@ width:100%
 
 .emailListLi{
     display:flex;
+    justify-content: space-between;
 }
 .emailListLi:hover{
     background: #f2f5f5c9;
@@ -74,6 +73,7 @@ ul.emailList {
 .email-item{
     background: #f2f5f5c9;
     padding: 2px;
+    width: 100%;
 }
 
 .email-item ul {
@@ -93,12 +93,29 @@ ul.emailList {
     padding: 20px;
 }  
 
+.email-details h2{
+    margin: 10px 0;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     background: #f0f0f0;
     padding: 5px 8px;
+    margin: 0 0 10px;
 }
+
+.header .from{
+    font-weight: 500;
+}
+.header .date{
+    
+}
+
 .content{
     padding: 5px 8px;
+}
+
+.emailReadFalse{
+    font-weight: 500;
 }

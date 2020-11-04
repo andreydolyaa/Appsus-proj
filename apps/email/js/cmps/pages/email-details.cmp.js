@@ -14,8 +14,8 @@ export default {
             <h2>{{selectedEmail.subject}}</h2>
             <div class="body">
                 <div class="header">
-                    <p>{{selectedEmail.from}}</p>
-                    <p>{{getDateFromTimeStamp}}</p>
+                    <p class="from">{{selectedEmail.from}}</p>
+                    <p class="date">{{getDateFromTimeStamp}}</p>
                 </div>
 
                 <div class="content">
@@ -41,11 +41,18 @@ export default {
             console.log('this.selectedEmailId',this.$route.params,this.selectedEmailId)
             emailService.getSelectedEmail(this.selectedEmailId)
                                 .then(res =>{ 
-                                    this.selectedEmail = res;                                 
-                                    console.log( 'this.selectedEmail',this.selectedEmail)
+                                    this.selectedEmail = res; 
+                                    this.markEmailAaRead()                                
+                                    console.log( 'selectedEmail',this.selectedEmail)
+
                                 });     
         },
-      
+        markEmailAaRead() {
+            emailService.setEmailAsRead(this.selectedEmailId).then(res =>{                     
+                console.log( 'selectedEmail',res)
+            });     
+           
+        },
     },
     computed:{
         getDateFromTimeStamp(){

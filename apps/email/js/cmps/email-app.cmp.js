@@ -12,12 +12,11 @@ export default {
     name:'email-app',
     template:`
         <section class="email-app">
-            <h1>Email itemS</h1> 
+           
                 <email-nav></email-nav>  
                 <div class="emails">
                     <div class="router-view-container">
-                        <router-view></router-view>                   
-                        content  
+                        <router-view></router-view>
                         <!-- <email-list v-bind:emailsDB="emails"></email-list>  
                         <email-details></email-details> -->
                     </div>

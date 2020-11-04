@@ -35,6 +35,39 @@ export const emailService = {
     loadEmailsFromStorage,
     getEmails,
     getSelectedEmail,
+    removeEmail,
+    setEmailAsRead,
+    setEmailAsUnread,
+    getUnreadEamils,
+}
+var t = getUnreadEamils()
+console.log('t',t)
+function getUnreadEamils(){
+    var res = gEmails.filter(email => {
+        return email.isRead === false;
+      })
+    return res
+}
+
+function setEmailAsUnread(emailID){
+    var idx = getEmailInxByID(emailID)
+    gEmails[idx].isRead = false
+    return Promise.resolve('Email unread');
+}
+
+function setEmailAsRead(emailID){
+    var idx = getEmailInxByID(emailID)
+    gEmails[idx].isRead =true
+    return Promise.resolve('Email read');
+}
+
+function removeEmail(emailID){
+    console.log('emailId',emailID)
+    var idx = getEmailInxByID(emailID)
+    gEmails.splice(idx, 1);
+    console.log('gEmails',gEmails)
+    saveEmailsToSorage()
+    return Promise.resolve('Email deleted');
 }
 
 function getEmailInxByID(emailID){

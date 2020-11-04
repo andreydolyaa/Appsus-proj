@@ -4,7 +4,7 @@ export default {
     template:`
         <section class="email-item">
             <!-- <h1>email item</h1> -->
-            <ul>
+            <ul v-bind:class="{ emailReadFalse: !email.isRead }">
                 <li>{{email.from}}</li>
                 <li>{{email.subject}}</li>
                 <li>{{getDateFromTimeStamp}}</li>

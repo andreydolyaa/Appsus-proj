@@ -1,7 +1,7 @@
 import { emailService } from '../services/email-service.js';
 import emailList from '../cmps/email-list.cmp.js';
 import emailDetails from'../cmps/pages/email-details.cmp.js';
-import emailnav from'../cmps/pages/email-nav.cmp.js';
+import emailNav from'../cmps/pages/email-nav-cmp.js';
 
 export default {
     props: [''],
@@ -20,6 +20,7 @@ export default {
         emailService,
         emailList,
         emailDetails,
+        emailNav,
     },
 
     data() {

@@ -1,4 +1,5 @@
 @import url("../../apps/email/assets/css/main.css");
+@import '../../apps/keeps/assets/css/main.css'; /*this import KEEPS main css file*/
 
 body{
     background-color: #fff;

@@ -1,5 +1,5 @@
 
-import {keepsService} from '../services/keepsService.js';
+import { keepsService } from '../services/keepsService.js';
 
 import noteTxt from './note-txt.cmp.js';
 import noteImg from './note-img.cmp.js';
@@ -11,48 +11,56 @@ import noteTodos from './note-todos.cmp.js';
 export default {
     props: ['notes'],
     template: `
-    <section class="note-type">
+    <section class="notes-add">
 
-        <h1>note type</h1>
-
+    <form @submit.prevent="save" class="notes-add-form">
+        <button>Pin</button>
+        <component :is="noteType" @setVal="setAns($event)" /></component>
+    </form>
         <div>
             <button @click="noteType='noteTxt'">txt</button>
             <button @click="noteType='noteImg'">img</button>
             <button @click="noteType='noteTodos'">todo</button>
         </div>
 
-        <form @submit.prevent="save">
-            <component :is="noteType" @setVal="setAns($event)" /></component>
-            <button>Pin</button>
-        </form>
-        <pre>{{txtAns}}</pre>
-        <pre>{{imgAns}}</pre>
     </section>
     `,
-    data(){
-        return{
-            noteType:'noteTxt',
-            txtAns: {type:'noteTxt',isPinned:false,info:{txt:''}},
-            imgAns:{
-                type:'noteImg',
-                info:{url:'',title:''},
-                style:{
-                    backgroundColor:"#0CB3C2"
+    data() {
+        return {
+            noteType: 'noteTxt',
+            txtAns: { type: 'noteTxt', isPinned: false, info: { txt: '' } },
+            imgAns: {
+                type: 'noteImg',
+                info: { url: '', title: '' },
+                style: {
+                    backgroundColor: "#0CB3C2"
+                }
+            },
+            todoAns:{
+                type:'noteTodos',
+                info:{
+                    label:'',
+                    todos:[]
                 }
             }
         }
     },
     methods: {
         save() {
-            keepsService.addNewNote(this.txtAns);
+            if (this.noteType === 'noteTxt') keepsService.addNewNote(this.txtAns);
+            else if(this.noteType === 'noteImg') keepsService.addNewNote(this.imgAns);
+            else if(this.noteType === 'noteTodos') keepsService.addNewNote(this.todoAns);
         },
-        setAns(event){
-            if(this.noteType === 'noteTxt') this.txtAns.info.txt = event;
-            else if(this.noteType === 'noteImg') {
+        setAns(event) {
+            if (this.noteType === 'noteTxt') this.txtAns.info.txt = event;
+            else if (this.noteType === 'noteImg') {
                 this.imgAns.info.url = event.imgUrl;
                 this.imgAns.info.title = event.title;
             }
-            
+            else if(this.noteType === 'noteTodos'){
+                this.todoAns.info.label = event.label;
+                this.todoAns.info.todos = event.todos;
+            }
         }
     },
     components: {
@@ -73,3 +81,7 @@ export default {
 //             </div>
 //             <button>Save</button>
 //         </form>
+
+// <pre>{{txtAns}}</pre>
+// <pre>{{imgAns}}</pre>
+// <pre>{{todoAns}}</pre>

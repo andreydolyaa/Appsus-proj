@@ -2,25 +2,28 @@ import {storage} from '../services/storage-service.js';
 
 var gEmails= [
     {
-    id:'em01',
-    subject: 'Wassap?',
-     body: 'Pick up!',
-      isRead: false, 
-      sentAt : 1551133930594
+        id:'em01',
+        from:'goolge tech',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: false, 
+        sentAt : 1551133930594,
     },
     {
-    id:'em02',
-    subject: 'Wassap?',
-    body: 'Pick up!',
-     isRead: false, 
-     sentAt : 1551133930594
+        id:'em02',
+        from:'goolge tech',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: false, 
+        sentAt :1580821161 ,     
     },
     {
-    id:'em03',
-    subject: 'Wassap?',
-    body: 'Pick up!',
-    isRead: false, 
-    sentAt : 1551133930594
+        id:'em03',
+        from:'goolge tech',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: false, 
+        sentAt : 1572872361,
     },
 ]
 

@@ -2,24 +2,18 @@
 
 
 export default {
-    template:
-        `
-    <section class="note-video">
-        <input type="text" placeholder="enter title" v-model="videoDetails.title" @input="reportVal()"/>
-        <input type="text" placeholder="video url" v-model="videoDetails.url" @input="reportVal()"/>
+    props: ['note'],
+    template: `
+    <section class="note-video-display">
+        <h1>{{note.info.title}}</h1>
+        <iframe width="300" height="300"
+            v-bind:src="videoUrl">
+        </iframe>
     </section>
     `,
-    data() {
-        return {
-            videoDetails: {
-                title: '',
-                url: ''
-            }
-        }
-    },
-    methods: {
-        reportVal() {
-            this.$emit('setVal', this.videoDetails);
+    data(){
+        return{
+            videoUrl:this.note.info.url
         }
     }
 }

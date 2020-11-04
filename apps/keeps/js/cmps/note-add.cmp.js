@@ -1,126 +1,87 @@
 
 import { keepsService } from '../services/keepsService.js';
 
-import noteTxt from './note-txt.cmp.js';
-import noteImg from './note-img.cmp.js';
-import noteTodos from './note-todos.cmp.js';
-import noteVideo from './note-video.cmp.js';
-
-
-
 
 export default {
     props: ['notes'],
     template: `
     <section class="notes-add">
     
-    <div class="form">
-    <form @submit.prevent="save">
-    <component :is="noteType" @setVal="setAns($event)" /></component>
-    </form>
-    </div>
+        <div class="note-txt" v-if="noteType === 'noteTxt'">
+            <input type="text" placeholder="enter text" v-model="txtNote.info.txt">
+        </div>
+
+
+        <div class="note-img" v-if="noteType === 'noteImg'">
+            <input type="text" placeholder="enter img url" v-model="imgNote.info.url" />
+            <input type="text" placeholder="set title" v-model="imgNote.info.title" />
+        </div>
     
-    
-    <div class="btns">
+
+        <div class="note-img" v-if="noteType === 'noteTodos'">
+            <input type="text" placeholder="Label" v-model="todoNote.info.label" />
+            <input type="text" placeholder="add todos" v-model="todo" />
+            <button @click="addTodo()">+</button>
+            <div v-for="todo in todoNote.info.todos">
+                <p>{{todo.txt}}</p>
+            </div>
+        </div>
+
+
+        <div class="note-img" v-if="noteType === 'noteVideo'">
+            <input type="text" placeholder="enter title" v-model="videoNote.info.title" />
+            <input type="text" placeholder="enter video url"  v-model="videoNote.info.url"/>
+        </div>
+
+
+        <div class="btns">
             <button class="note-add-btn" @click="save()"><i class="fas fa-check"></i></button>
-
-
             <button class="note-add-btn" @click="noteType='noteTxt'"><i class="fas fa-font"></i></button>
             <button class="note-add-btn" @click="noteType='noteImg'"><i class="far fa-image"></i></button>
             <button class="note-add-btn" @click="noteType='noteTodos'"><i class="fas fa-list-ul"></i></button>
             <button class="note-add-btn" @click="noteType='noteVideo'"><i class="fas fa-video"></i></button>
         </div>
 
+
     </section>
     `,
     data() {
         return {
+            todo:'',
             noteType: 'noteTxt',
-            txtAns: { type: 'noteTxt', display: 'noteTxtDisplay', isPinned: false, info: { txt: '' } },
-            imgAns: {
-                type: 'noteImg',
-                display: 'noteImgDisplay',
-                info: { url: '', title: '' },
-                style: {
-                    backgroundColor: "#0CB3C2"
-                }
-            },
-            todoAns: {
-                type: 'noteTodos',
-                display: 'noteTodosDisplay',
-                info: {
-                    label: '',
-                    todos: []
-                }
-            },
-            videoAns: {
-                type: 'noteVideo',
-                display: 'noteVideoDisplay',
-                info: {
-                    title: '',
-                    url: ''
-                }
-            }
+            txtNote: keepsService.createNewTxtNote(),
+            imgNote: keepsService.createNewImgNote(),
+            todoNote: keepsService.createNewTodosNote(),
+            videoNote: keepsService.createNewVideoNote(),
         }
     },
     methods: {
+        addTodo(){
+            this.todoNote.info.todos.push({txt:this.todo});
+            this.todo=''
+            console.log(this.todoNote.info.todos);
+        },
         save() {
             if (this.noteType === 'noteTxt') {
-                keepsService.addNewNote(this.txtAns);
-                this.txtAns = keepsService.createNewTxtNote();
+                keepsService.addNewNote(this.txtNote);
+                this.txtNote = keepsService.createNewTxtNote();
             }
             else if (this.noteType === 'noteImg') {
-                keepsService.addNewNote(this.imgAns);
-                this.imgAns = keepsService.createNewImgNote();
+                keepsService.addNewNote(this.imgNote);
+                this.imgNote = keepsService.createNewImgNote();
             }
             else if (this.noteType === 'noteTodos') {
-                keepsService.addNewNote(this.todoAns);
-                this.todoAns = keepsService.createNewTodosNote();
+                keepsService.addNewNote(this.todoNote);
+                this.todoNote = keepsService.createNewTodosNote();
             }
             else if (this.noteType === 'noteVideo') {
-                keepsService.addNewNote(this.videoAns);
-                this.videoAns = keepsService.createNewVideoNote();
+                keepsService.addNewNote(this.videoNote);
+                this.videoNote = keepsService.createNewVideoNote();
             }
         },
-        setAns(event) {
-            if (this.noteType === 'noteTxt') {
-                this.txtAns.info.txt = event;
-            }
-            else if (this.noteType === 'noteImg') {
-                this.imgAns.info.url = event.imgUrl;
-                this.imgAns.info.title = event.title;
-            }
-            else if (this.noteType === 'noteTodos') {
-                this.todoAns.info.label = event.label;
-                this.todoAns.info.todos = event.todos;
-            }
-            else if (this.noteType === 'noteVideo') {
-                this.videoAns.info.title = event.title;
-                this.videoAns.info.url = event.url;
-            }
 
-        }
     },
-    components: {
-        noteTxt,
-        noteImg,
-        noteTodos,
-        noteVideo
-    }
+
 }
 
 
-
-// <form @submit.prevent="save">
-//             <div v-for="note in notes">
-//                 <component :is="note.type"
-//                             :note="note.info" 
-//                             @setVal="setAns($event, idx)" />
-//                 </component>
-//             </div>
-//             <button>Save</button>
-//         </form>
-
-// <pre>{{txtAns}}</pre>
-// <pre>{{imgAns}}</pre>
-// <pre>{{todoAns}}</pre>

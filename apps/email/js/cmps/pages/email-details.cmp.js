@@ -10,22 +10,21 @@ export default {
         <section class="email-details" v-if="selectedEmail">
             <!-- {{selectedEmail}} -->
             <!-- { "id": "em01", "from": "goolge tech", "subject": "Wassap?", "body": "Pick up!", "isRead": false, "sentAt": 1551133930594 } -->
-
+            <h2> email details</h2>
             <h2>{{selectedEmail.subject}}</h2>
             <div class="body">
                 <div class="header">
                     <p>{{selectedEmail.from}}</p>
                     <p>{{getDateFromTimeStamp}}</p>
-
                 </div>
+
                 <div class="content">
                     <p>{{selectedEmail.body}}</p>
                 </div>
             </div>
            
         </section>
-
-        `,
+    `,
     components: {
 
     },
@@ -38,7 +37,7 @@ export default {
     methods:{
        getEmail(){
             console.log('emailID');
-            this.selectedEmailId = this.$route.params.emailId
+            this.selectedEmailId = this.$route.params.emailID
             console.log('this.selectedEmailId',this.$route.params,this.selectedEmailId)
             emailService.getSelectedEmail(this.selectedEmailId)
                                 .then(res =>{ 

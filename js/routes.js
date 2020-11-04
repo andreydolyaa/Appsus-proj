@@ -1,7 +1,10 @@
 import homePage from '../js/pages/home-page.cmp.js';
 import emailApp from '../apps/email/js/cmps/email-app.cmp.js';
+import emailList from '../apps/email/js/cmps/email-list.cmp.js';
 import emailDetails from '../apps/email/js/cmps/pages/email-details.cmp.js';
 import keepsApp from '../apps/keeps/js/cmps/keeps-app.cmp.js';
+
+
 
 
 const myRoutes = [
@@ -11,7 +14,17 @@ const myRoutes = [
     },
     {
         path: '/email',
-        component: emailApp
+        component: emailApp,
+        children: [
+            {
+                path: 'inbox',
+                component: emailList
+            },
+            {
+                path: ':emailID',
+                component: emailDetails
+            },
+        ]
     },
     {
         path: '/keeps',

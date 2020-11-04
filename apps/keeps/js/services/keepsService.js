@@ -2,7 +2,8 @@ import { utilService } from './utilService.js';
 
 export const keepsService = {
     getNotes,
-    addNewNote
+    addNewNote,
+    createNewTxtNote
 }
 
 var gNotes = [
@@ -46,6 +47,16 @@ var gNotes = [
     }
 ];
 
+function createNewTxtNote(){
+    return {
+        type: "noteTxt",
+        display: 'noteTxtDisplay',
+        isPinned: false,
+        info: {
+            txt: ""
+        }
+    }
+}
 
 
 function addNewNote(note) {

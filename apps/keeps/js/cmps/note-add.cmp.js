@@ -22,11 +22,12 @@ export default {
     
     
     <div class="btns">
-    <button class="note-add-btn"><i class="far fa-check-square" @click="save()"></i></button>
+            <button class="note-add-btn"><i class="far fa-check-square" @click="save()"></i></button>
+
+
             <button class="note-add-btn" @click="noteType='noteTxt'"><i class="fas fa-font"></i></button>
             <button class="note-add-btn" @click="noteType='noteImg'"><i class="far fa-image"></i></button>
             <button class="note-add-btn" @click="noteType='noteTodos'"><i class="fas fa-list-ul"></i></button>
-
             <button class="note-add-btn" @click="noteType='noteVideo'"><i class="fas fa-video"></i></button>
         </div>
 
@@ -35,54 +36,60 @@ export default {
     data() {
         return {
             noteType: 'noteTxt',
-            txtAns: { type: 'noteTxt',display:'noteTxtDisplay', isPinned: false, info: { txt: '' } },
+            txtAns: { type: 'noteTxt', display: 'noteTxtDisplay', isPinned: false, info: { txt: '' } },
             imgAns: {
                 type: 'noteImg',
-                display:'noteImgDisplay',
+                display: 'noteImgDisplay',
                 info: { url: '', title: '' },
                 style: {
                     backgroundColor: "#0CB3C2"
                 }
             },
-            todoAns:{
-                type:'noteTodos',
-                display:'noteTodosDisplay',
-                info:{
-                    label:'',
-                    todos:[]
+            todoAns: {
+                type: 'noteTodos',
+                display: 'noteTodosDisplay',
+                info: {
+                    label: '',
+                    todos: []
                 }
             },
-            videoAns:{
-                type:'noteVideo',
-                display:'noteVideoDisplay',
-                info:{
-                    title:'',
-                    url:''
+            videoAns: {
+                type: 'noteVideo',
+                display: 'noteVideoDisplay',
+                info: {
+                    title: '',
+                    url: ''
                 }
             }
         }
     },
     methods: {
         save() {
-            if (this.noteType === 'noteTxt') keepsService.addNewNote(this.txtAns);
-            else if(this.noteType === 'noteImg') keepsService.addNewNote(this.imgAns);
-            else if(this.noteType === 'noteTodos') keepsService.addNewNote(this.todoAns);
-            else if(this.noteType === 'noteVideo') keepsService.addNewNote(this.videoAns);
+            if (this.noteType === 'noteTxt') {
+                keepsService.addNewNote(this.txtAns);
+                this.txtAns = keepsService.createNewTxtNote();
+            }
+            else if (this.noteType === 'noteImg') keepsService.addNewNote(this.imgAns);
+            else if (this.noteType === 'noteTodos') keepsService.addNewNote(this.todoAns);
+            else if (this.noteType === 'noteVideo') keepsService.addNewNote(this.videoAns);
         },
         setAns(event) {
-            if (this.noteType === 'noteTxt') this.txtAns.info.txt = event;
+            if (this.noteType === 'noteTxt') {
+                this.txtAns.info.txt = event;
+            }
             else if (this.noteType === 'noteImg') {
                 this.imgAns.info.url = event.imgUrl;
                 this.imgAns.info.title = event.title;
             }
-            else if(this.noteType === 'noteTodos'){
+            else if (this.noteType === 'noteTodos') {
                 this.todoAns.info.label = event.label;
                 this.todoAns.info.todos = event.todos;
             }
-            else if(this.noteType === 'noteVideo'){
+            else if (this.noteType === 'noteVideo') {
                 this.videoAns.info.title = event.title;
                 this.videoAns.info.url = event.url;
             }
+
         }
     },
     components: {

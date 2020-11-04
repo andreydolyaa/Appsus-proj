@@ -14,6 +14,7 @@ export default{
     methods:{
         reportVal(){
             this.$emit('setVal',this.txt);
+
         }
     }
 }

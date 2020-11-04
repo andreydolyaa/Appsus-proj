@@ -3,8 +3,8 @@
 export default{
     props:['note'],
     template:`
-    <section>
-        <h1>{{note.info}}</h1>
+    <section class="note-txt-display">
+        <h1>{{note.info.txt}}</h1>
     </section>
     `
 }

@@ -1,8 +1,9 @@
-import noteTxtDisplay from './notes/note-txt-display.cmp.js';
-import noteImgDisplay from './notes/note-img-display.cmp.js';
-import noteTodosDisplay from './notes/note-todos-display.cmp.js';
-import noteVideoDisplay from './notes/note-video-display.cmp.js';
 
+
+import noteTxt from './note-txt.cmp.js'
+import noteImg from './note-img.cmp.js';
+import noteTodos from './note-todos.cmp.js';
+import noteVideo from './note-video.cmp.js';
 
 
 export default{
@@ -11,7 +12,7 @@ export default{
     <section class="display-notes">
 
     <div v-for="(note, idx) in notes">
-    <component :is="note.display"
+    <component :is="note.type"
                 :info="note.info" 
                 :note="note"
                 @setVal="setAns($event, idx)" />
@@ -27,10 +28,10 @@ export default{
         
     },
     components:{
-        noteTxtDisplay,
-        noteImgDisplay,
-        noteTodosDisplay,
-        noteVideoDisplay
+        noteTxt,
+        noteImg,
+        noteTodos,
+        noteVideo
     }
     
 }

@@ -47,7 +47,8 @@ var gNotes = [
             title: 'Cool Video!',
             url: 'https://www.youtube.com/embed?v=du8h0Rs6Hp0'
         }
-    }
+    },
+    
 ];
 
 function createNewTxtNote() {

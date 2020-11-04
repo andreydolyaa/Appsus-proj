@@ -8,8 +8,9 @@ export default {
         <button @click.prevent="addTodo(),reportVal()">+</button>
     <ul>
         <li v-for="todo in todoList.todos">
-            <small>{{todo}}</small>
+            <small>{{todo.txt}}</small>
         </li>
+        <pre>{{todoList}}</pre>
     </ul>
     </section>
     `,
@@ -24,10 +25,11 @@ export default {
     },
     methods: {
         addTodo() {
-            this.todoList.todos.push(this.todo);
+            this.todoList.todos.push({txt:this.todo});
         },
         reportVal(){
             this.$emit('setVal',this.todoList);
+            console.log(this.todoList);
         }
     }
 }

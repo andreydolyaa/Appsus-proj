@@ -1,0 +1,17 @@
+
+
+
+.note-img-display{
+    border:1px solid rgb(209, 209, 209);
+    border-radius:5px;
+    width:300px;
+    height:300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.note-img-display img{
+    height:200px;
+    width:200px;
+}

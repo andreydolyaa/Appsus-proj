@@ -1,13 +1,14 @@
 import noteTxtDisplay from './notes/note-txt-display.cmp.js';
 import noteImgDisplay from './notes/note-img-display.cmp.js';
 import noteTodosDisplay from './notes/note-todos-display.cmp.js';
+import noteVideoDisplay from './notes/note-video-display.cmp.js';
 
 
 
 export default{
     props:['notes'],
     template:`
-    <section>
+    <section class="display-notes">
 
     <div v-for="(note, idx) in notes">
     <component :is="note.display"
@@ -28,7 +29,8 @@ export default{
     components:{
         noteTxtDisplay,
         noteImgDisplay,
-        noteTodosDisplay
+        noteTodosDisplay,
+        noteVideoDisplay
     }
     
 }

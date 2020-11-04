@@ -1,0 +1,11 @@
+
+
+
+/*** HERE NEEDS TO BE GRID DISPLAY!! FLEX ONLY TEMPORARY ! */
+.display-notes{
+    display:flex;
+    flex-wrap: wrap;
+}
+.display-notes > * {
+    margin:1rem;
+}

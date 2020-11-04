@@ -3,12 +3,14 @@
 }
 
 .email-app{
+    position: relative;
     padding: 20px;
     display: flex;
 
     background: antiquewhite;
     background: rgb(210,210,210);
     background: radial-gradient(circle, rgba(210,210,210,1) 0%, rgba(156,156,156,1) 100%);
+    min-height: 80vh;
 }
 
 .emails {
@@ -96,8 +98,10 @@ ul.emailList {
     margin: 5px 10px;
 }
 
-.mark{
+.mark {
     padding: 4px 6px;
+    border: none;
+    background: #e5e7e7;
 }
 
 .mark::before {
@@ -117,6 +121,8 @@ ul.emailList {
 .deleteBtn {
     padding: 5px 12px;
     font-size: 18px;
+    border: none;
+    background: #e5e7e7;
 }
 /* 
 .delete::before{
@@ -158,4 +164,36 @@ ul.emailList {
 
 .emailReadFalse{
     font-weight: 500;
+}
+
+
+/* compose email */
+
+section.email-compose {
+    position: absolute;
+    background: white;
+    border: 1px solid #000;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    min-width:500px;
+}
+
+.formContainer form .rub {
+    padding: 10px 10px;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+}
+
+.formContainer form .rub label {
+    color: #777;
+    font-size: 16px;
+
+}
+
+.formContainer form .rub .input {
+    font-size: 1em;
+    border: none;
+    padding: 0 0px 0 10px;
+    outline: none;
 }

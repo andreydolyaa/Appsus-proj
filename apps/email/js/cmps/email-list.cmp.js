@@ -8,13 +8,13 @@ export default {
         <section>
             <!-- <pre> {{emailsDB}} </pre>   -->
             <ul class="emailList"> 
-                <div class="info"></div>
+                <div class="info" >Unread emails: <span class="count">{{unReadEmails}}</span></div>
                 <!-- @click="emitSelected(currBook.id)" without native v-on:click.native="onSelectedEmail(currEmail.id)" -->
                 <li class="emailListLi" v-for="currEmail in emails" :key="currEmail.id" >                      
                     <!-- <pre> {{currEmail}} </pre>   -->
                     <email-item v-on:click.native="onEmailSelect(currEmail.id)"  v-bind:email="currEmail"></email-item> 
-                    <button v-on:click=markAsUnread(currEmail.id)>Mark</button>
-                    <button v-on:click=deleteEmail(currEmail.id)>Delete</button>
+                    <button class="mark" v-on:click=markAsUnread(currEmail.id) v-bind:class="{ read: !currEmail.isRead }"></button>
+                    <button class="deleteBtn" v-on:click=deleteEmail(currEmail.id)><i class="fas fa-trash"></i></button>
                 </li>    
             </ul>  
         </section>
@@ -27,6 +27,7 @@ export default {
         return{
            selectedEmail:null, 
            emails:null,
+           unReadEmails:null,
         }
     },
     methods:{
@@ -45,19 +46,22 @@ export default {
                 console.log('res',res)
                 //eventBus.$emit('show-msg', 'review removed Successffully')
            })
-       }
+       },
+       unreadEmails(){
+            emailService.getUnreadEamils().then(res =>{
+                this.unReadEmails = res
+                console.log('res unreadEmails',this.unReadEmails)
+                //eventBus.$emit('show-msg', 'review removed Successffully')
+            })            
+       },
     },
     computed:{
-        unreadEmails(){
-            return emailService.getUnreadEamils().then(res =>{
-                console.log('res',res)
-                //eventBus.$emit('show-msg', 'review removed Successffully')
-           })
-        },
+      
     },
     created(){
         emailService.getEmails().then(res=>{
             this.emails = res;
+            this.unreadEmails();
             console.log('res',res);
             console.log('emails',this.emails);
         })

@@ -68,6 +68,15 @@ width:100%
 
 ul.emailList {
     padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    padding: 10px;
+    color: #fff;
+    align-self: flex-end;
+    text-shadow: 1px 1px #000;
 }
 
 .email-item{
@@ -86,6 +95,37 @@ ul.emailList {
     font-size: 1.2rem;
     margin: 5px 10px;
 }
+
+.mark{
+    padding: 4px 6px;
+}
+
+.mark::before {
+    font-size: 22px;
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 400; 
+    content: "\f2b6";
+}
+
+.mark.read::before{
+    font-size: 22px;
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 400; 
+    content: "\f0e0";
+}
+
+.deleteBtn {
+    padding: 5px 12px;
+    font-size: 18px;
+}
+/* 
+.delete::before{
+    font-size: 22px;
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 400; 
+    content: "\f1f8";
+} */
+
 
 /* email details */
 .email-details {

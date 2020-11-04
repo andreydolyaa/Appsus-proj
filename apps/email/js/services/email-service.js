@@ -40,13 +40,13 @@ export const emailService = {
     setEmailAsUnread,
     getUnreadEamils,
 }
-var t = getUnreadEamils()
-console.log('t',t)
+
 function getUnreadEamils(){
     var res = gEmails.filter(email => {
         return email.isRead === false;
       })
-    return res
+    var unreadEmailCount = res.length
+    return Promise.resolve(unreadEmailCount);
 }
 
 function setEmailAsUnread(emailID){

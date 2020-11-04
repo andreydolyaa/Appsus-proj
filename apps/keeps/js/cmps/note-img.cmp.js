@@ -1,18 +1,21 @@
-export default{
-    template:`
+export default {
+    template: `
     <section class="note-txt">
-        <input type="text" placeholder="enter img url" v-model="imgUrl">
-       
+        <input type="text" placeholder="enter img url" v-model="imgDetails.imgUrl" @input="reportVal()"/>
+        <input type="text" placeholder="set title" v-model="imgDetails.title" @input="reportVal()"/>
     </section>
     `,
-    data(){
-        return{
-            imgUrl:''
+    data() {
+        return {
+            imgDetails: {
+                imgUrl: '',
+                title: ''
+            }
         }
     },
-    methods:{
-        addTextNote(){
-            console.log(this.txt)
+    methods: {
+        reportVal(){
+            this.$emit('setVal',this.imgDetails);
         }
     }
 }

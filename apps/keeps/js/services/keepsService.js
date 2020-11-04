@@ -6,7 +6,8 @@ export const keepsService = {
     createNewTxtNote,
     createNewImgNote,
     createNewTodosNote,
-    createNewVideoNote
+    createNewVideoNote,
+    deleteNote
 }
 
 var gNotes = [
@@ -58,6 +59,36 @@ function getIdxById(noteId){
 }
 
 
+
+function deleteNote(noteId){
+    var noteIdx = getIdxById(noteId)
+    gNotes.splice(noteIdx,1);
+    console.log(gNotes);
+}
+
+
+
+function addNewNote(note) {
+    gNotes.push(note);
+    console.log(gNotes);
+}
+
+
+
+
+function getNotes() {
+    return Promise.resolve(gNotes);
+}
+
+
+
+function editNote(noteId){
+    //find note idx check for note type and change according to type
+}
+
+
+
+
 function createNewTxtNote() {
     return {
         id:utilService.makeId(),
@@ -106,15 +137,7 @@ function createNewVideoNote(){
 }
 
 
-function addNewNote(note) {
-    gNotes.push(note);
-    console.log(gNotes);
-}
 
-
-function getNotes() {
-    return Promise.resolve(gNotes);
-}
 
 
 

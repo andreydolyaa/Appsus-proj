@@ -1,4 +1,4 @@
-
+import noteEdit from '../cmps/note-edit.cmp.js';
 
 export default{
     props:['note'],
@@ -10,8 +10,12 @@ export default{
                 {{todo.txt}}
             </li>
         </ul>
+        <noteEdit v-bind:note="note"/>
     </section>
-    `
+    `,
+    components:{
+        noteEdit
+    }
 }
 
 

@@ -12,15 +12,19 @@ export default {
     props: ['notes'],
     template: `
     <section class="notes-add">
-
-    <form @submit.prevent="save" class="notes-add-form">
-        <button>Pin</button>
-        <component :is="noteType" @setVal="setAns($event)" /></component>
+    
+    <div class="form">
+    <form @submit.prevent="save">
+    <component :is="noteType" @setVal="setAns($event)" /></component>
     </form>
-        <div>
-            <button @click="noteType='noteTxt'">txt</button>
-            <button @click="noteType='noteImg'">img</button>
-            <button @click="noteType='noteTodos'">todo</button>
+    </div>
+    
+    
+    <div class="btns">
+    <button class="note-add-btn"><i class="far fa-check-square" @click="save()"></i></button>
+            <button class="note-add-btn" @click="noteType='noteTxt'"><i class="fas fa-font"></i></button>
+            <button class="note-add-btn" @click="noteType='noteImg'"><i class="far fa-image"></i></button>
+            <button class="note-add-btn" @click="noteType='noteTodos'"><i class="fas fa-list-ul"></i></button>
         </div>
 
     </section>

@@ -3,6 +3,7 @@ import { keepsService } from '../services/keepsService.js';
 // import noteTxt from '../cmps/note-txt.cmp.js';
 // import noteImg from '../cmps/note-img.cmp.js';
 import noteAdd from './note-add.cmp.js';
+import displayNotes from './display-notes.cmp.js';
 
 
 export default {
@@ -10,6 +11,7 @@ export default {
     <section>
         <h1>KEEPSsss</h1>
         <noteAdd :notes="notes"/>
+        <display-notes v-bind:notes="notes"/>
     </section>
     `,
     data() {
@@ -24,6 +26,7 @@ export default {
             });
     },
     components:{
-        noteAdd
+        noteAdd,
+        displayNotes
     }
 }

@@ -8,7 +8,7 @@ export default {
         <button @click.prevent="addTodo(),reportVal()">+</button>
     <ul>
         <li v-for="todo in todoList.todos">
-            {{todo}}
+            <small>{{todo}}</small>
         </li>
     </ul>
     </section>

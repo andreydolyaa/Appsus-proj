@@ -1,7 +1,29 @@
+
+
+
 .notes-add{
-    border:1px solid black;
+    border:1px solid rgb(216, 216, 216);
     display:flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width:600px;
 }
-.notes-add-form{
-    display: flex;
+
+
+
+
+.note-add-btn{
+    border:none;
+    background-color: transparent;
+}
+
+.fa-thumbtack,.fa-font,.fa-image,.fa-list-ul,.fa-check-square{
+    font-size:1rem;
+    color:rgb(87, 87, 87);   
+}
+
+
+.notes-add .btns button{
+    outline: none;
+    cursor: pointer;
 }

@@ -32,9 +32,10 @@ export default {
     data() {
         return {
             noteType: 'noteTxt',
-            txtAns: { type: 'noteTxt', isPinned: false, info: { txt: '' } },
+            txtAns: { type: 'noteTxt',display:'noteTxtDisplay', isPinned: false, info: { txt: '' } },
             imgAns: {
                 type: 'noteImg',
+                display:'noteImgDisplay',
                 info: { url: '', title: '' },
                 style: {
                     backgroundColor: "#0CB3C2"
@@ -42,6 +43,7 @@ export default {
             },
             todoAns:{
                 type:'noteTodos',
+                display:'noteTodosDisplay',
                 info:{
                     label:'',
                     todos:[]

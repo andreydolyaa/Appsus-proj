@@ -8,6 +8,7 @@ export const keepsService = {
 var gNotes = [
     {
         type: "noteTxt",
+        display:'noteTxtDisplay',
         isPinned: true,
         info: {
             txt: "Fullstack Me Baby!"
@@ -15,6 +16,7 @@ var gNotes = [
     },
     {
         type: "noteImg",
+        display:'noteImgDisplay',
         info: {
             url: "http://some-img/me",
             title: "Me playing Mi"
@@ -25,6 +27,7 @@ var gNotes = [
     },
     {
         type: "noteTodos",
+        display:'noteTodosDisplay',
         info: {
             label: "How was it:",
             todos: [

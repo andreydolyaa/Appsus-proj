@@ -4,6 +4,7 @@
 
 .email-app{
     padding: 20px;
+    display: flex;
 
     background: antiquewhite;
     background: rgb(210,210,210);
@@ -12,12 +13,26 @@
 
 .emails {
     display: flex;
+    width: 100%;
 }
 /* email nav */
-
 .email-nav{
-    padding: 10px 20px;
+    padding: 10px 5px;
 }
+
+.email-nav nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.email-nav nav a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    margin: 4px 20px 4px 0;
+}
+
+
 
 .email-nav ul {
     list-style: none;
@@ -44,9 +59,18 @@ width:100%
     border: 1px solid #939393;
 
 }
+
+.emailListLi{
+    display:flex;
+}
+.emailListLi:hover{
+    background: #f2f5f5c9;
+}
+
 ul.emailList {
     padding: 0;
 }
+
 .email-item{
     background: #f2f5f5c9;
     padding: 2px;

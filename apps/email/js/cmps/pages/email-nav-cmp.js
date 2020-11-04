@@ -1,15 +1,12 @@
 export default {
     props: [],
-    name:'email-item',
+    name:'email-nav',
     template:`
-        <section class="email-item">
-            <!-- <h1>email item</h1> -->
-            <ul>
-                <li>Inbox</li>
-                <li>Stared</li>
-                <li>Drafts</li>
-            </ul>
-            <!-- <pre>{{email}}</pre> -->
+        <section class="email-nav">
+            <nav>
+                <router-link to="/email/inbox" exact>inbox</router-link>|
+                <router-link to="/email/inbox" exact>drafts</router-link>|      
+            </nav>
         </section>
         `,
     data() {

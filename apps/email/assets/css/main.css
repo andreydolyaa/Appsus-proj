@@ -1,17 +1,52 @@
 *{
     font-family: 'Roboto', sans-serif;
 }
+
+.email-app{
+    padding: 20px;
+
+    background: antiquewhite;
+    background: rgb(210,210,210);
+    background: radial-gradient(circle, rgba(210,210,210,1) 0%, rgba(156,156,156,1) 100%);
+}
+
+.emails {
+    display: flex;
+}
+/* email nav */
+
+.email-nav{
+    padding: 10px 20px;
+}
+
+.email-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.email-nav ul li{
+    color: #fff;
+    padding: 0px 5px 15px;
+    font-size: 1.2em;
+    text-shadow: 1px 1px #000000;
+}
+
+/* router view*/
+.router-view-container{
+width:100%
+}
+
 /* email list */
 .emailList{
     display: block;
     list-style: none;
     font-size: 1em;
     border: 1px solid #939393;
-    background: antiquewhite;
-    background: rgb(210,210,210);
-    background: radial-gradient(circle, rgba(210,210,210,1) 0%, rgba(156,156,156,1) 100%);
-}
 
+}
+ul.emailList {
+    padding: 0;
+}
 .email-item{
     background: #f2f5f5c9;
     padding: 2px;

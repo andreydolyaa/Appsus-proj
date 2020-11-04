@@ -1,26 +1,36 @@
 import { emailService } from '../services/email-service.js';
+// import { emailRoutes } from '../email-routes.js' 
+import emailNav from'../cmps/pages/email-nav-cmp.js';
+
+
 import emailList from '../cmps/email-list.cmp.js';
 import emailDetails from'../cmps/pages/email-details.cmp.js';
-import emailNav from'../cmps/pages/email-nav-cmp.js';
 
 export default {
     props: [''],
+    // router: emailRoutes,
     name:'email-app',
     template:`
-        <section>
+        <section class="email-app">
             <h1>Email itemS</h1> 
-                <email-nav></email-nav>
-                <email-list v-bind:emailsDB="emails"></email-list>  
-                <email-details></email-details>
+                <email-nav></email-nav>  
+                <div class="emails">
+                    <div class="router-view-container">
+                        <router-view></router-view>                   
+                        content  
+                        <!-- <email-list v-bind:emailsDB="emails"></email-list>  
+                        <email-details></email-details> -->
+                    </div>
+                </div>
                 <!-- v-bind:selected="selectedEmail" -->
             </ul>  
         </section>
         `,
     components:{
         emailService,
+        emailNav,
         emailList,
         emailDetails,
-        emailNav,
     },
 
     data() {

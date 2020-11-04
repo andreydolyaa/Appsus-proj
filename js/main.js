@@ -9,7 +9,7 @@ const options = {
             <h1>My App</h1>
             <nav>
                 <router-link to="/" exact>Home</router-link>|
-                <router-link to="/email" exact>Email</router-link>|
+                <router-link to="/email/inbox" exact>Email</router-link>|
                 <router-link to="/keeps">Keeps</router-link>
             </nav>
             <main>

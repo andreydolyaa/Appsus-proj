@@ -1,4 +1,5 @@
-import { myRouter } from './routes.js'
+import { myRouter } from '../js/routes.js'
+
 
 const options = {
     el: '#app',
@@ -19,8 +20,7 @@ const options = {
         </section>
     `,
     components: {
-        emailApp,
-        keepsMsg,
+
     },
 }
 

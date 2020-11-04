@@ -4,6 +4,7 @@ import { keepsService } from '../services/keepsService.js';
 import noteTxt from './note-txt.cmp.js';
 import noteImg from './note-img.cmp.js';
 import noteTodos from './note-todos.cmp.js';
+import noteVideo from './note-video.cmp.js';
 
 
 
@@ -25,6 +26,8 @@ export default {
             <button class="note-add-btn" @click="noteType='noteTxt'"><i class="fas fa-font"></i></button>
             <button class="note-add-btn" @click="noteType='noteImg'"><i class="far fa-image"></i></button>
             <button class="note-add-btn" @click="noteType='noteTodos'"><i class="fas fa-list-ul"></i></button>
+
+            <button class="note-add-btn" @click="noteType='noteVideo'"><i class="fas fa-video"></i></button>
         </div>
 
     </section>
@@ -48,6 +51,14 @@ export default {
                     label:'',
                     todos:[]
                 }
+            },
+            videoAns:{
+                type:'noteVideo',
+                display:'noteVideoDisplay',
+                info:{
+                    title:'',
+                    url:''
+                }
             }
         }
     },
@@ -56,6 +67,7 @@ export default {
             if (this.noteType === 'noteTxt') keepsService.addNewNote(this.txtAns);
             else if(this.noteType === 'noteImg') keepsService.addNewNote(this.imgAns);
             else if(this.noteType === 'noteTodos') keepsService.addNewNote(this.todoAns);
+            else if(this.noteType === 'noteVideo') keepsService.addNewNote(this.videoAns);
         },
         setAns(event) {
             if (this.noteType === 'noteTxt') this.txtAns.info.txt = event;
@@ -67,12 +79,17 @@ export default {
                 this.todoAns.info.label = event.label;
                 this.todoAns.info.todos = event.todos;
             }
+            else if(this.noteType === 'noteVideo'){
+                this.videoAns.info.title = event.title;
+                this.videoAns.info.url = event.url;
+            }
         }
     },
     components: {
         noteTxt,
         noteImg,
-        noteTodos
+        noteTodos,
+        noteVideo
     }
 }
 

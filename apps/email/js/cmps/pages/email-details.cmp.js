@@ -7,10 +7,24 @@ export default {
     props: [''],
     name:'email-details',
     template:`
-        <section v-if="selectedEmail">
-            <h1>email details</h1>
-            {{selectedEmail}}
+        <section class="email-details" v-if="selectedEmail">
+            <!-- {{selectedEmail}} -->
+            <!-- { "id": "em01", "from": "goolge tech", "subject": "Wassap?", "body": "Pick up!", "isRead": false, "sentAt": 1551133930594 } -->
+
+            <h2>{{selectedEmail.subject}}</h2>
+            <div class="body">
+                <div class="header">
+                    <p>{{selectedEmail.from}}</p>
+                    <p>{{getDateFromTimeStamp}}</p>
+
+                </div>
+                <div class="content">
+                    <p>{{selectedEmail.body}}</p>
+                </div>
+            </div>
+           
         </section>
+
         `,
     components: {
 
@@ -35,7 +49,11 @@ export default {
       
     },
     computed:{
-
+        getDateFromTimeStamp(){
+            var timestamp = this.selectedEmail.sentAt
+            var date = new Date(timestamp * 1000);
+            return date
+        },
     },
     created(){
         this.getEmail();

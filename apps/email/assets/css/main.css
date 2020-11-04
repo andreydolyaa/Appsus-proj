@@ -1,3 +1,45 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+/* email list */
 .emailList{
-    display:block
+    display: block;
+    list-style: none;
+    font-size: 1em;
+    border: 1px solid #939393;
+    background: antiquewhite;
+    background: rgb(210,210,210);
+    background: radial-gradient(circle, rgba(210,210,210,1) 0%, rgba(156,156,156,1) 100%);
+}
+
+.email-item{
+    background: #f2f5f5c9;
+    padding: 2px;
+}
+
+.email-item ul {
+    list-style: none;
+    display: flex;
+    padding: 5px 10px;
+}
+
+.email-item ul li{
+    font-size: 1.2rem;
+    margin: 5px 10px;
+}
+
+/* email details */
+.email-details {
+    background-color: #f5f5f5;
+    padding: 20px;
+}  
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background: #f0f0f0;
+    padding: 5px 8px;
+}
+.content{
+    padding: 5px 8px;
 }

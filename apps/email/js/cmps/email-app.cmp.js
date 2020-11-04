@@ -1,17 +1,18 @@
 import { emailService } from '../services/email-service.js';
 import emailList from '../cmps/email-list.cmp.js';
 import emailDetails from'../cmps/pages/email-details.cmp.js';
+import emailnav from'../cmps/pages/email-nav.cmp.js';
 
 export default {
     props: [''],
     name:'email-app',
     template:`
         <section>
-            <!-- -->
-            <h1 >Email itemS</h1> 
+            <h1>Email itemS</h1> 
+                <email-nav></email-nav>
                 <email-list v-bind:emailsDB="emails"></email-list>  
-                <email-details  v-bind:selected="selectedEmail" ></email-details>
-                <!-- v-if="selectedEmail" -->
+                <email-details></email-details>
+                <!-- v-bind:selected="selectedEmail" -->
             </ul>  
         </section>
         `,
@@ -24,7 +25,7 @@ export default {
     data() {
         return{
             emails : null,
-            selectedEmail:null,
+            // selectedEmail:null,
         }
     },
     methods:{

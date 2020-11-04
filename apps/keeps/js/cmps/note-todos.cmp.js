@@ -27,7 +27,6 @@ export default {
             this.todoList.todos.push(this.todo);
         },
         reportVal(){
-            console.log(this.todoList);
             this.$emit('setVal',this.todoList);
         }
     }

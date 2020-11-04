@@ -8,7 +8,7 @@ export default{
         <h1>{{note.info.label}}</h1>
         <ul>
             <li v-for="todo in note.info.todos">
-                {{todo.txt}}
+                {{todo}}
             </li>
         </ul>
     </section>

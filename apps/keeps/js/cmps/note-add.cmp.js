@@ -22,7 +22,7 @@ export default {
     
     
     <div class="btns">
-            <button class="note-add-btn"><i class="far fa-check-square" @click="save()"></i></button>
+            <button class="note-add-btn" @click="save()"><i class="fas fa-check"></i></button>
 
 
             <button class="note-add-btn" @click="noteType='noteTxt'"><i class="fas fa-font"></i></button>
@@ -69,9 +69,18 @@ export default {
                 keepsService.addNewNote(this.txtAns);
                 this.txtAns = keepsService.createNewTxtNote();
             }
-            else if (this.noteType === 'noteImg') keepsService.addNewNote(this.imgAns);
-            else if (this.noteType === 'noteTodos') keepsService.addNewNote(this.todoAns);
-            else if (this.noteType === 'noteVideo') keepsService.addNewNote(this.videoAns);
+            else if (this.noteType === 'noteImg') {
+                keepsService.addNewNote(this.imgAns);
+                this.imgAns = keepsService.createNewImgNote();
+            }
+            else if (this.noteType === 'noteTodos') {
+                keepsService.addNewNote(this.todoAns);
+                this.todoAns = keepsService.createNewTodosNote();
+            }
+            else if (this.noteType === 'noteVideo') {
+                keepsService.addNewNote(this.videoAns);
+                this.videoAns = keepsService.createNewVideoNote();
+            }
         },
         setAns(event) {
             if (this.noteType === 'noteTxt') {

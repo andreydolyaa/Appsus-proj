@@ -86,7 +86,7 @@ var gNotes = [
         type: "noteTxt",
         isPinned: true,
         info: {
-            txt: `My favorite song lyric!! -- 
+            txt: `fear of the dark!!! -- 
             Fear of the dark ,Fear of the dark 
             I have constant fear that something's always near 
             Fear of the dark, Fear of the dark 

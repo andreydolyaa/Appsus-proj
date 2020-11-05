@@ -8,12 +8,11 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     word-wrap: break-word;
     padding:1px;
     overflow:hidden;
     margin:auto;
-    text-align: center;
+    
 }
 
 .note-txt-display button{

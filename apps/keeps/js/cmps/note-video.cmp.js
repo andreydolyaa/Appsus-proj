@@ -6,7 +6,7 @@ export default {
     template: `
     <section class="note-video-display" :style="{'background-color':note.style.backgroundColor}">
         <h1>{{note.info.title}}</h1>
-        <iframe width="300" height="300"
+        <iframe width="200" height="200"
             v-bind:src="note.info.url">
         </iframe>
         <noteEditingBar v-bind:note="note"/>

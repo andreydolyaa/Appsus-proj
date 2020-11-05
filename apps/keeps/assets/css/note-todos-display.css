@@ -31,6 +31,9 @@
     list-style: none;
     border-bottom:1px solid rgb(233, 233, 233);
     padding:.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .note-todos-display {

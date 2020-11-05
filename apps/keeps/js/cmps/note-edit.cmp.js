@@ -12,7 +12,7 @@ export default{
     `,data(){
         return{
             isEditing:false,
-            noteId: this.note.id, 
+            // noteId: this.note.id, 
         }
     },
     methods:{
@@ -22,7 +22,7 @@ export default{
         },
         saveNote(isSaved){
             if(isSaved) this.isEditing = false;
-            keepsService.editedNote(this.noteId,this.note)
+            keepsService.editedNote(this.note.id,this.note)
             console.log('NOTE SAVED');
         }
     },

@@ -12,7 +12,8 @@
     align-items: center;
     word-wrap: break-word;
     padding:5px;
-    overflow:hidden
+    overflow:hidden;
+    margin:auto;
 }
 
 .note-txt-display button{
@@ -20,6 +21,7 @@
     background-color: transparent;
     color:rgb(61, 61, 61);
     font-size:1rem;
+    outline: none;
 }
 
 .note-txt-display button:hover{

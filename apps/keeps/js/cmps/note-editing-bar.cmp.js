@@ -9,7 +9,7 @@ export default{
     template:`
     <section class="note-editing-bar">
         
-        <notePin v-bind:note="note"/>
+        <notePin v-bind:note="note" />
         <noteDelete v-bind:note="note"/>
         <noteEdit  v-bind:note="note" />
         <noteColor v-bind:note="note"/>
@@ -18,11 +18,11 @@ export default{
     `,
     data(){
         return{
-
+            
         }
     },
     methods:{
-        
+
     },
     components:{
         noteDelete,

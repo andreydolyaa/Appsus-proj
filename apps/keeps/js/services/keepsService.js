@@ -88,7 +88,7 @@ var gNotes = [
         type: "noteTxt",
         isPinned: true,
         info: {
-            txt: "Fullstack Me Baby!"
+            txt: "Fullstack Me Babyss!"
         },
         style: {
             backgroundColor: "#BFC9CA"

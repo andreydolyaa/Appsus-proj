@@ -21,6 +21,7 @@
     align-items: center;
     margin:auto;
     text-align: center;
+    outline: none;
 }
 
 .note-todos-display button:hover{

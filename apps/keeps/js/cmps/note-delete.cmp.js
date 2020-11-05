@@ -6,7 +6,7 @@ export default{
     `
     <section>
         <button @click="deleteNote()"><i class="far fa-trash-alt"></i></button>
- 
+
     </section>
     `,data(){
         return{
@@ -17,6 +17,7 @@ export default{
     methods:{
         deleteNote(){
             keepsService.deleteNote(this.noteId);
+            console.log(this.noteId);
         },
     },
 }

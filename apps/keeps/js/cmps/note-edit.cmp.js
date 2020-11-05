@@ -6,13 +6,12 @@ export default{
     template:
     `
     <section>
-        <button @click="openModal()"><i class="fas fa-pen"></i></button>
+        <button @click="openModal()" ><i class="fas fa-pen"></i></button>
         <noteEditModal v-if="isEditing" v-bind:note="note" @saveNote="saveNote($event)" />
     </section>
     `,data(){
         return{
             isEditing:false,
-            // noteId: this.note.id, 
         }
     },
     methods:{
@@ -25,6 +24,7 @@ export default{
             keepsService.editedNote(this.note.id,this.note)
             console.log('NOTE SAVED');
         },
+
     },
     computed:{
 
@@ -35,12 +35,3 @@ export default{
     
 }
 
-
-
-// saveNote(isSaved){
-//     if(isSaved) this.isEditing = false;
-//     keepsService.editedNote(this.noteId,this.note)
-//     .then(note => {
-//         this.note = note;
-//     })
-// }

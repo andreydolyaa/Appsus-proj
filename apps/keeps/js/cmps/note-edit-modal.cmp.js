@@ -2,8 +2,8 @@
 export default {
     props: ['note'],
     template: `
-    <section class="editing-modal" v-if="isOpen">
-        <button class="close-modal" @click="isOpen = !isOpen"><i class="fas fa-times"></i></button>
+    <section class="editing-modal" >
+        <button class="close-modal" ><i class="fas fa-times"></i></button>
 
         <div class="note-txt1" v-if="noteType === 'noteTxt'">
         <h1>Set new text</h1>
@@ -49,8 +49,8 @@ export default {
     `,
     data() {
         return {
-            isOpen:true,
-            todos:this.note.info.todos,
+
+            todos: this.note.info.todos,
             isSaved: false,
             noteType: this.getCmpType()
         }
@@ -65,12 +65,8 @@ export default {
         },
         emitSave() {
             this.isSaved = true;
-            this.$emit('saveNote', this.isSaved,this.isOpen);
+            this.$emit('saveNote', this.isSaved);
         },
-        closeModal(){
-            
-            
-        }
     },
 }
 

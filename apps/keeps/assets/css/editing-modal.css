@@ -1,0 +1,11 @@
+
+
+.editing-modal{
+    border:1px solid rgb(255, 255, 255);
+    position:absolute;
+    top:50%;
+    right:50%;
+    height:200px;
+    width:600px;
+    background-color: rgb(199, 199, 199);
+}

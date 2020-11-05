@@ -7,7 +7,8 @@ export const keepsService = {
     createNewImgNote,
     createNewTodosNote,
     createNewVideoNote,
-    deleteNote
+    deleteNote,
+    editNote
 }
 
 var gNotes = [
@@ -82,8 +83,11 @@ function getNotes() {
 
 
 
-function editNote(noteId){
+function editNote(noteId,newNote){
     //find note idx check for note type and change according to type
+    var currNoteIdx = getIdxById(noteId);
+    gNotes.splice(currNoteIdx,1,newNote)
+    console.log(gNotes);
 }
 
 

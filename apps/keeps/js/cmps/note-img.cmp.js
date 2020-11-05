@@ -1,4 +1,4 @@
-import noteEdit from '../cmps/note-edit.cmp.js';
+import noteEditingBar from '../cmps/note-editing-bar.cmp.js';
 
 export default{
     props:['note'],
@@ -6,7 +6,7 @@ export default{
     <section class="note-img-display">
         <h1>{{note.info.title}}</h1>
         <img v-bind:src="imgUrl">
-        <noteEdit v-bind:note="note"/>
+        <noteEditingBar v-bind:note="note"/>
     </section>
     `,
     data(){
@@ -15,6 +15,6 @@ export default{
         }
     },
     components:{
-        noteEdit
+        noteEditingBar
     }
 }

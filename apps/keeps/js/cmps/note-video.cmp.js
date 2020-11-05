@@ -1,4 +1,4 @@
-import noteEdit from '../cmps/note-edit.cmp.js';
+import noteEditingBar from '../cmps/note-editing-bar.cmp.js';
 
 
 export default {
@@ -9,7 +9,7 @@ export default {
         <iframe width="300" height="300"
             v-bind:src="videoUrl">
         </iframe>
-        <noteEdit v-bind:note="note"/>
+        <noteEditingBar v-bind:note="note"/>
     </section>
     `,
     data(){
@@ -18,6 +18,6 @@ export default {
         }
     },
     components:{
-        noteEdit
+        noteEditingBar
     }
 }

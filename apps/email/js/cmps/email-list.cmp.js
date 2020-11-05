@@ -1,6 +1,6 @@
 import { emailService } from '../services/email-service.js';
 import emailItem from '../cmps/email-item.cmp.js';
-
+ 
 export default {
     props: ['filterBy','filterByInput'],
     name:'email-list',
@@ -77,15 +77,23 @@ export default {
     computed:{
         filterEmails(){
             console.log('this.filterBy',this.filterBy)
-            console.log('filterBy',this.filterByInput)
+            console.log('filterByInput',this.filterByInput)
             if(!this.emails) return [];
             var arr = this.emails
-             var res = arr.filter(email => {
-                if(!this.filterByInput) return email[this.filterBy] === true
+            //if(this.filterBy === 'isRead') return email.isRead = false;
+            var res = arr.filter(email => {
+                if(this.filterBy === 'isReadFalse'){
+                console.log('if isReadFalse' ,email, email.isRead)
+
+                    return email.isRead === false; 
+                } 
+                if(!this.filterByInput) return email[this.filterBy] === true;
                 return email[this.filterBy] === true 
                 && email.from.toLowerCase().includes(this.filterByInput.toLowerCase())||
                 email.subject.toLowerCase().includes(this.filterByInput.toLowerCase())||
                 email.body.toLowerCase().includes(this.filterByInput.toLowerCase())
+                
+
 
              })          
              console.log('getEmailsInbox',res)

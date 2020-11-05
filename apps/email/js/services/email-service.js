@@ -161,11 +161,6 @@ var gEmails = [
     
 ]
 
-var gEmailsSent = [
-
-
-]
-
 export const emailService = {
     loadEmailsFromStorage,
     getEmails,
@@ -188,9 +183,6 @@ var DATA_KEY_EMAILS ='emailsDB'
 var DATA_KEY_EMAILS_SENT ='emailsSentDB'
 
 loadEmailsFromStorage();  /// move to
-loadEmailsFromStorageSent();  /// move to
- 
-
 
 function updateEmailsDraft(sentMeail){
     sentMeail.id = utils.makeId();
@@ -201,7 +193,7 @@ function updateEmailsDraft(sentMeail){
     console.log('gEmails',gEmails)
     gEmails.push(sentMailCopy)
 
-    //saveEmailsToSorage(DATA_KEY_EMAILS_SENT, gEmails)
+    saveEmailsToSorage(DATA_KEY_EMAILS_SENT, gEmails)
     return Promise.resolve('email draft');
 }
 
@@ -225,7 +217,9 @@ function setEmailStar(emailID){
 
 function getUnreadEamilsCount(){
     var res = gEmails.filter(email => {
-        return email.isRead === false;
+        return email.isRead === false 
+        && email.isNew === true 
+
       })
     var unreadEmailCount = res.length
     return Promise.resolve(unreadEmailCount);
@@ -290,10 +284,6 @@ function saveEmailsToSorage(dataKey, arr){
     storage.saveToStorage( dataKey, arr)
 }
 
-function loadEmailsFromStorageSent(){
-    let emailsFromStorage = storage.loadFromStorage(DATA_KEY_EMAILS_SENT)
-    if(emailsFromStorage) gEmailsSent = emailsFromStorage 
-}
 
 function loadEmailsFromStorage(){
     let emailsFromStorage = storage.loadFromStorage(DATA_KEY_EMAILS)

@@ -5,7 +5,7 @@ export default {
     name:'email-compose',
     template:`
         <section class="email-compose">
-          <div class="header">
+          <div class="headerCompose">
             <h2>New Messege</h2> 
             <button v-on:click="onCloseEmail()" class="close">X</button>
           </div>

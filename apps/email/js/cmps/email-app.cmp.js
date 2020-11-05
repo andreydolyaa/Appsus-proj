@@ -29,7 +29,13 @@ export default {
                          <!-- {{filter}} -->
                     </div>
                     <div class="emails">
-                        <email-info></email-info>
+                        <div class="info">
+                            <div class="filterReadContainer">
+                                <button class="unreadEmailsBtn" v-on:click="onReadEnails"> Read Emails </button>
+                                <button class="readEmailsBtn" v-on:click="onUneadEnails"> Unread Emails</button>
+                            </div>    
+                            <email-info></email-info>
+                        </div>
                         <div class="router-view-container">
                             <router-view v-bind:filterBy="filter" v-bind:filterByInput="filterInputValue" ></router-view>
                         </div>
@@ -38,7 +44,7 @@ export default {
                     <compose-email v-if="isCompose" @closeEmail="checkCloseEmail($event)"></compose-email> 
                 </section>
         </section>
-        `,
+        `, 
     components:{
         emailService,
         emailNav,
@@ -81,8 +87,16 @@ export default {
             console.log('$event',this.filterInput)
             //this.filterInputValue = $event
 
-        }
+        },
+        onReadEnails(){
+            this.filter = 'isRead'
+            //this.filter = 'isUnRead'
+        },
+        onUneadEnails(){
+            this.filter = 'isReadFalse'
 
+            //this.filter = 'isRead'
+        }
     },
     computed:{
 

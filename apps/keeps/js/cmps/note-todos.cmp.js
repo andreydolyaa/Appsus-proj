@@ -6,9 +6,9 @@ export default{
     <section class="note-todos-display" :style="{'background-color':note.style.backgroundColor}">
         <h1>{{note.info.label}}</h1>
         <ul>
-            <li v-for="todo in note.info.todos" >
+            <li v-for="todo in note.info.todos" :class="{done:todo.doneAt===true}">
                 {{todo.txt}}
-                <input type="checkbox" >
+                <input type="checkbox" @click="todo.doneAt = !todo.doneAt">
             </li>
         </ul>
         <noteEditingBar v-bind:note="note"/>
@@ -18,6 +18,9 @@ export default{
         return{
             
         }
+    },
+    methods:{
+
     },
     components:{
         noteEditingBar

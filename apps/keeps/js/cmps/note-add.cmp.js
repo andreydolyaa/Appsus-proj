@@ -67,7 +67,7 @@ export default {
     },
     methods: {
         addTodo(){
-            this.todoNote.info.todos.push({txt:this.todo});
+            this.todoNote.info.todos.push({txt:this.todo,dontAt:false});
             this.todo=''
             console.log(this.todoNote.info.todos);
         },

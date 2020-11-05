@@ -41,8 +41,8 @@ var gNotes = [
         info: {
             label: "Today todos -",
             todos: [
-                { txt: "Wash the car", doneAt: null },
-                { txt: "Buy groceries", doneAt: 187111111 }
+                { txt: "Wash the car", doneAt: false },
+                { txt: "Buy groceries", doneAt: false }
             ]
         },
         style: {
@@ -66,15 +66,15 @@ var gNotes = [
         info: {
             label: "Thing to buy today:",
             todos: [
-                { txt: "Milk", doneAt: null },
-                { txt: "Bread", doneAt: 187111111 },
-                { txt: "Tomatoes", doneAt: 187111111 },
-                { txt: "Bananas", doneAt: 187111111 },
-                { txt: "Cucumbers", doneAt: 187111111 },
-                { txt: "Ice cream", doneAt: 187111111 },
-                { txt: "Meats", doneAt: 187111111 },
-                { txt: "Onions", doneAt: 187111111 },
-                { txt: "Ganja", doneAt: 187111111 }
+                { txt: "Milk", doneAt: false },
+                { txt: "Bread", doneAt: false },
+                { txt: "Tomatoes", doneAt: false },
+                { txt: "Bananas", doneAt: false },
+                { txt: "Cucumbers", doneAt: false },
+                { txt: "Ice cream", doneAt: false },
+                { txt: "Meats", doneAt: false },
+                { txt: "Onions", doneAt: false },
+                { txt: "Ganja", doneAt: false }
             ]
         },
         style: {

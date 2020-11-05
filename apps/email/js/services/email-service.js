@@ -1,12 +1,16 @@
 import {storage} from '../services/storage-service.js';
+import {utils} from '../../../../js/services/util-service.js';
 
-var gEmails= [
+var gEmails = [
     {
         id:'em01',
         from:'goolge tech',
         subject: 'Wassap?',
         body: 'Pick up!',
-        isRead: false, 
+        isRead: false,
+        isNew:true,
+        isSent: false,
+        isDraft: false, 
         sentAt : 1551133930594,
     },
     {
@@ -15,6 +19,9 @@ var gEmails= [
         subject: 'Wassap?',
         body: 'Pick up!',
         isRead: false, 
+        isNew:true,
+        isSent: false, 
+        isDraft: false,
         sentAt :1580821161 ,     
     },
     {
@@ -23,26 +30,87 @@ var gEmails= [
         subject: 'Wassap?',
         body: 'Pick up!',
         isRead: false, 
+        isNew:true,
+        isSent: false, 
+        isDraft: false,
+        sentAt : 1572872361,
+    },
+    {
+        id:'em04',
+        from:'goolge tech',
+        subject: 'Wassap? sent',
+        body: 'Pick up!',
+        isRead: false, 
+        isNew:false,
+        isSent: true, 
+        isDraft: false,
+        sentAt : 1572872361,
+    },
+    {
+        id:'em05',
+        from:'goolge tech',
+        subject: 'Wassap? draft',
+        body: 'Pick up!',
+        isRead: false, 
+        isNew:false,
+        isSent: false, 
+        isDraft: true,
         sentAt : 1572872361,
     },
     
 ]
 
-var DATA_KEY_EMAILS ='emailsDB'
+var gEmailsSent = [
 
-loadEmailsFromStorage();  /// move to
+
+]
 
 export const emailService = {
     loadEmailsFromStorage,
     getEmails,
+    getEmailsInbox,
     getSelectedEmail,
     removeEmail,
     setEmailAsRead,
     setEmailAsUnread,
-    getUnreadEamils,
+    getUnreadEamilsCount,
+    updateEmailsSent,
+    updateEmailsDraft,
+    getEmailsSent,
 }
 
-function getUnreadEamils(){
+var DATA_KEY_EMAILS ='emailsDB'
+var DATA_KEY_EMAILS_SENT ='emailsSentDB'
+
+loadEmailsFromStorage();  /// move to
+loadEmailsFromStorageSent();  /// move to
+ 
+function updateEmailsDraft(sentMeail){
+    sentMeail.id = utils.makeId();
+    sentMeail.sentAt =  utils.getDateTimestamp();
+    sentMeail.isDraft = true
+    var sentMailCopy = JSON.parse(JSON.stringify(sentMeail))
+    console.log('sentMeail',sentMeail)
+    console.log('gEmails',gEmails)
+    gEmails.push(sentMailCopy)
+
+    //saveEmailsToSorage(DATA_KEY_EMAILS_SENT, gEmails)
+    return Promise.resolve('email draft');
+}
+
+function updateEmailsSent(sentMeail){
+
+    sentMeail.id = utils.makeId();
+    sentMeail.sentAt =  utils.getDateTimestamp();
+    sentMeail.isSent = true
+    var sentMailCopy = JSON.parse(JSON.stringify(sentMeail))
+    gEmails.push(sentMailCopy)
+
+    saveEmailsToSorage(DATA_KEY_EMAILS_SENT, gEmails)
+    return Promise.resolve('email sent');
+}
+
+function getUnreadEamilsCount(){
     var res = gEmails.filter(email => {
         return email.isRead === false;
       })
@@ -67,7 +135,7 @@ function removeEmail(emailID){
     var idx = getEmailInxByID(emailID)
     gEmails.splice(idx, 1);
     console.log('gEmails',gEmails)
-    saveEmailsToSorage()
+    saveEmailsToSorage(DATA_KEY_EMAILS, gEmails)
     return Promise.resolve('Email deleted');
 }
 
@@ -83,16 +151,38 @@ function getSelectedEmail(emailID){
     return Promise.resolve(gEmails[idx]);
 }
 
+function getEmailsSent(){
+    var res = gEmails.filter(email => {
+        return email.isSent === true;
+    })
+    console.log('getEmailsSent() gEmails',gEmails)
+    console.log('getEmailsSent() res',res)
+    gEmailsSent = res;
+    return Promise.resolve(gEmailsSent);
+}
+
+function getEmailsInbox(){
+    var res = gEmails.filter(email => {
+        return email.isNew === true;
+    })
+    return Promise.resolve(res);
+}
+
 function getEmails(){
     return Promise.resolve(gEmails);
 }
 
-function saveEmailsToSorage(){
+function saveEmailsToSorage(dataKey, arr){
     console.log('saving to storage')
-    storage.saveToStorage( DATA_KEY_EMAILS, gEmails)
+    storage.saveToStorage( dataKey, arr)
 }
+
+function loadEmailsFromStorageSent(){
+    let emailsFromStorage = storage.loadFromStorage(DATA_KEY_EMAILS_SENT)
+    if(emailsFromStorage) gEmailsSent = emailsFromStorage 
+}
+
 function loadEmailsFromStorage(){
-    console.log('loading from storage')
     let emailsFromStorage = storage.loadFromStorage(DATA_KEY_EMAILS)
     if(emailsFromStorage) gEmails = emailsFromStorage 
 }

@@ -15,7 +15,27 @@
 
 .emails {
     display: flex;
+    flex-direction: column;
     width: 100%;
+}
+
+/* side bar */
+
+.sideBar{
+    display: flex;
+    flex-direction: column;
+}
+.composeBtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    font-size: 0.9em;
+    padding: 8px 27px;
+    margin: 5px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    outline: none;
 }
 /* email nav */
 .email-nav{
@@ -27,7 +47,7 @@
     flex-direction: column;
 }
 
-.email-nav nav a{
+.email-nav nav a , .email-nav nav .link{
     color: #fff;
     text-decoration: none;
     font-size: 1.2em;
@@ -74,6 +94,16 @@ ul.emailList {
     flex-direction: column;
 }
 
+/* info */
+
+section.emails-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.email-info{
+    align-self: flex-end;
+}
 .info {
     padding: 10px;
     color: #fff;
@@ -182,8 +212,17 @@ section.email-compose {
     box-shadow: -2px 6px 16px 5px rgba(142,142,142,0.74);
 }
 
+button.close {
+    background: none;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
 section.email-compose .header{
     background: #404040;
+    border-radius: 10px 10px 0 0;
 }   
 
 .email-compose h2{

@@ -1,7 +1,5 @@
-// import bookReview from '/js/book-review.cmp.js';
 import { emailService } from '../../services/email-service.js';
 import {eventBus} from '../../services/event-bus-service.js';
-// enter, number
 
 export default {
     props: [''],

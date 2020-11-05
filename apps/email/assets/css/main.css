@@ -2,10 +2,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.email-app{
+.emailApp{
     position: relative;
     padding: 20px;
     display: flex;
+    flex-direction: column;
 
     background: antiquewhite;
     background: rgb(210,210,210);
@@ -19,8 +20,59 @@
     width: 100%;
 }
 
-/* side bar */
+/* header */
+.emailApp .header{
+    display: flex;
+    justify-content: flex-start;
+    background: #ffffff00;
+    border-bottom: 1px solid #d1d1d1;
+    padding: 0 0 10px 0px;
+}
 
+.emailApp .header .logo {
+    min-width: 150px;
+}
+
+.serchInputRub{
+    display:flex;
+    border: 1px solid #90908e;
+    background: #858585;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 720px;
+    padding: 8px 10px;
+}
+
+.searchInput {
+    background: #ffffff00;
+    border: 1px solid #90908e;
+    border-radius: 0px 10px 10px 0;
+    font-size: 1.1em;
+    color: #fff;
+    padding: 4px 30px;
+    outline: #90908e;
+    margin: 0;
+}
+
+.searchBtn {
+    background: #ffffff00;
+    border: 1px solid #90908e;
+    font-size: 1.3em;
+    padding: 5px;
+    color: #fff;
+    border-radius: 10px 0 0 10px;
+}
+
+button.searchBtn:hover {
+    outline: none;
+}
+
+/* body */
+.emailApp .email-body{
+    display: flex;
+}
+
+/* side bar */
 .sideBar{
     display: flex;
     flex-direction: column;
@@ -77,12 +129,12 @@ width:100%
     list-style: none;
     font-size: 1em;
     border: 1px solid #939393;
-
 }
 
 .emailListLi{
     display:flex;
     justify-content: space-between;
+    border-bottom: 1px solid #dddddd;
 }
 .emailListLi:hover{
     background: #f2f5f5c9;
@@ -97,6 +149,7 @@ ul.emailList {
 /* info */
 
 section.emails-info {
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
 }
@@ -154,6 +207,22 @@ section.emails-info {
     border: none;
     background: #e5e7e7;
 }
+
+.starBtn{
+    background: #e3e6e6;
+    outline: none;
+    border: none;
+    padding: 0px 0px 0 10px;
+}
+
+.starBtn img{
+ 
+}
+
+.stared{
+    content:url('../img/star_googyellow500_20dp.png');
+}
+
 /* 
 .delete::before{
     font-size: 22px;
@@ -173,7 +242,7 @@ section.emails-info {
     margin: 10px 0;
 }
 
-.header {
+.body .header {
     display: flex;
     justify-content: space-between;
     background: #f0f0f0;
@@ -184,6 +253,7 @@ section.emails-info {
 .header .from{
     font-weight: 500;
 }
+
 .header .date{
     
 }

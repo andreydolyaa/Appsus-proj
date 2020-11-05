@@ -5,13 +5,14 @@ const options = {
     el: '#app',
     router: myRouter,
     template: `
-        <section>
-            <h1>My App</h1>
-            <nav>
-                <router-link to="/" exact>Home</router-link>|
-                <router-link to="/email/inbox" exact>Email</router-link>|
-                <router-link to="/keeps">Keeps</router-link>
-            </nav>
+        <section class="mainApp">
+            <!-- <h1>My App</h1> -->
+        <router-link class="mainlink" to="/" exact>
+            <img class="logo" src="assets/img/google_logo.svg"/> 
+            <div class="name">< Home</div>
+        </router-link>
+            
+ 
             <main>
                 <router-view></router-view>
                 <!-- <book-msg></book-msg> -->

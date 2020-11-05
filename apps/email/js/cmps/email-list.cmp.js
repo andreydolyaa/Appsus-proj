@@ -2,17 +2,20 @@ import { emailService } from '../services/email-service.js';
 import emailItem from '../cmps/email-item.cmp.js';
 
 export default {
-    props: ['filterBy'],
+    props: ['filterBy','filterByInput'],
     name:'email-list',
     template:`
         <section>
             <!-- <h2>filter by {{filterBy}}</h2> -->
             <!-- {{filterEmails}} -->
             <!-- <pre> {{emailsDB}} </pre>   -->
+   
             <ul class="emailList"> 
-                <!-- @click="emitSelected(currBook.id)" without native v-on:click.native="onSelectedEmail(currEmail.id)" -->
-                <li class="emailListLi" v-for="currEmail in filterEmails" :key="currEmail.id" >                      
+                <li class="emailListLi" v-if="emails" v-for="currEmail in filterEmails" :key="currEmail.id" >                      
                     <!-- <pre> {{currEmail}} </pre>   -->
+                    <button class="starBtn"  v-on:click="onSetEmailStar(currEmail.id)" > 
+                        <img class="star" src="apps/email/assets/img/star_border_black_20dp.png" v-bind:class="{ stared: currEmail.isStar }"/> 
+                    </button>
                     <email-item v-on:click.native="onEmailSelect(currEmail.id)"  v-bind:email="currEmail"></email-item> 
                     <button class="mark" v-on:click=markAsUnread(currEmail.id) v-bind:class="{ read: !currEmail.isRead }"></button>
                     <button class="deleteBtn" v-on:click=deleteEmail(currEmail.id)><i class="fas fa-trash"></i></button>
@@ -29,20 +32,14 @@ export default {
            selectedEmail:null, 
            emails:null,
            unReadEmails:null,
-           //filter:'isNew',
-
-           //filter:'isDraft',
-           //filter:'isSent',
         }
     },
     methods:{
         getMails(){
             emailService.getEmails().then(res=>{
                 this.emails = res;
-                this.unreadEmails();
-                //console.log('res',res);
+                this.unreadEmails();             
                 console.log('emails',this.emails);
-                //getEmailsInbox();
             });
         },
 
@@ -69,17 +66,27 @@ export default {
                 //eventBus.$emit('show-msg', 'review removed Successffully')
             })            
        },
+        onSetEmailStar(currEmailId){
+            emailService.setEmailStar(currEmailId).then(res =>{
 
-
+                console.log('set ', res)
+                //eventBus.$emit('show-msg', 'review removed Successffully')
+            })           
+        },
     },
     computed:{
         filterEmails(){
+            console.log('this.filterBy',this.filterBy)
+            console.log('filterBy',this.filterByInput)
             if(!this.emails) return [];
-            if (!this.filterBy) return this.emails;
             var arr = this.emails
-            //console.log('arr',arr)
              var res = arr.filter(email => {
-                 return email[this.filterBy] === true;
+                if(!this.filterByInput) return email[this.filterBy] === true
+                return email[this.filterBy] === true 
+                && email.from.toLowerCase().includes(this.filterByInput.toLowerCase())||
+                email.subject.toLowerCase().includes(this.filterByInput.toLowerCase())||
+                email.body.toLowerCase().includes(this.filterByInput.toLowerCase())
+
              })          
              console.log('getEmailsInbox',res)
              return res
@@ -87,6 +94,8 @@ export default {
     },
     created(){
        this.getMails()
+       console.log('filterBy',this.filterBy)
+
        
     }
 }

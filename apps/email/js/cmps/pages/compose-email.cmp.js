@@ -51,6 +51,7 @@ export default {
                 isNew: false,
                 isSent : false,
                 isDraft : false,
+                isStar:false,
             },
             isCompose:false,
         }

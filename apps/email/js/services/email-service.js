@@ -4,57 +4,158 @@ import {utils} from '../../../../js/services/util-service.js';
 var gEmails = [
     {
         id:'em01',
-        from:'goolge tech',
+        from:'google tech',
         subject: 'Wassap?',
         body: 'Pick up!',
         isRead: false,
         isNew:true,
         isSent: false,
         isDraft: false, 
+        isStar:false,
         sentAt : 1551133930594,
     },
     {
         id:'em02',
-        from:'goolge tech',
+        from:'goolge support',
         subject: 'Wassap?',
         body: 'Pick up!',
         isRead: false, 
         isNew:true,
         isSent: false, 
         isDraft: false,
+        isStar:false,
         sentAt :1580821161 ,     
     },
     {
         id:'em03',
-        from:'goolge tech',
+        from:'facebook',
         subject: 'Wassap?',
         body: 'Pick up!',
         isRead: false, 
         isNew:true,
         isSent: false, 
         isDraft: false,
+        isStar:false,
         sentAt : 1572872361,
     },
     {
         id:'em04',
-        from:'goolge tech',
-        subject: 'Wassap? sent',
+        from:'twiiter',
+        subject: 'Wassap?',
         body: 'Pick up!',
         isRead: false, 
         isNew:false,
-        isSent: true, 
+        isSent: false, 
         isDraft: false,
+        isStar:false,
         sentAt : 1572872361,
     },
     {
         id:'em05',
-        from:'goolge tech',
-        subject: 'Wassap? draft',
+        from:'Steave Wazzniak',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: false, 
+        isNew:true,
+        isSent: false, 
+        isDraft:false,
+        isStar:false,
+        sentAt : 1572872361,
+    },
+    {
+        id:'em06',
+        from:'Tony Stark',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: false, 
+        isNew:true,
+        isSent: false, 
+        isDraft:false,
+        isStar:false,
+        sentAt : 1572872361,
+    },
+    {
+        id:'em07',
+        from:'Thor God of Thunder',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: true, 
+        isNew:true,
+        isSent: false, 
+        isDraft:false,
+        isStar:false,
+        sentAt : 1572872361,
+    },
+    {
+        id:'em08',
+        from:'Peter Quill aka Star-Lord:',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: true, 
+        isNew:true,
+        isSent: false, 
+        isDraft:false,
+        isStar:false,
+        sentAt : 1572872361,
+    },
+    {
+        id:'em09',
+        from:'Gal Gadot aka Wonder women:',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: true, 
+        isNew:true,
+        isSent: false, 
+        isDraft:false,
+        isStar:false,
+        sentAt : 1572872361,
+    },
+    {
+        id:'em010',
+        from:'God',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: true, 
+        isNew:false,
+        isSent: false, 
+        isDraft:false,
+        isStar:false,
+        sentAt : 1572872361,
+    },
+    {
+        id:'em011',
+        from:'Instagram draft',
+        subject: 'Wassap? ',
         body: 'Pick up!',
         isRead: false, 
         isNew:false,
         isSent: false, 
         isDraft: true,
+        isStar:false,
+        sentAt : 1572872361,
+    },
+    {
+        id:'em012',
+        from:'Steave Jobs star',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: false, 
+        isNew:false,
+        isSent: false, 
+        isDraft:false,
+        isStar:true,
+        sentAt : 1572872361,
+    },
+    {
+        id:'em013',
+        from:'twiiter sent',
+        subject: 'Wassap?',
+        body: 'Pick up!',
+        isRead: false, 
+        isNew:false,
+        isSent: true, 
+        isDraft: false,
+        isStar:false,
         sentAt : 1572872361,
     },
     
@@ -70,13 +171,17 @@ export const emailService = {
     getEmails,
     getEmailsInbox,
     getSelectedEmail,
-    removeEmail,
+    getEmailsSent,
+    getUnreadEamilsCount,
+
     setEmailAsRead,
     setEmailAsUnread,
-    getUnreadEamilsCount,
+    setEmailStar,
+
     updateEmailsSent,
     updateEmailsDraft,
-    getEmailsSent,
+
+    removeEmail,
 }
 
 var DATA_KEY_EMAILS ='emailsDB'
@@ -85,6 +190,8 @@ var DATA_KEY_EMAILS_SENT ='emailsSentDB'
 loadEmailsFromStorage();  /// move to
 loadEmailsFromStorageSent();  /// move to
  
+
+
 function updateEmailsDraft(sentMeail){
     sentMeail.id = utils.makeId();
     sentMeail.sentAt =  utils.getDateTimestamp();
@@ -108,6 +215,12 @@ function updateEmailsSent(sentMeail){
 
     saveEmailsToSorage(DATA_KEY_EMAILS_SENT, gEmails)
     return Promise.resolve('email sent');
+}
+
+function setEmailStar(emailID){
+    var idx = getEmailInxByID(emailID)
+    gEmails[idx].isStar = !gEmails[idx].isStar
+    return Promise.resolve('Email set as Stared');
 }
 
 function getUnreadEamilsCount(){

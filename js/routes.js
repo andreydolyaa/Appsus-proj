@@ -4,8 +4,6 @@ import keepsApp from '../apps/keeps/js/cmps/keeps-app.cmp.js';
 /* email components */
 import emailApp from '../apps/email/js/cmps/email-app.cmp.js';
 import emailList from '../apps/email/js/cmps/email-list.cmp.js';
-import emailListSent from '../apps/email/js/cmps/email-list-sent.cmp.js';
-import emailListDrafts from '../apps/email/js/cmps/email-list-drafts.cmp.js';
 import emailDetails from '../apps/email/js/cmps/pages/email-details.cmp.js';
 
 

@@ -6,8 +6,7 @@ export default {
     name:'emails-info',
     template:`
         <section class="emails-info" v-if="unReadEmails">
-
-            <div class="info" >Unread emails: <span class="count">{{unReadEmails}}</span></div> 
+            <div class="info" >Unread Inbox emails: <span class="count">{{unReadEmails}}</span></div> 
         </section>
     `,
     components: {

@@ -1,7 +1,7 @@
 *{
     font-family: 'Roboto', sans-serif;
 }
-
+ 
 .emailApp{
     position: relative;
     padding: 20px;
@@ -10,7 +10,7 @@
 
     background: antiquewhite;
     background: rgb(210,210,210);
-    background: radial-gradient(circle, rgba(210,210,210,1) 0%, rgba(156,156,156,1) 100%);
+    background: radial-gradient(circle, rgba(210,210,210,1) 0%, rgb(119, 119, 119) 100%);
     min-height: 80vh;
 }
 
@@ -18,6 +18,13 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.emails .info{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
 }
 
 /* header */
@@ -52,6 +59,7 @@
     padding: 4px 30px;
     outline: #90908e;
     margin: 0;
+    width: 100%;
 }
 
 .searchBtn {
@@ -65,6 +73,18 @@
 
 button.searchBtn:hover {
     outline: none;
+}
+
+button.unreadEmailsBtn , button.readEmailsBtn {
+    font-size: 1.2em;
+    color: #fff;
+    background: #fff0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+button.unreadEmailsBtn:hover , button.readEmailsBtn:hover{
+    color: #ea4335;
 }
 
 /* body */
@@ -104,6 +124,11 @@ button.searchBtn:hover {
     text-decoration: none;
     font-size: 1.2em;
     margin: 4px 20px 4px 0;
+    cursor: pointer;
+}
+
+.email-nav nav a:hover , .email-nav nav .link:hover{
+    color: #ea4335;
 }
 
 .email-nav ul {
@@ -168,6 +193,7 @@ section.emails-info {
     background: #f2f5f5c9;
     padding: 2px;
     width: 100%;
+    cursor: pointer;
 }
 
 .email-item ul {
@@ -179,12 +205,19 @@ section.emails-info {
 .email-item ul li{
     font-size: 1.2rem;
     margin: 5px 10px;
+    min-width: 300px;
 }
 
 .mark {
     padding: 4px 6px;
     border: none;
     background: #e5e7e7;
+    color: #888;
+    cursor: pointer;
+}
+
+.mark:hover{
+    color: #000;
 }
 
 .mark::before {
@@ -192,6 +225,7 @@ section.emails-info {
     font-family: "Font Awesome 5 Free"; 
     font-weight: 400; 
     content: "\f2b6";
+
 }
 
 .mark.read::before{
@@ -206,6 +240,12 @@ section.emails-info {
     font-size: 18px;
     border: none;
     background: #e5e7e7;
+    color: #888;
+    cursor: pointer;
+}
+
+.deleteBtn:hover{
+    color: #000;  
 }
 
 .starBtn{
@@ -288,9 +328,12 @@ button.close {
     border: none;
     outline: none;
     font-size: 1em;
+    padding: 0 20px;
 }
 
-section.email-compose .header{
+section.email-compose .headerCompose{
+    display: flex;
+    justify-content: space-between;
     background: #404040;
     border-radius: 10px 10px 0 0;
 }   

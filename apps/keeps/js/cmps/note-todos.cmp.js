@@ -7,8 +7,8 @@ export default{
         <h1>{{note.info.label}}</h1>
         <ul>
             <li v-for="todo in note.info.todos" :class="{done:todo.doneAt===true}">
-                {{todo.txt}}
-                <input type="checkbox" @click="todo.doneAt = !todo.doneAt">
+            {{todo.txt}}
+            <input type="checkbox" @click="todo.doneAt = !todo.doneAt">
             </li>
         </ul>
         <noteEditingBar v-bind:note="note"/>

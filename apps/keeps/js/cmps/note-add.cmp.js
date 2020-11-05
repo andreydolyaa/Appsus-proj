@@ -47,7 +47,7 @@ export default {
             <div v-show="isEditing">
                 <ul>
                      <h1>{{todoNote.info.label}}</h1>
-                     <li v-for="todo in todoNote.info.todos" class="adding-list">{{todo.txt}}</li>
+                     <li v-for="todo in todoNote.info.todos" class="adding-list" >{{todo.txt}}</li>
                 </ul>
             </div>
             
@@ -67,7 +67,7 @@ export default {
     },
     methods: {
         addTodo(){
-            this.todoNote.info.todos.push({txt:this.todo,dontAt:false});
+            this.todoNote.info.todos.push({txt:this.todo,doneAt:false});
             this.todo=''
             console.log(this.todoNote.info.todos);
         },

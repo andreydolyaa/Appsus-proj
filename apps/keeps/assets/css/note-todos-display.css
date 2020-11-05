@@ -1,13 +1,39 @@
 
 
 .note-todos-display{
-    border:1px solid rgb(209, 209, 209);
     border-radius:5px;
-    height:200px;
-    width:200px;
-    padding:1rem;
+    min-height:200px;
+    min-width:200px;
+    padding:.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note-todos-display button{
+    border:none;
+    background-color: transparent;
+    color:rgb(61, 61, 61);
+    font-size:1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    text-align: center;
+    outline: none;
+}
+
+.note-todos-display button:hover{
+    color:rgb(0, 0, 0);
 }
 
 .note-todos-display ul li{
     list-style: none;
+    border-bottom:1px solid rgb(233, 233, 233);
+    padding:.3rem;
 }
+
+.note-todos-display {
+    font-size:14px;
+}
+

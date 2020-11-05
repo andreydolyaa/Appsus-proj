@@ -1,0 +1,10 @@
+
+
+.note-editing-bar{
+    display:flex;
+
+}
+
+.note-editing-bar > *{
+    padding:.5rem;
+}

@@ -3,23 +3,25 @@ export default {
     props: ['note'],
     template: `
     <section class="editing-modal">
-        <h1>edit note</h1>
 
-        <div class="note-txt" v-if="noteType === 'noteTxt'">
+
+        <div class="note-txt1" v-if="noteType === 'noteTxt'">
+        <h1>Set new text</h1>
             <input type="text" placeholder="enter text" v-model="note.info.txt">
         </div>
 
 
-        <div class="note-img" v-if="noteType === 'noteImg'">
-            <input type="text" placeholder="enter img url" v-model="note.info.url" />
-            <input type="text" placeholder="set title" v-model="note.info.title" />
+        <div class="note-img1" v-if="noteType === 'noteImg'">
+        <h1>Image Url</h1><input type="text" placeholder="enter img url" v-model="note.info.url" />
+        <h1>Title</h1><input type="text" placeholder="set title" v-model="note.info.title" />
         </div>
 
 
 
-        <div class="note-img" v-if="noteType === 'noteTodos'">
+        <div class="note-todo1" v-if="noteType === 'noteTodos'">
         <label for="title">Label:</label>
              <input id="title" type="text" placeholder="Label" v-model="note.info.label" />
+             <h1>Todos:</h1>
              <div>
                 <ul>
                     <li v-for="todo in todos">
@@ -31,15 +33,18 @@ export default {
         </div>
 
 
-        <div class="note-img" v-if="noteType === 'noteVideo'">
+        <div class="note-video1" v-if="noteType === 'noteVideo'">
+        <h1>Video title</h1>
             <input type="text" placeholder="enter title" v-model="note.info.title" />
+            <h1>Video Url</h1>
             <input type="text" placeholder="enter video url"  v-model="note.info.url"/>
         </div>
 
         
 
-
-        <button @click="emitSave()">save</button>
+        <div class="ff">
+        <button @click="emitSave()">Save</button>
+        </div>
     </section>
     `,
     data() {

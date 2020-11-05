@@ -5,18 +5,18 @@ export default{
     template:
     `
     <section>
-        <button @click="deleteNote()"><i class="far fa-trash-alt"></i></button>
- 
+        <button @click="deleteNote(note.id)"><i class="far fa-trash-alt"></i></button>
+
     </section>
     `,data(){
         return{
-            noteId: this.note.id,
             
         }
     },
     methods:{
-        deleteNote(){
-            keepsService.deleteNote(this.noteId);
+        deleteNote(noteId){
+            keepsService.deleteNote(noteId);
+            console.log(noteId);
         },
     },
 }

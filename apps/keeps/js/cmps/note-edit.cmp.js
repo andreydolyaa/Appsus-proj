@@ -18,6 +18,7 @@ export default{
     methods:{
         openModal(){
             this.isEditing = true;
+            
         },
         saveNote(isSaved){
             if(isSaved) this.isEditing = false;

@@ -11,7 +11,7 @@ export default{
     template:`
     <section class="display-notes">
 
-    <div v-for="(note, idx) in notes">
+    <div v-for="(note, idx) in notes" class="notes-dynamic-cmp">
     <component :is="note.type"
                 :info="note.info" 
                 :note="note"

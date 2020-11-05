@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 800px;
+    max-width: 850px;
     margin: auto;
     padding: 1rem;
     border-radius: 5px;
@@ -15,10 +15,12 @@
     background-color: transparent;
     margin: 1rem;
     color: gray;
-    font-size: 1.2rem;
-    cursor: pointer;
+    font-size: 1.2rem; 
     transition: 0.2s;
     outline: none;
+}
+i{
+    cursor: pointer;
 }
 
 .note-add-btn:hover {
@@ -27,11 +29,12 @@
 
 .notes-add input {
     border: 1px solid rgb(228, 228, 228);
-    height: 25px;
-    width: 180px;
+    height: 35px;
+    width: 190px;
     outline: none;
     padding: .5rem;
     border-radius: 5px;
+    margin-right:5px;
 }
 
 
@@ -47,10 +50,18 @@
     list-style: circle;
     list-style-position: inside;
     color:rgb(89, 89, 89);
-    padding:.2rem;
+    padding:.3rem;
     border-bottom:1px solid rgb(221, 221, 221);
 }
+.notes-add-main h1{
+    margin-left:1.7rem;
+    margin-bottom:.6rem;
+}
 
+.note-txt,.note-img,.note-todos,.note-video{
+    display:flex;
+    align-items: center;
+}
 /* .fa-font,.fa-image,.fa-list-ul,.fa-check,.fa-video{
     font-size:1rem;
     color:rgb(87, 87, 87);   
@@ -62,3 +73,65 @@
     outline: none;
     cursor: pointer;
 }  */
+
+.color-picker{
+    background-color: rgb(242, 242, 242);
+    position: absolute;
+    display: flex;
+    padding:5px;
+    border-radius:5px;
+    box-shadow: 1px 1px 2px rgb(181, 181, 181);
+}
+
+.note-color-btns .color-picker button{
+    margin:5px;
+}
+
+.note-color-btns .color-orange{
+    background-color: #FAD7A0;
+    font-size:0;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+.note-color-btns .color-green{
+    background-color: #D4EFDF;
+    font-size:0;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+ .note-color-btns .color-purple{
+    background-color: #e2b1ee;
+    font-size:0;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+.note-color-btns .color-blue{
+    background-color: #a7c7e0;
+    font-size:0;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+.note-color-btns .color-red{
+    background-color: #c991a9;
+    font-size:0;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}

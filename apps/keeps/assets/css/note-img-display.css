@@ -4,15 +4,30 @@
 .note-img-display{
     border:1px solid rgb(209, 209, 209);
     border-radius:5px;
-    width:300px;
-    height:300px;
+    min-width:300px;
+    min-height:300px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+}
+.note-img-display h1{
+    margin-top: 1rem;
+}
+
+
+.note-img-display button{
+    border:none;
+    background-color: transparent;
+    color:rgb(61, 61, 61);
+    font-size:1rem;
 }
 .note-img-display img{
     height:200px;
     width:200px;
     object-fit: cover;
+}
+
+.note-img-display button:hover{
+    color:rgb(0, 0, 0);
 }

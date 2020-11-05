@@ -7,7 +7,7 @@ import notePin from '../cmps/note-pin.cmp.js';
 export default{
     props:['note'],
     template:`
-    <section>
+    <section class="note-editing-bar">
         
         <notePin v-bind:note="note"/>
         <noteDelete v-bind:note="note"/>

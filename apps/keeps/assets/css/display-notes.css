@@ -2,10 +2,18 @@
 
 
 /*** HERE NEEDS TO BE GRID DISPLAY!! FLEX ONLY TEMPORARY ! */
-.display-notes{
+/* .display-notes{
     display:flex;
     flex-wrap: wrap;
 }
 .display-notes > * {
     margin:1rem;
+} */
+
+
+
+ .display-notes{
+     margin-top:3rem;
+    display:grid;
+    grid-template-columns: repeat(6,1fr);
 }

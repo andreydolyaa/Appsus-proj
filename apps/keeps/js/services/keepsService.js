@@ -19,6 +19,9 @@ var gNotes = [
         isPinned: true,
         info: {
             txt: "Fullstack Me Baby!"
+        },
+        style: {
+            backgroundColor: "#FAD7A0"
         }
     },
     {
@@ -44,11 +47,62 @@ var gNotes = [
         }
     },
     {
-        id:'gg1',
+        id:utilService.makeId(),
         type: 'noteVideo',
         info: {
             title: 'Cool Video!',
             url: 'https://www.youtube.com/embed?v=du8h0Rs6Hp0'
+        }
+    },
+    {
+        id:utilService.makeId(),
+        type: "noteTodos",
+        info: {
+            label: "How was it:",
+            todos: [
+                { txt: "Do that", doneAt: null },
+                { txt: "Do4324 ", doneAt: 187111111 },
+                { txt: "Do 345345gt", doneAt: 187111111 },
+                { txt: "Do dfsg", doneAt: 187111111 },
+                { txt: "Do fdgdfsbs", doneAt: 187111111 },
+                { txt: "Do this", doneAt: 187111111 },
+                { txt: "Do bdsfbis", doneAt: 187111111 },
+                { txt: "Do this", doneAt: 187111111 },
+                { txt: "Do tbsdbdfb", doneAt: 187111111 }
+            ]
+        }
+    },
+    {
+        id:utilService.makeId(),
+        type: "noteTxt",
+        isPinned: true,
+        info: {
+            txt: "Fullstack Me Baby!"
+        },
+        style: {
+            backgroundColor: "#ABEBC6"
+        }
+    },
+    {
+        id:utilService.makeId(),
+        type: "noteTxt",
+        isPinned: true,
+        info: {
+            txt: "Fullstack Me Baby!"
+        },
+        style: {
+            backgroundColor: "#BFC9CA"
+        }
+    },
+    {
+        id:utilService.makeId(),
+        type: "noteTxt",
+        isPinned: true,
+        info: {
+            txt: "Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!Fullstack Me Baby!"
+        },
+        style: {
+            backgroundColor: "#AED6F1"
         }
     },
     
@@ -113,6 +167,9 @@ function createNewTxtNote() {
         isPinned: false,
         info: {
             txt: ""
+        },
+        style: {
+            backgroundColor: "#A2D9CE"
         }
     }
 }
@@ -126,7 +183,7 @@ function createNewImgNote() {
             title: ""
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#A2D9CE"
         }
     }
 }
@@ -138,6 +195,9 @@ function createNewTodosNote() {
         info: {
             label: "",
             todos: []
+        },
+        style: {
+            backgroundColor: "#A2D9CE"
         }
     }
 }
@@ -149,6 +209,9 @@ function createNewVideoNote(){
         info: {
             title: '',
             url: ''
+        },
+        style: {
+            backgroundColor: "#A2D9CE"
         }
     }
 }

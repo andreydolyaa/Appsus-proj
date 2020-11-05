@@ -72,7 +72,7 @@ export default {
             console.log(this.todoNote.info.todos);
         },
         save() {
-            isEditing = false;
+            this.isEditing = false;
             if (this.noteType === 'noteTxt') {
                 keepsService.addNewNote(this.txtNote);
                 this.txtNote = keepsService.createNewTxtNote();

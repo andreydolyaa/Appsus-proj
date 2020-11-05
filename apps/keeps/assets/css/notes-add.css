@@ -16,9 +16,12 @@
     margin: 1rem;
     color: gray;
     font-size: 1.2rem;
-    cursor: pointer;
+    
     transition: 0.2s;
     outline: none;
+}
+i{
+    cursor: pointer;
 }
 
 .note-add-btn:hover {
@@ -47,8 +50,12 @@
     list-style: circle;
     list-style-position: inside;
     color:rgb(89, 89, 89);
-    padding:.2rem;
+    padding:.3rem;
     border-bottom:1px solid rgb(221, 221, 221);
+}
+.notes-add-main h1{
+    margin-left:1.7rem;
+    margin-bottom:.6rem;
 }
 
 /* .fa-font,.fa-image,.fa-list-ul,.fa-check,.fa-video{

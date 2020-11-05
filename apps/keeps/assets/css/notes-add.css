@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 800px;
+    max-width: 850px;
     margin: auto;
     padding: 1rem;
     border-radius: 5px;
@@ -29,11 +29,12 @@ i{
 
 .notes-add input {
     border: 1px solid rgb(228, 228, 228);
-    height: 25px;
-    width: 180px;
+    height: 35px;
+    width: 190px;
     outline: none;
     padding: .5rem;
     border-radius: 5px;
+    margin-right:5px;
 }
 
 
@@ -57,6 +58,10 @@ i{
     margin-bottom:.6rem;
 }
 
+.note-txt,.note-img,.note-todos,.note-video{
+    display:flex;
+    align-items: center;
+}
 /* .fa-font,.fa-image,.fa-list-ul,.fa-check,.fa-video{
     font-size:1rem;
     color:rgb(87, 87, 87);   

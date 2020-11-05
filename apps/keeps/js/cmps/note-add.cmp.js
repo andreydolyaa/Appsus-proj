@@ -19,7 +19,7 @@ export default {
         </div>
     
 
-        <div class="note-img" v-if="noteType === 'noteTodos'">
+        <div class="note-todos" v-if="noteType === 'noteTodos'">
             <input type="text" placeholder="Label" v-model="todoNote.info.label" />
             <input type="text" placeholder="Add Todos" v-model="todo" />
             <button @click="addTodo(),isEditing=true" class="note-add-btn"><i class="fas fa-plus"></i></button>
@@ -27,9 +27,9 @@ export default {
         </div>
 
 
-        <div class="note-img" v-if="noteType === 'noteVideo'">
-            <input type="text" placeholder="enter title" v-model="videoNote.info.title" />
-            <input type="text" placeholder="enter video url"  v-model="videoNote.info.url"/>
+        <div class="note-video" v-if="noteType === 'noteVideo'">
+            <input type="text" placeholder="Title" v-model="videoNote.info.title" />
+            <input type="text" placeholder="Video URL"  v-model="videoNote.info.url"/>
         </div>
 
 

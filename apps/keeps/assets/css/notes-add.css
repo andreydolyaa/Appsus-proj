@@ -1,23 +1,57 @@
-
-
-
-.notes-add{
-    border:1px solid rgb(216, 216, 216);
-    display:flex;
+.notes-add {
+    border: 1px solid rgb(228, 228, 228);
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width:700px;
+    max-width: 800px;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(225, 225, 225);
 }
 
-
-
-
-.note-add-btn{
-    border:none;
+.note-add-btn {
+    border: none;
     background-color: transparent;
+    margin: 1rem;
+    color: gray;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.2s;
+    outline: none;
 }
 
-.fa-font,.fa-image,.fa-list-ul,.fa-check,.fa-video{
+.note-add-btn:hover {
+    color: rgb(65, 65, 65);
+}
+
+.notes-add input {
+    border: 1px solid rgb(228, 228, 228);
+    height: 25px;
+    width: 180px;
+    outline: none;
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+
+.notes-add-main ul {
+    box-shadow: 1px 1px 5px rgb(225, 225, 225);
+    background-color: rgb(243, 243, 243);
+    border-radius: 5px;
+    max-width: 800px;
+    margin:auto;
+    padding:1rem;
+}
+.notes-add-main ul li{
+    list-style: circle;
+    list-style-position: inside;
+    color:rgb(89, 89, 89);
+    padding:.2rem;
+    border-bottom:1px solid rgb(221, 221, 221);
+}
+
+/* .fa-font,.fa-image,.fa-list-ul,.fa-check,.fa-video{
     font-size:1rem;
     color:rgb(87, 87, 87);   
     padding:1rem;
@@ -27,5 +61,4 @@
 .notes-add .btns button{
     outline: none;
     cursor: pointer;
-}
-
+}  */

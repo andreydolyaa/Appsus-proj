@@ -8,8 +8,7 @@ import displayNotes from './display-notes.cmp.js';
 
 export default {
     template: `
-    <section>
-        <h1>KEEPSsss</h1>
+    <section class="keeps-app">
         <noteAdd :notes="notes"/>
         <display-notes v-bind:notes="notes"/>
     </section>
@@ -27,6 +26,6 @@ export default {
     },
     components:{
         noteAdd,
-        displayNotes
+        displayNotes,
     }
 }

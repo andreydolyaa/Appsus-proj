@@ -191,7 +191,7 @@ function createNewTxtNote() {
             txt: ""
         },
         style: {
-            backgroundColor: "#FFFFFF"
+            backgroundColor: "#D4E6F1"
         }
     }
 }
@@ -205,7 +205,7 @@ function createNewImgNote() {
             title: ""
         },
         style: {
-            backgroundColor: "#FFFFFF"
+            backgroundColor: "#D4E6F1"
         }
     }
 }
@@ -219,7 +219,7 @@ function createNewTodosNote() {
             todos: []
         },
         style: {
-            backgroundColor: "#FFFFFF"
+            backgroundColor: "#ABEBC6"
         }
     }
 }
@@ -233,7 +233,7 @@ function createNewVideoNote() {
             url: ''
         },
         style: {
-            backgroundColor: "#FFFFFF"
+            backgroundColor: "#D4E6F1"
         }
     }
 }

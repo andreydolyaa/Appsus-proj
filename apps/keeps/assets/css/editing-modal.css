@@ -1,13 +1,14 @@
 .editing-modal {
     position: absolute;
-    top: 50%;
+    /* top: 50%;
     left: 50%;
     min-height:170px;
     transform: translate(-50%, -50%);
-    width: 600px;
-    background-color: rgb(216, 216, 216);
+    width: 600px; */
+    background-color: rgb(255, 255, 255);
     border-radius: 5px;
-    box-shadow: 0px 0px 3px rgb(0, 0, 0);
+    box-shadow: 0px 0px 10px rgb(158, 158, 158);
+    transform: translate(-50%, -50%);
 }
 
 
@@ -16,7 +17,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top:1rem;
 }
 
 .note-img1 input,.note-txt1 input,.note-todo1 input,.note-video1 input{
@@ -44,8 +44,17 @@
     transition: .3s;
     cursor: pointer;
     margin:.5rem;
+    
 }
 .editing-modal button:hover{
     background-color: rgb(60, 73, 87);
     color:white;
+}
+
+.close-modal{
+    background-color: transparent !important;
+    border:none;
+    color:rgb(95, 95, 95) !important;
+    width:20px !important;
+    margin-left:auto;
 }

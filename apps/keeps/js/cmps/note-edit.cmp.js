@@ -24,7 +24,7 @@ export default{
             if(isSaved) this.isEditing = false;
             keepsService.editedNote(this.note.id,this.note)
             console.log('NOTE SAVED');
-        }
+        },
     },
     computed:{
 

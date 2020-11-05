@@ -5,15 +5,19 @@ export default{
     template:`
     <section class="note-img-display">
         <h1>{{note.info.title}}</h1>
-        <img v-bind:src="imgUrl">
+        <img v-bind:src="note.info.url">
         <noteEditingBar v-bind:note="note"/>
     </section>
     `,
     data(){
         return{
-            imgUrl:this.note.info.url
+            
         }
     },
+    methods:{
+
+    },
+
     components:{
         noteEditingBar
     }

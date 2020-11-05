@@ -8,7 +8,8 @@ export const keepsService = {
     createNewTodosNote,
     createNewVideoNote,
     deleteNote,
-    editNote
+    editedNote,
+    placeNoteOnTop
 }
 
 var gNotes = [
@@ -43,7 +44,7 @@ var gNotes = [
         }
     },
     {
-        id:utilService.makeId(),
+        id:'gg1',
         type: 'noteVideo',
         info: {
             title: 'Cool Video!',
@@ -76,6 +77,16 @@ function addNewNote(note) {
 
 
 
+function placeNoteOnTop(noteId){
+    var noteIdx = getIdxById(noteId);
+    var note = gNotes[noteIdx];
+    gNotes.splice(noteIdx,1);
+    gNotes.unshift(note);
+}
+
+
+
+
 
 function getNotes() {
     return Promise.resolve(gNotes);
@@ -83,12 +94,14 @@ function getNotes() {
 
 
 
-function editNote(noteId,newNote){
-    //find note idx check for note type and change according to type
+function editedNote(noteId,newNote){
     var currNoteIdx = getIdxById(noteId);
     gNotes.splice(currNoteIdx,1,newNote)
     console.log(gNotes);
 }
+
+
+
 
 
 

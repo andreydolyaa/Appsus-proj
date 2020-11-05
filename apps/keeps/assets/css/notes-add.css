@@ -17,7 +17,7 @@
     background-color: transparent;
 }
 
-.fa-thumbtack,.fa-font,.fa-image,.fa-list-ul,.fa-check,.fa-video{
+.fa-font,.fa-image,.fa-list-ul,.fa-check,.fa-video{
     font-size:1rem;
     color:rgb(87, 87, 87);   
     padding:1rem;
@@ -28,3 +28,4 @@
     outline: none;
     cursor: pointer;
 }
+

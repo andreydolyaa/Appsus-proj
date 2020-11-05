@@ -12,7 +12,7 @@ export default{
     `,data(){
         return{
             isEditing:false,
-            noteId: this.note.id,  
+            noteId: this.note.id, 
         }
     },
     methods:{
@@ -21,8 +21,8 @@ export default{
         },
         saveNote(isSaved){
             if(isSaved) this.isEditing = false;
-            keepsService.editNote(this.noteId,this.note)
-            console.log(this.noteId,this.note);
+            keepsService.editedNote(this.noteId,this.note)
+            console.log('NOTE SAVED');
         }
     },
     computed:{
@@ -30,5 +30,16 @@ export default{
     },
     components:{
         noteEditModal
-    }
+    },
+    
 }
+
+
+
+// saveNote(isSaved){
+//     if(isSaved) this.isEditing = false;
+//     keepsService.editedNote(this.noteId,this.note)
+//     .then(note => {
+//         this.note = note;
+//     })
+// }

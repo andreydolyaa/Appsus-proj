@@ -73,3 +73,65 @@ i{
     outline: none;
     cursor: pointer;
 }  */
+
+.color-picker{
+    background-color: rgb(242, 242, 242);
+    position: absolute;
+    display: flex;
+    padding:5px;
+    border-radius:5px;
+    box-shadow: 1px 1px 2px rgb(181, 181, 181);
+}
+
+.note-color-btns .color-picker button{
+    margin:5px;
+}
+
+.note-color-btns .color-orange{
+    background-color: #FAD7A0;
+    font-size:0;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+.note-color-btns .color-green{
+    background-color: #D4EFDF;
+    font-size:0;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+ .note-color-btns .color-purple{
+    background-color: #e2b1ee;
+    font-size:0;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+.note-color-btns .color-blue{
+    background-color: #a7c7e0;
+    font-size:0;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+
+.note-color-btns .color-red{
+    background-color: #c991a9;
+    font-size:0;
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}

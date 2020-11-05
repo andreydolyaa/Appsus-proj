@@ -1,7 +1,6 @@
 
 
 .note-txt-display{
-    border:1px solid rgb(209, 209, 209);
     border-radius:5px;
     min-height:150px;
     min-width:250px;
@@ -11,9 +10,10 @@
     justify-content: space-between;
     align-items: center;
     word-wrap: break-word;
-    padding:5px;
+    padding:1px;
     overflow:hidden;
     margin:auto;
+    text-align: center;
 }
 
 .note-txt-display button{
@@ -29,5 +29,6 @@
 }
 
 .note-txt-display h1{
-    margin-top:1rem;
+    margin-top:.1rem;
+    padding:1rem;
 }

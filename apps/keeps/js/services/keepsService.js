@@ -87,18 +87,7 @@ var gNotes = [
         type: "noteTxt",
         isPinned: true,
         info: {
-            txt: `fear of the dark!!! -- 
-            Fear of the dark ,Fear of the dark 
-            I have constant fear that something's always near 
-            Fear of the dark, Fear of the dark 
-            I have a phobia that someone's always there 
-
-            Have you run your fingers down the wall 
-            And have you felt your neck skin crawl 
-            When you're searching for the light? 
-            Sometimes when you're scared to take a look 
-            At the corner of the room 
-            You've sensed that something's watching you.
+            txt: `Plutonium is a radioactive chemical element with the symbol Pu and atomic number 94. It is an actinide metal of silvery-gray appearance that tarnishes when exposed to air, and forms a dull coating when oxidized. The element normally exhibits six allotropes and four oxidation states. It reacts with carbon, halogens, nitrogen, silicon, and hydrogen.
             `
         },
         style: {

@@ -1,3 +1,5 @@
+
+import {eventBus,EDIT_ON} from '../services/event-bus-service.js';
 import {keepsService} from '../services/keepsService.js';
 import noteEditModal from '../cmps/note-edit-modal.cmp.js';
 
@@ -7,7 +9,10 @@ export default{
     `
     <section>
         <button @click="openModal()" ><i class="fas fa-pen"></i></button>
-        <noteEditModal v-if="isEditing" v-bind:note="note" @saveNote="saveNote($event)" />
+        
+        <transition name="slide-fade" mode="out-in">
+            <noteEditModal v-if="isEditing" v-bind:note="note" @saveNote="saveNote($event)"/>
+        </transition>
     </section>
     `,data(){
         return{
@@ -17,7 +22,7 @@ export default{
     methods:{
         openModal(){
             this.isEditing = true;
-            
+            eventBus.$emit(EDIT_ON, this.isEditing);
         },
         saveNote(isSaved){
             if(isSaved) this.isEditing = false;
@@ -27,7 +32,6 @@ export default{
 
     },
     computed:{
-
     },
     components:{
         noteEditModal

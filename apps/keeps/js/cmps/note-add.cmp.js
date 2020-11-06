@@ -34,6 +34,9 @@ export default {
         </div>
 
 
+
+
+
         <div class="btns">
             <button class="note-add-btn" @click="save()"><i class="fas fa-check"></i></button>
             <button class="note-add-btn" @click="noteType='noteTxt'"><i class="fas fa-font"></i></button>

@@ -1,60 +1,97 @@
 .editing-modal {
-    /* position: absolute; */
-    /* top: 50%;
+    position: absolute;
+    overflow: auto !important;
+    top: 50%;
     left: 50%;
-    min-height:170px;
+    min-height: 170px;
     transform: translate(-50%, -50%);
-    width: 600px; */
+    /* width: 600px;  */
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgb(158, 158, 158);
-    /* transform: translate(-50%, -50%); */
+    box-shadow: 0px 0px 5px rgb(128, 128, 128);
+    /* transform: translate(50%,-50%); */
+    transition: 0.5s;
+    min-width: 400px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
 }
 
+h1 {
+    font-size: .9rem;
+}
 
-.note-img1,.note-txt1,.note-todo1,.note-video1{
-    display:flex;
+.note-img1, .note-txt1, .note-todo1, .note-video1 {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.note-img1 input,.note-txt1 input,.note-todo1 input,.note-video1 input{
-    margin:.5rem;
-    width:250px;
-    height:30px;
-    border:1px solid rgb(202, 202, 202);
-    border-radius:5px;
-    padding:10px;
+.note-img1 input, .note-txt1 input, .note-todo1 input, .note-video1 input {
+    margin: .5rem;
+    width: 250px;
+    height: 30px;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 5px;
+    padding: 10px;
     outline: none;
 }
 
-.editing-modal .ff{
+.editing-modal .ff {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.editing-modal button{
+
+.editing-modal button {
     background-color: rgb(91, 110, 131);
-    padding:.3rem;
-    width:100px;
+    padding: .3rem;
+    width: 100px;
     border-radius: 5px;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     outline: none;
     transition: .3s;
     cursor: pointer;
-    margin:.5rem;
-    
-}
-.editing-modal button:hover{
-    background-color: rgb(60, 73, 87);
-    color:white;
+    margin:1rem .5rem;
 }
 
-.close-modal{
+.editing-modal button:hover {
+    background-color: rgb(60, 73, 87);
+    color: white;
+}
+
+.close-modal {
     background-color: transparent !important;
-    border:none;
-    color:rgb(95, 95, 95) !important;
-    width:20px !important;
-    margin-left:auto;
+    border: none;
+    color: rgb(95, 95, 95) !important;
+    width: 20px !important;
+    margin-left: auto;
+}
+
+.slide-fade-enter-active {
+    transition: all .3s ease;
+}
+
+.slide-fade-leave-active {
+    transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter, .slide-fade-leave-to {
+    transform: translate(50%, -50%);
+    opacity: 0;
+}
+
+@media(max-width:678px) {
+    .editing-modal {
+        position: fixed;
+    }
+}
+
+@media(max-width:434px) {
+    .editing-modal {
+        position: fixed;
+        min-width: 300px;
+        min-height: 200px;
+    }
 }

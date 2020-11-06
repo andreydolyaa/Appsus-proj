@@ -10,6 +10,7 @@
     justify-content: space-between;
     align-items: center;
     transition: .3s;
+    box-shadow: 1px 1px 1px rgb(221, 221, 221);
 }
 .note-img-display h1{
     margin-top: 1rem;
@@ -24,10 +25,13 @@
     outline: none;
 }
 .note-img-display img{
+    width:300px;
     height:200px;
-    width:200px;
     object-fit: cover;
+    padding:10px;
+    border-radius:15px;
 }
+
 
 .note-img-display button:hover{
     color:rgb(0, 0, 0);
@@ -37,3 +41,4 @@
 .note-img-display:hover{
     box-shadow: 1px 1px 5px rgb(175, 175, 175);
 }
+

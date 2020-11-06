@@ -9,6 +9,11 @@
     flex-direction: column;
     justify-content: space-between;
     transition: .3s;
+    box-shadow: 1px 1px 1px rgb(221, 221, 221);
+}
+
+.note-todos-display h1{
+    padding:5px;
 }
 
 .note-todos-display button{
@@ -19,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:auto;
+    margin-top:1rem;
     text-align: center;
     outline: none;
 }

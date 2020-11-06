@@ -9,7 +9,8 @@ export const keepsService = {
     createNewVideoNote,
     deleteNote,
     editedNote,
-    placeNoteOnTop
+    placeNoteOnTop,
+    changeVideoUrl
 }
 
 var gNotes = [
@@ -54,7 +55,7 @@ var gNotes = [
         type: 'noteVideo',
         info: {
             title: 'Cool Video!',
-            url: 'https://www.youtube.com/embed?v=du8h0Rs6Hp0'
+            url: "https://www.youtube.com/embed/JpJUKbhCr-A",
         },
         style: {
             backgroundColor: "#D4E6F1"
@@ -129,6 +130,12 @@ var gNotes = [
 
 ];
 
+
+
+function changeVideoUrl(url){
+    console.log(url);
+    return url.replace('watch?v=','embed/');
+}
 
 
 function getIdxById(noteId) {

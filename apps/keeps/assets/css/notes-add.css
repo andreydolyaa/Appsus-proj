@@ -39,12 +39,13 @@ i{
 
 
 .notes-add-main ul {
-    box-shadow: 1px 1px 5px rgb(225, 225, 225);
+    box-shadow: 1px 1px 1px rgb(225, 225, 225);
     background-color: rgb(243, 243, 243);
-    border-radius: 5px;
-    max-width: 800px;
+    /* border-radius: 5px; */
+    max-width: 850px;
     margin:auto;
     padding:1rem;
+    font-size:12px;
 }
 .notes-add-main ul li{
     list-style: circle;
@@ -54,7 +55,7 @@ i{
     border-bottom:1px solid rgb(221, 221, 221);
 }
 .notes-add-main h1{
-    margin-left:1.7rem;
+    margin-left:1.3rem;
     margin-bottom:.6rem;
 }
 
@@ -62,17 +63,7 @@ i{
     display:flex;
     align-items: center;
 }
-/* .fa-font,.fa-image,.fa-list-ul,.fa-check,.fa-video{
-    font-size:1rem;
-    color:rgb(87, 87, 87);   
-    padding:1rem;
-}
 
-
-.notes-add .btns button{
-    outline: none;
-    cursor: pointer;
-}  */
 
 .color-picker{
     background-color: rgb(242, 242, 242);
@@ -135,3 +126,55 @@ i{
     cursor: pointer;
     outline: none;
 }
+
+
+
+@media(max-width:885px){
+    .notes-add{
+        flex-direction: column;
+        max-width: 650px;
+    }
+    .note-txt,.note-img,.note-todos,.note-video{
+        flex-direction: column;
+    }
+    .notes-add input {
+        border: 1px solid rgb(228, 228, 228);
+        height: 35px;
+        width: 250px;
+        outline: none;
+        padding: .5rem;
+        border-radius: 5px;
+        margin-top:1rem;
+    }
+}
+
+@media(max-width:680px){
+    .notes-add{
+        
+        max-width: 500px;
+    }
+}
+@media(max-width:530px){
+    .notes-add{
+        
+        max-width: 400px;
+    }
+}
+@media(max-width:360px){
+    .notes-add{
+        
+        max-width: 320px;
+    }
+}
+
+/* .notes-add {
+    border: 1px solid rgb(228, 228, 228);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 850px;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(225, 225, 225);
+} */

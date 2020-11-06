@@ -3,29 +3,29 @@ export default {
     props: ['note'],
     template: `
     <section class="editing-modal" >
-        <button class="close-modal" ><i class="fas fa-times"></i></button>
+        <button class="close-modal" @click="emitSave()"><i class="fas fa-times"></i></button>
 
-        <div class="note-txt1" v-if="noteType === 'noteTxt'">
+        <div class="note-txt1" v-if="noteType === 'noteTxt'" >
         <h1>Set new text</h1>
-            <input type="text" placeholder="enter text" v-model="note.info.txt">
+            <input type="text" placeholder="enter text" v-model="note.info.txt" @keyup.enter="emitSave()">
         </div>
 
 
         <div class="note-img1" v-if="noteType === 'noteImg'">
-        <h1>Image Url</h1><input type="text" placeholder="enter img url" v-model="note.info.url" />
-        <h1>Title</h1><input type="text" placeholder="set title" v-model="note.info.title" />
+        <h1>Image Url</h1><input type="text" placeholder="enter img url" v-model="note.info.url" @keyup.enter="emitSave()"/>
+        <h1>Title</h1><input type="text" placeholder="set title" v-model="note.info.title" @keyup.enter="emitSave()"/>
         </div>
 
 
 
         <div class="note-todo1" v-if="noteType === 'noteTodos'">
         <label for="title">Label:</label>
-             <input id="title" type="text" placeholder="Label" v-model="note.info.label" />
+             <input id="title" type="text" placeholder="Label" v-model="note.info.label" @keyup.enter="emitSave()"/>
              <h1>Todos:</h1>
              <div>
                 <ul>
                     <li v-for="todo in todos">
-                    <input type="text" placeholder="todo.txt"  v-model="todo.txt"/>
+                    <input type="text" placeholder="todo.txt"  v-model="todo.txt" @keyup.enter="emitSave()"/>
                     </li>
                     
                 </ul>
@@ -35,9 +35,9 @@ export default {
 
         <div class="note-video1" v-if="noteType === 'noteVideo'">
         <h1>Video title</h1>
-            <input type="text" placeholder="enter title" v-model="note.info.title" />
+            <input type="text" placeholder="enter title" v-model="note.info.title" @keyup.enter="emitSave()"/>
             <h1>Video Url</h1>
-            <input type="text" placeholder="enter video url"  v-model="note.info.url"/>
+            <input type="text" placeholder="enter video url"  v-model="note.info.url" @keyup.enter="emitSave()"/>
         </div>
 
         

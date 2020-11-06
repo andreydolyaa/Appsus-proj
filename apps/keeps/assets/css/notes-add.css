@@ -62,17 +62,7 @@ i{
     display:flex;
     align-items: center;
 }
-/* .fa-font,.fa-image,.fa-list-ul,.fa-check,.fa-video{
-    font-size:1rem;
-    color:rgb(87, 87, 87);   
-    padding:1rem;
-}
 
-
-.notes-add .btns button{
-    outline: none;
-    cursor: pointer;
-}  */
 
 .color-picker{
     background-color: rgb(242, 242, 242);
@@ -135,3 +125,49 @@ i{
     cursor: pointer;
     outline: none;
 }
+
+
+
+@media(max-width:885px){
+    .notes-add{
+        flex-direction: column;
+        max-width: 650px;
+    }
+    .note-txt,.note-img,.note-todos,.note-video{
+        flex-direction: column;
+    }
+    .notes-add input {
+        border: 1px solid rgb(228, 228, 228);
+        height: 35px;
+        width: 250px;
+        outline: none;
+        padding: .5rem;
+        border-radius: 5px;
+        margin-top:1rem;
+    }
+}
+
+@media(max-width:680px){
+    .notes-add{
+        
+        max-width: 500px;
+    }
+}
+@media(max-width:530px){
+    .notes-add{
+        
+        max-width: 400px;
+    }
+}
+
+/* .notes-add {
+    border: 1px solid rgb(228, 228, 228);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 850px;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(225, 225, 225);
+} */

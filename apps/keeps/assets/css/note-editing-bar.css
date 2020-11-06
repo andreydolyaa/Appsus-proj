@@ -2,7 +2,7 @@
 
 .note-editing-bar{
     display:flex;
-
+    align-items: flex-end;
 }
 
 .note-editing-bar > *{

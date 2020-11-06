@@ -3,7 +3,7 @@ export default {
     props: ['note'],
     template: `
     <section class="editing-modal" >
-        <button class="close-modal" ><i class="fas fa-times"></i></button>
+        <button class="close-modal" @click="emitSave()"><i class="fas fa-times"></i></button>
 
         <div class="note-txt1" v-if="noteType === 'noteTxt'" >
         <h1>Set new text</h1>

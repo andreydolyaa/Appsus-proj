@@ -1,5 +1,5 @@
 .editing-modal {
-    position: absolute;
+    /* position: absolute; */
     /* top: 50%;
     left: 50%;
     min-height:170px;
@@ -8,7 +8,7 @@
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgb(158, 158, 158);
-    transform: translate(-50%, -50%);
+    /* transform: translate(-50%, -50%); */
 }
 
 

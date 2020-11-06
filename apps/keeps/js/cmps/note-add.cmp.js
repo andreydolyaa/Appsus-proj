@@ -7,8 +7,8 @@ export default {
     template: `
     <section class="notes-add-main">
     
+
     <div class="notes-add">
-    
         <div class="note-txt" v-if="noteType === 'noteTxt'">
             <input type="text" placeholder="Enter Text" v-model="txtNote.info.txt" @keyup.enter="save()">
         </div>
@@ -41,7 +41,7 @@ export default {
             <button class="note-add-btn" @click="noteType='noteTodos'"><i class="fas fa-list-ul"></i></button>
             <button class="note-add-btn" @click="noteType='noteVideo'"><i class="fas fa-video"></i></button>
         </div>
-        </div>
+    </div>
 
 
         
@@ -98,12 +98,3 @@ export default {
 
 
 
-// <div class="note-video" v-if="noteType === 'noteVideo'">
-//             <input type="text" placeholder="Title" v-model="videoNote.info.title" />
-//             <input type="text" placeholder="Video URL"  v-model="videoNote.info.url"/>
-//         </div>
-
-// computed:{
-//     embedVideo(url){
-//         return keepsService.changeVideoUrl(url);
-//     }

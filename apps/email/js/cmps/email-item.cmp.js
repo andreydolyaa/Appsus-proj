@@ -4,6 +4,7 @@ export default {
     template:`
         <section class="email-item">
             <!-- <h1>email item</h1> -->
+            
             <ul v-bind:class="{ emailReadFalse: !email.isRead }">
                 <li>{{email.from}}</li>
                 <li>{{email.subject}}</li>
@@ -22,8 +23,7 @@ export default {
     },
     computed:{
         getDateFromTimeStamp(){
-            var timestamp = this.email.sentAt
-            var date = new Date(timestamp * 1000);
+            var date = new Date(this.email.sentAt)
             return date
         },
     },

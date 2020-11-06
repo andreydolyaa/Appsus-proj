@@ -8,10 +8,13 @@ export default {
         <section class="email-details" v-if="selectedEmail">
             <!-- {{selectedEmail}} -->
             <!-- { "id": "em01", "from": "goolge tech", "subject": "Wassap?", "body": "Pick up!", "isRead": false, "sentAt": 1551133930594 } -->
-            <h2> email details</h2>
+            <!-- <h2> email details</h2> -->
+            <button v-on:click="onReply()">Reply</button>
+ 
             <h2>{{selectedEmail.subject}}</h2>
             <div class="body">
                 <div class="header">
+                    <p class="from">{{selectedEmail.fromName}}</p>
                     <p class="from">{{selectedEmail.from}}</p>
                     <p class="date">{{getDateFromTimeStamp}}</p>
                 </div>
@@ -51,6 +54,9 @@ export default {
             });     
            
         },
+        onReply(){
+            console.log('email.from' ,this.selectedEmail)
+        },
     },
     computed:{
         getDateFromTimeStamp(){
@@ -61,6 +67,8 @@ export default {
     },
     created(){
         this.getEmail();
+        this.$emit('closeEmail', this.isCompose= true)
+        //this.$emit('emitSent', res)
     },  
     watch: {
        '$route.params.bookId'(prevId,nextId){

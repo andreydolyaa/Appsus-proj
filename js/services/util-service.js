@@ -5,6 +5,8 @@ export const utils = {
     makeId,
     getDateAndTime,
     getDateTimestamp,
+    sortByString,
+    sortByNumber,
 }
 
 function getFileName(fileNameFull) {
@@ -39,11 +41,13 @@ function makeId(length = 4) {
 
 
 function sortByString(array,sortby) { // sortBy
-    //console.log(array);
+    console.log('sortByString',array,sortby);
     array.sort(function (a, b) {
+
         //console.log(a, b);
         var nameA = a[sortby].toUpperCase(); // ignore upper and lowercase
         var nameB = b[sortby].toUpperCase(); // ignore upper and lowercase
+        console.log(nameA, nameB);
         if (nameA < nameB) {
             return -1;
         }
@@ -59,11 +63,13 @@ function sortByString(array,sortby) { // sortBy
 }
 
 function sortByNumber(array, sortby) {
+    console.log('sortByNumber',array,sortby);
     array.sort(function (a, b) {
-        var dateA = a[sortby];
-        var dateB = b[sortby];
-        return dateA - dateB;
+        var numberA = a[sortby];
+        var numberB = b[sortby];
+        return  numberB - numberA;
     });
+    return array
 }
 
 

@@ -1,8 +1,9 @@
 import { emailService } from '../services/email-service.js';
 import emailItem from '../cmps/email-item.cmp.js';
- 
+import { utils } from '../../../../js/services/util-service.js'
+
 export default {
-    props: ['filterBy','filterByInput'],
+    props: ['filterBy','filterByInput','sortByValue'],
     name:'email-list',
     template:`
         <section>
@@ -76,15 +77,15 @@ export default {
     },
     computed:{
         filterEmails(){
-            console.log('this.filterBy',this.filterBy)
-            console.log('filterByInput',this.filterByInput)
+            //console.log('this.filterBy',this.filterBy)
+            //console.log('filterByInput',this.filterByInput)
+            //console.log('this.filterBy',this.filterBy)
+
             if(!this.emails) return [];
             var arr = this.emails
-            //if(this.filterBy === 'isRead') return email.isRead = false;
+
             var res = arr.filter(email => {
                 if(this.filterBy === 'isReadFalse'){
-                console.log('if isReadFalse' ,email, email.isRead)
-
                     return email.isRead === false; 
                 } 
                 if(!this.filterByInput) return email[this.filterBy] === true;
@@ -92,12 +93,19 @@ export default {
                 && email.from.toLowerCase().includes(this.filterByInput.toLowerCase())||
                 email.subject.toLowerCase().includes(this.filterByInput.toLowerCase())||
                 email.body.toLowerCase().includes(this.filterByInput.toLowerCase())
-                
+             })   
+             //console.log('after filter',res)
+             if(this.sortByValue && this.sortByValue === 'sentAt'){
+                res = utils.sortByNumber(res ,this.sortByValue)
+                //console.log('this.sortByValue',this.sortByValue)
+            }  else if(this.sortByValue && this.sortByValue === 'subject'){
+                res = utils.sortByString(res ,this.sortByValue)
+            }   
+    
+            return res
+         },
+         sortBy(){
 
-
-             })          
-             console.log('getEmailsInbox',res)
-             return res
          },
     },
     created(){

@@ -1,5 +1,6 @@
 import { emailService } from '../services/email-service.js';
-// import { emailRoutes } from '../email-routes.js' 
+import { utils } from '../../../../js/services/util-service.js'
+ 
 import emailNav from'../cmps/pages/email-nav-cmp.js';
 import emailInfo from '../cmps/pages/email-info.cmp.js'
 import emailList from '../cmps/email-list.cmp.js';
@@ -18,8 +19,7 @@ export default {
                     <div class="logo"><img src="apps/email/assets/img/logo_gmail_lockup_dark_1x_r2.png"></div>
                     <div class="serchInputRub">
                         <button class="searchBtn" v-on:click="filterBy(filter)"><i class="fas fa-search"></i></button>
-                        <input class="searchInput"  v-on:keyup.13="filter" v-model="filterInputValue" placeholder="search..."/>
-                      
+                        <input class="searchInput"  v-on:keyup.13="filter" v-model="filterInputValue" placeholder="search..."/>                  
                     </div>
                 </section>
                 <section class="email-body">
@@ -31,13 +31,24 @@ export default {
                     <div class="emails">
                         <div class="info">
                             <div class="filterReadContainer">
-                                <button class="unreadEmailsBtn" v-on:click="onReadEnails"> Read Emails </button>
-                                <button class="readEmailsBtn" v-on:click="onUneadEnails"> Unread Emails</button>
+                                <select id="sortEMail" class="sortEMail" v-on:change="onSortEmail">
+                                    <option value="">Sort Email...</option>
+                                    <option value="sentAt">Date</option>
+                                    <option value="subject">Title</option>
+                                </select>
+                                <button class="unreadEmailsBtn" v-on:click="onReadEnails">
+                                    <i class="fas fa-envelope"></i>
+                                    Read Emails
+                                </button>
+                                <button class="readEmailsBtn" v-on:click="onUneadEnails">
+                                    <i class="fas fa-envelope-open"></i>
+                                    Unread Emails                               
+                                </button>
                             </div>    
                             <email-info></email-info>
                         </div>
                         <div class="router-view-container">
-                            <router-view v-bind:filterBy="filter" v-bind:filterByInput="filterInputValue" ></router-view>
+                            <router-view v-bind:filterBy="filter" v-bind:filterByInput="filterInputValue" v-bind:sortByValue="sortByValue" ></router-view>
                         </div>
                     </div>
                     <!-- v-bind:selected="selectedEmail" -->
@@ -60,15 +71,14 @@ export default {
             isCompose: false,
             filter:'isNew',
             filterInputValue:null,
+            sortByValue:null,
         }
     },
     methods:{
         getEmails(){
             emailService.getEmailsInbox().then(res=>{
                 this.emails = res;
-                
-                //console.log('res',res);
-                //console.log('emails',this.emails);
+                //console.log('emails',res,this.emails);
             })
         },
         openCompose(){
@@ -85,18 +95,39 @@ export default {
         },
         filterByInput(){
             console.log('$event',this.filterInput)
-            //this.filterInputValue = $event
-
         },
         onReadEnails(){
             this.filter = 'isRead'
-            //this.filter = 'isUnRead'
+
         },
         onUneadEnails(){
             this.filter = 'isReadFalse'
+        },
+        onSortEmail($event){
+            console.log('on change ',$event)
+            console.log('on change ',$event.target.value)
+            this.sortByValue = $event.target.value
+            console.log(' this.sortByValue', this.sortByValue)
+ 
 
-            //this.filter = 'isRead'
-        }
+           
+           // if($event.target.value === 'sentAt'){
+           //     console.log('nubmer')
+           //     //arr = utils.sortByNumber(this.emails ,this.sortBy)
+           // }else{
+//
+           // }
+            
+            // console.log('sort by', typeof this.sortBy)
+            
+            // if(typeof this.sortBy === 'number'){
+
+            // }else{
+            //     console.log('string')
+            //     //arr = utils.sortByString(this.emails ,this.sortBy)
+            // }
+           
+        },
     },
     computed:{
 

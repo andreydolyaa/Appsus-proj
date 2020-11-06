@@ -20,12 +20,7 @@
     width: 100%;
 }
 
-.emails .info{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-}
+
 
 /* header */
 .emailApp .header{
@@ -62,6 +57,10 @@
     width: 100%;
 }
 
+.searchInput::placeholder {
+    color: #fff
+}
+
 .searchBtn {
     background: #ffffff00;
     border: 1px solid #90908e;
@@ -75,14 +74,25 @@ button.searchBtn:hover {
     outline: none;
 }
 
-button.unreadEmailsBtn , button.readEmailsBtn {
+button.unreadEmailsBtn , button.readEmailsBtn ,.sortEMail{
     font-size: 1.2em;
     color: #fff;
     background: #fff0;
     outline: none;
     border: none;
     cursor: pointer;
+    border: 1px solid #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 0 0px 0 10px;
 }
+
+.sortEMail option{
+    color: #fff; 
+    background: #90908e;
+
+}
+
 button.unreadEmailsBtn:hover , button.readEmailsBtn:hover{
     color: #ea4335;
 }
@@ -173,8 +183,16 @@ ul.emailList {
 
 /* info */
 
+.emails .info{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
 section.emails-info {
-    padding-top: 30px;
+    padding-top: 0;
     display: flex;
     flex-direction: column;
 }
@@ -183,7 +201,7 @@ section.emails-info {
     align-self: flex-end;
 }
 .info {
-    padding: 10px;
+    padding: 0;
     color: #fff;
     align-self: flex-end;
     text-shadow: 1px 1px #000;

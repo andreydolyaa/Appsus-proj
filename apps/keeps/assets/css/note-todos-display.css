@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: space-between;
     transition: .3s;
+    box-shadow: 1px 1px 1px rgb(221, 221, 221);
 }
 
 .note-todos-display button{

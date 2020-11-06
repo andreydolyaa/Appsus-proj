@@ -3,12 +3,12 @@
 .note-video-display{
     border-radius:5px;
     transition: .3s;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding:.5rem;
+    box-shadow: 1px 1px 1px rgb(221, 221, 221);
 }
 
 .note-video-display h1{

@@ -2,9 +2,8 @@
 
 .note-txt-display{
     border-radius:5px;
-    min-height:150px;
-    min-width:250px;
     max-width:300px;
+    min-height:200px;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,6 +12,8 @@
     overflow:hidden;
     margin:auto;
     transition: .3s;
+    box-shadow: 1px 1px 1px rgb(221, 221, 221);
+    
 }
 
 .note-txt-display button{
@@ -34,5 +35,21 @@
 
 
 .note-txt-display:hover{
-    box-shadow: 1px 1px 5px rgb(175, 175, 175);
+    box-shadow: 1px 1px 5px  rgb(175, 175, 175);
+}
+
+@media(max-width:675px){
+    .note-txt-display{
+        min-width:300px;
+        max-width: 400px;
+        min-height:100px;
+    }
+}
+
+@media(max-width:443px){
+    .note-txt-display{
+       max-width:100px;
+        
+        min-height:100px;
+    }
 }

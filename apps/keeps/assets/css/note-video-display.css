@@ -7,8 +7,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding:.5rem;
     box-shadow: 1px 1px 1px rgb(221, 221, 221);
+    padding:10px;
 }
 
 .note-video-display h1{

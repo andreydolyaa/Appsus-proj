@@ -47,6 +47,7 @@
 @media(max-width:990px){
     .display-notes{
         grid-template-columns: repeat(2,1fr);
+        align-items: flex-start;
     }
 }
 

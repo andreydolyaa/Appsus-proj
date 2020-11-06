@@ -10,27 +10,27 @@ export default {
     <div class="notes-add">
     
         <div class="note-txt" v-if="noteType === 'noteTxt'">
-            <input type="text" placeholder="Enter Text" v-model="txtNote.info.txt">
+            <input type="text" placeholder="Enter Text" v-model="txtNote.info.txt" @keyup.enter="save()">
         </div>
 
 
         <div class="note-img" v-if="noteType === 'noteImg'">
-            <input type="text" placeholder="Image URL" v-model="imgNote.info.url" />
-            <input type="text" placeholder="Title" v-model="imgNote.info.title" />
+            <input type="text" placeholder="Image URL" v-model="imgNote.info.url" @keyup.enter="save()"/>
+            <input type="text" placeholder="Title" v-model="imgNote.info.title" @keyup.enter="save()"/>
         </div>
     
 
         <div class="note-todos" v-if="noteType === 'noteTodos'">
-            <input type="text" placeholder="Label" v-model="todoNote.info.label" />
-            <input type="text" placeholder="Add Todos" v-model="todo" />
+            <input type="text" placeholder="Label" v-model="todoNote.info.label" @keyup.enter="save()"/>
+            <input type="text" placeholder="Add Todos" v-model="todo" @keyup.enter="addTodo(),isEditing=true"/>
             <button @click="addTodo(),isEditing=true" class="note-add-btn"><i class="fas fa-plus"></i></button>
             
         </div>
 
 
         <div class="note-video" v-if="noteType === 'noteVideo'">
-            <input type="text" placeholder="Title" v-model="videoNote.info.title" />
-            <input type="text" placeholder="Video URL"  v-model="videoNote.info.url"/>
+            <input type="text" placeholder="Title" v-model="videoNote.info.title" @keyup.enter="save()"/>
+            <input type="text" placeholder="Video URL"  v-model="videoNote.info.url" @keyup.enter="save()"/>
         </div>
 
 

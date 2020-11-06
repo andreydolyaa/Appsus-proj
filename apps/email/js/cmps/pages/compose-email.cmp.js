@@ -1,7 +1,7 @@
 import { emailService } from '../../services/email-service.js';
  
 export default {
-    props: ['value'],
+    props: ['emailFrom'],
     name:'email-compose',
     template:`
         <section class="email-compose">
@@ -63,9 +63,6 @@ export default {
                 console.log('res',res)
                 this.resetNewEmail()
                 this.emitClose()
-                //this.emitSent(res);
-                //this.emitClose()
-                //eventBus.$emit('show-msg', 'review removed Successffully')
             })   
         },
         onCloseEmail(){
@@ -73,16 +70,13 @@ export default {
                 console.log('res',res)
                 this.resetNewEmail()
                 this.emitClose()
-                //this.emitClose()
-                //eventBus.$emit('show-msg', 'review removed Successffully')
            })   
         },
         emitClose(){
             this.$emit('closeEmail', this.isCompose)
         },
-        emitSent(res){
-            console.log(' emitSent',res)
-            this.$emit('emitSent', res)
+        setEmailTo(){
+            if(this.emailFrom) this.newEmail.to = this.emailFrom
         },
         resetNewEmail(){
             this.newEmail.id=null;
@@ -100,7 +94,8 @@ export default {
       
     },
     created(){
-
+        this.setEmailTo()
+        console.log('this.emailFrom',this.emailFrom)
     },
 }
 

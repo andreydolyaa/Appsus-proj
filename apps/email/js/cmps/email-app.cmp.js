@@ -48,11 +48,18 @@ export default {
                             <email-info></email-info>
                         </div>
                         <div class="router-view-container">
-                            <router-view v-bind:filterBy="filter" v-bind:filterByInput="filterInputValue" v-bind:sortByValue="sortByValue" ></router-view>
+                            <router-view v-bind:filterBy="filter" v-bind:filterByInput="filterInputValue"
+                             v-bind:sortByValue="sortByValue" @replyEmail="replyEmail($event)">
+
+                            </router-view>
                         </div>
                     </div>
                     <!-- v-bind:selected="selectedEmail" -->
-                    <compose-email v-if="isCompose" @closeEmail="checkCloseEmail($event)"></compose-email> 
+                    <compose-email v-if="isCompose"
+                    v-bind:emailFrom="emailFrom"
+                     @closeEmail="setCloseEmail($event)">
+
+                    </compose-email> 
                 </section>
         </section>
         `, 
@@ -72,6 +79,7 @@ export default {
             filter:'isNew',
             filterInputValue:null,
             sortByValue:null,
+            emailFrom:null
         }
     },
     methods:{
@@ -84,7 +92,14 @@ export default {
         openCompose(){
             this.isCompose = !this.isCompose
         },
-        checkCloseEmail(isCompose){
+        replyEmail(arg){
+            var [isCompose,from] = [...arg]
+            console.log('isCompose',isCompose,from)
+            this.isCompose = isCompose;
+            this.emailFrom = from
+            //this.isCompose = isCompose;
+        },
+        setCloseEmail(isCompose){
             console.log('isCompose',isCompose)
             this.isCompose = isCompose;
         },
@@ -98,35 +113,15 @@ export default {
         },
         onReadEnails(){
             this.filter = 'isRead'
-
         },
         onUneadEnails(){
             this.filter = 'isReadFalse'
         },
         onSortEmail($event){
-            console.log('on change ',$event)
-            console.log('on change ',$event.target.value)
+            //console.log('on change ',$event)
+            //console.log('on change ',$event.target.value)
             this.sortByValue = $event.target.value
-            console.log(' this.sortByValue', this.sortByValue)
- 
-
-           
-           // if($event.target.value === 'sentAt'){
-           //     console.log('nubmer')
-           //     //arr = utils.sortByNumber(this.emails ,this.sortBy)
-           // }else{
-//
-           // }
-            
-            // console.log('sort by', typeof this.sortBy)
-            
-            // if(typeof this.sortBy === 'number'){
-
-            // }else{
-            //     console.log('string')
-            //     //arr = utils.sortByString(this.emails ,this.sortBy)
-            // }
-           
+            console.log(' this.sortByValue', this.sortByValue)         
         },
     },
     computed:{

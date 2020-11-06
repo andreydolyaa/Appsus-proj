@@ -9,7 +9,7 @@ export default {
             <!-- {{selectedEmail}} -->
             <!-- { "id": "em01", "from": "goolge tech", "subject": "Wassap?", "body": "Pick up!", "isRead": false, "sentAt": 1551133930594 } -->
             <!-- <h2> email details</h2> -->
-            <button v-on:click="onReply()">Reply</button>
+            <button v-on:click="onReply">Reply</button>
  
             <h2>{{selectedEmail.subject}}</h2>
             <div class="body">
@@ -33,29 +33,30 @@ export default {
         return {
             selectedEmailId:null,
             selectedEmail: null,
+            isCompose:false,
         }
     },
     methods:{
        getEmail(){
-            console.log('emailID');
+            //console.log('emailID');
             this.selectedEmailId = this.$route.params.emailID
-            console.log('this.selectedEmailId',this.$route.params,this.selectedEmailId)
+            //console.log('this.selectedEmailId',this.$route.params,this.selectedEmailId)
             emailService.getSelectedEmail(this.selectedEmailId)
                                 .then(res =>{ 
                                     this.selectedEmail = res; 
                                     this.markEmailAaRead()                                
                                     console.log( 'selectedEmail',this.selectedEmail)
-
                                 });     
         },
         markEmailAaRead() {
             emailService.setEmailAsRead(this.selectedEmailId).then(res =>{                     
-                console.log( 'selectedEmail',res)
+                //console.log( 'selectedEmail',res)
             });     
            
         },
         onReply(){
             console.log('email.from' ,this.selectedEmail)
+            this.$emit('replyEmail', [this.isCompose = true,this.selectedEmail.from])
         },
     },
     computed:{
@@ -67,12 +68,12 @@ export default {
     },
     created(){
         this.getEmail();
-        this.$emit('closeEmail', this.isCompose= true)
+       
         //this.$emit('emitSent', res)
     },  
     watch: {
        '$route.params.bookId'(prevId,nextId){
-           console.log('watch',prevId,nextId)
+           //console.log('watch',prevId,nextId)
            //this.getEmail()
         }
     },

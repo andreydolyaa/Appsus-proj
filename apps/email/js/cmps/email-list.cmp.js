@@ -48,7 +48,7 @@ export default {
            this.$router.push('/email/'+currEmailId)
        },
        deleteEmail(currEmailId){
-           console.log('emailId',currEmailId)
+           //console.log('emailId',currEmailId)
            emailService.removeEmail(currEmailId).then(res =>{
                 console.log('res',res)
                 //eventBus.$emit('show-msg', 'review removed Successffully')
@@ -69,7 +69,6 @@ export default {
        },
         onSetEmailStar(currEmailId){
             emailService.setEmailStar(currEmailId).then(res =>{
-
                 console.log('set ', res)
                 //eventBus.$emit('show-msg', 'review removed Successffully')
             })           
@@ -110,9 +109,7 @@ export default {
     },
     created(){
        this.getMails()
-       console.log('filterBy',this.filterBy)
-
-       
+       //console.log('filterBy',this.filterBy)       
     }
 }
 

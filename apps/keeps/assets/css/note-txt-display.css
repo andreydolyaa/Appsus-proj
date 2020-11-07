@@ -13,7 +13,7 @@
     margin:auto;
     transition: .3s;
     box-shadow: 1px 1px 1px rgb(221, 221, 221);
-    
+    position: relative;
 }
 
 .note-txt-display button{
@@ -22,6 +22,7 @@
     color:rgb(61, 61, 61);
     font-size:1rem;
     outline: none;
+    
 }
 
 .note-txt-display button:hover{
@@ -33,6 +34,11 @@
     padding:1rem;
 }
 
+.send-to-email{
+    position: absolute;
+    bottom:8;
+    right:10;
+}
 
 .note-txt-display:hover{
     box-shadow: 1px 1px 5px  rgb(175, 175, 175);

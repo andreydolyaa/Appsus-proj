@@ -16,7 +16,7 @@ export default {
     <noteAdd :notes="notes"/>
     
         <noteSearch :notes="notes" @filter="filterNotes($event)" />
-            <display-notes v-bind:notes="notes" :filtredNotes="filtredNotes"/>
+            <display-notes v-bind:notes="notes" :filtredNotes="filtredNotes" />
         </div>
         
     </section>
@@ -26,14 +26,12 @@ export default {
             isEditing: false,
             notes: null,
             filtredNotes: null,
-            emailData:''
+            emailData: keepsService.createNewTxtNote(),
         }
     },
     methods: {
         filterNotes(word) {
             this.filtredNotes = keepsService.searchNotes(word);
-            console.log(this.filtredNotes);
-            console.log(word);
         }
     },
     created() {
@@ -46,6 +44,8 @@ export default {
             if (ans === true) this.isEditing = true;
             else this.isEditing = false;
         });
+        this.emailData.info.txt = `${this.$route.query.keep}, ${this.$route.query.body}`;
+        keepsService.addNewNote(this.emailData);
     },
     components: {
         noteAdd,
@@ -55,3 +55,4 @@ export default {
 }
 
 // <div class="added-msg" v-if="isMsg"><p>{{msg}}</p></div>
+// this.emailData.info.txt = this.$route.query.body

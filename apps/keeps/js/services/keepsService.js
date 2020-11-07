@@ -10,9 +10,13 @@ export const keepsService = {
     deleteNote,
     editedNote,
     placeNoteOnTop,
-    changeVideoUrl
+    changeVideoUrl,
+    searchNotes
 }
 
+
+
+var gFiltredNotes = [];
 var gNotes = [
     {
         id: utilService.makeId(),
@@ -54,7 +58,7 @@ var gNotes = [
         id: utilService.makeId(),
         type: 'noteVideo',
         info: {
-            title: 'Cool Video!',
+            title: 'Great Music!',
             url: "https://www.youtube.com/embed/JpJUKbhCr-A",
         },
         style: {
@@ -65,7 +69,7 @@ var gNotes = [
         id: utilService.makeId(),
         type: "noteTodos",
         info: {
-            label: "Thing to buy today:",
+            label: "Things to buy today:",
             todos: [
                 { txt: "Milk", doneAt: false },
                 { txt: "Bread", doneAt: false },
@@ -87,18 +91,7 @@ var gNotes = [
         type: "noteTxt",
         isPinned: true,
         info: {
-            txt: `fear of the dark!!! -- 
-            Fear of the dark ,Fear of the dark 
-            I have constant fear that something's always near 
-            Fear of the dark, Fear of the dark 
-            I have a phobia that someone's always there 
-
-            Have you run your fingers down the wall 
-            And have you felt your neck skin crawl 
-            When you're searching for the light? 
-            Sometimes when you're scared to take a look 
-            At the corner of the room 
-            You've sensed that something's watching you.
+            txt: `Plutonium is a radioactive chemical element with the symbol Pu and atomic number 94. It is an actinide metal of silvery-gray appearance that tarnishes when exposed to air, and forms a dull coating when oxidized. The element normally exhibits six allotropes and four oxidation states. It reacts with carbon, halogens, nitrogen, silicon, and hydrogen.
             `
         },
         style: {
@@ -132,9 +125,21 @@ var gNotes = [
 
 
 
-function changeVideoUrl(url){
+function searchNotes(word) {
+    gFiltredNotes = gNotes.filter(note =>
+        note.type === 'noteTxt' && note.info.txt.toLowerCase().includes(word.toLowerCase())
+        || note.type === 'noteImg' && note.info.title.toLowerCase().includes(word.toLowerCase())
+        || note.type === 'noteTodos' && note.info.label.toLowerCase().includes(word.toLowerCase())
+        || note.type === 'noteVideo' && note.info.title.toLowerCase().includes(word.toLowerCase())
+    );
+    return gFiltredNotes;
+}
+
+
+
+function changeVideoUrl(url) {
     console.log(url);
-    return url.replace('watch?v=','embed/');
+    return url.replace('watch?v=', 'embed/');
 }
 
 
@@ -153,7 +158,7 @@ function deleteNote(noteId) {
 
 
 function addNewNote(note) {
-    gNotes.push(note);
+    gNotes.unshift(note);
     console.log(gNotes);
 }
 

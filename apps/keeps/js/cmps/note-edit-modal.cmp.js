@@ -1,8 +1,9 @@
-
+import {eventBus,EDIT_ON} from '../services/event-bus-service.js';
 export default {
     props: ['note'],
     template: `
     <section class="editing-modal" >
+    
         <button class="close-modal" @click="emitSave()"><i class="fas fa-times"></i></button>
 
         <div class="note-txt1" v-if="noteType === 'noteTxt'" >
@@ -19,7 +20,7 @@ export default {
 
 
         <div class="note-todo1" v-if="noteType === 'noteTodos'">
-        <label for="title">Label:</label>
+        <h1>Label</h1>
              <input id="title" type="text" placeholder="Label" v-model="note.info.label" @keyup.enter="emitSave()"/>
              <h1>Todos:</h1>
              <div>
@@ -64,6 +65,7 @@ export default {
             else return
         },
         emitSave() {
+            eventBus.$emit(EDIT_ON, this.isSaved);
             this.isSaved = true;
             this.$emit('saveNote', this.isSaved);
         },

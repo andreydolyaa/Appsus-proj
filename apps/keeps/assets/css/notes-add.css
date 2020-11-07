@@ -146,6 +146,10 @@ i{
         border-radius: 5px;
         margin-top:1rem;
     }
+    .notes-add-main ul {
+        max-width: 650px;
+
+    }
 }
 
 @media(max-width:680px){
@@ -153,17 +157,29 @@ i{
         
         max-width: 500px;
     }
+    .notes-add-main ul {
+        max-width: 500px;
+
+    }
 }
 @media(max-width:530px){
     .notes-add{
         
         max-width: 400px;
     }
+    .notes-add-main ul {
+        max-width: 400px;
+
+    }
 }
 @media(max-width:360px){
     .notes-add{
         
         max-width: 320px;
+    }
+    .notes-add-main ul {
+        max-width: 320px;
+
     }
 }
 

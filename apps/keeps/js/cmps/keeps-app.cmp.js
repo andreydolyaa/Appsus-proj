@@ -1,21 +1,38 @@
 import { keepsService } from '../services/keepsService.js';
-// import selectType from '../cmps/select-type.cmp.js';
-// import noteTxt from '../cmps/note-txt.cmp.js';
-// import noteImg from '../cmps/note-img.cmp.js';
+import { eventBus, EDIT_ON, ADDED } from '../services/event-bus-service.js';
 import noteAdd from './note-add.cmp.js';
 import displayNotes from './display-notes.cmp.js';
+import noteSearch from '../cmps/note-search.cmp.js';
+
 
 
 export default {
     template: `
-    <section class="keeps-app">
-        <noteAdd :notes="notes"/>
-        <display-notes v-bind:notes="notes"/>
+    <section class="keeps-app" :class="{blur:isEditing}">
+    <div class="focus-modal"></div>
+    
+    
+    <div class="keeps-app-container">
+    <noteAdd :notes="notes"/>
+    
+        <noteSearch :notes="notes" @filter="filterNotes($event)" />
+            <display-notes v-bind:notes="notes" :filtredNotes="filtredNotes"/>
+        </div>
+        
     </section>
     `,
     data() {
         return {
+            isEditing: false,
             notes: null,
+            filtredNotes: null
+        }
+    },
+    methods: {
+        filterNotes(word) {
+            this.filtredNotes = keepsService.searchNotes(word);
+            console.log(this.filtredNotes);
+            console.log(word);
         }
     },
     created() {
@@ -23,9 +40,27 @@ export default {
             .then(notes => {
                 this.notes = notes
             });
+
+        eventBus.$on(EDIT_ON, (ans) => {
+            if (ans === true) this.isEditing = true;
+            else this.isEditing = false;
+        });
+        // eventBus.$on(ADDED, (ans) => {
+        //     if (ans) {
+        //         this.isMsg = true;
+        //         this.msg = ans;
+        //         setTimeout(() => {
+        //             this.isMsg = false
+        //         }, 1000)
+        //     }
+        // });
+
     },
-    components:{
+    components: {
         noteAdd,
         displayNotes,
+        noteSearch
     }
 }
+
+// <div class="added-msg" v-if="isMsg"><p>{{msg}}</p></div>

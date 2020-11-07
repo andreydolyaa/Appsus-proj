@@ -1,5 +1,6 @@
 @import url("../../apps/email/assets/css/main.css");
 @import url('../../apps/keeps/assets/css/main.css'); /*this import KEEPS main css file*/
+@import url('../../apps/books/css/main.css');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 /* use with - font-family: 'Roboto', sans-serif; */
 
@@ -42,3 +43,6 @@ body{
     text-align: center;
 }
 
+.books-logo{
+    width:200px;
+}

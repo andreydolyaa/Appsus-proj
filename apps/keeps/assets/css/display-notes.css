@@ -13,7 +13,7 @@
 
 
  .display-notes{
-    margin-top:3rem;
+    margin-top:1rem;
     display:grid;
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: auto;
@@ -22,12 +22,33 @@
     padding:2rem;
     border-radius:1rem;
     align-items: center;
-}
-
-.notes-dynamic-cmp{
     
 }
 
+
+
+.focus-modal{
+    visibility: hidden;
+}
+.blur .focus-modal{
+    /* filter: blur(5px); */
+    animation: appear .4s 1;
+    position: absolute;
+    height: 100%;
+    width:100%;
+    visibility: visible;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+@keyframes appear {
+    0%   {background: rgba(0, 0, 0, 0.1);}
+    10%   {background: rgba(0, 0, 0, 0.2);}
+    20%   {background: rgba(0, 0, 0, 0.3);}
+    30%   {background: rgba(0, 0, 0, 0.4);}
+    40%  {background: rgba(0, 0, 0, 0.5);}
+    50%  {background: rgba(0, 0, 0, 0.6);}
+    60% {background: rgba(0, 0, 0, 0.7);}
+  }
 
 @media(max-width:1530px){
     .display-notes{

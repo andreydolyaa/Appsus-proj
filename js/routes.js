@@ -1,5 +1,6 @@
 import homePage from '../js/pages/home-page.cmp.js';
 import keepsApp from '../apps/keeps/js/cmps/keeps-app.cmp.js';
+import bookApp from '../apps/books/js/pages/book-app.cmp.js';
 
 /* email components */
 import emailApp from '../apps/email/js/cmps/email-app.cmp.js';
@@ -43,6 +44,11 @@ const myRoutes = [
         path: '/email/:emailId',
         component: emailDetails
     },
+    {
+        path:'/books',
+        component: bookApp
+    }
+
    
 ]
 

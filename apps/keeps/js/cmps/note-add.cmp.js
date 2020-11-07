@@ -1,5 +1,6 @@
 
 import { keepsService } from '../services/keepsService.js';
+import { eventBus, ADDED } from '../services/event-bus-service.js';
 
 
 export default {
@@ -24,7 +25,6 @@ export default {
             <input type="text" placeholder="Label" v-model="todoNote.info.label" @keyup.enter="save()"/>
             <input type="text" placeholder="Add Todos" v-model="todo" @keyup.enter="addTodo(),isEditing=true"/>
             <button @click="addTodo(),isEditing=true" class="note-add-btn"><i class="fas fa-plus"></i></button>
-            
         </div>
 
 
@@ -60,6 +60,7 @@ export default {
     `,
     data() {
         return {
+            isMsg:false,
             isEditing: false,
             todo: '',
             noteType: 'noteTxt',
@@ -67,12 +68,19 @@ export default {
             imgNote: keepsService.createNewImgNote(),
             todoNote: keepsService.createNewTodosNote(),
             videoNote: keepsService.createNewVideoNote(),
+            msg:''
         }
     },
     methods: {
         addTodo() {
             this.todoNote.info.todos.push({ txt: this.todo, doneAt: false });
             this.todo = ''
+        },
+        hideMsg(){
+            this.isMsg = true;
+            setTimeout(()=>{
+                this.isMsg = false;
+            },1000)
         },
         save() {
             this.isEditing = false;
@@ -92,6 +100,7 @@ export default {
                 keepsService.addNewNote(this.videoNote);
                 this.videoNote = keepsService.createNewVideoNote();
             }
+
         },
 
     },
@@ -101,3 +110,4 @@ export default {
 
 
 
+// <p v-if="isMsg" class="added-msg">Note Added!</p>

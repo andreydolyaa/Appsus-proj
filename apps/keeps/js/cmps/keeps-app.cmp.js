@@ -1,5 +1,5 @@
 import { keepsService } from '../services/keepsService.js';
-import { eventBus, EDIT_ON } from '../services/event-bus-service.js';
+import { eventBus, EDIT_ON, ADDED } from '../services/event-bus-service.js';
 import noteAdd from './note-add.cmp.js';
 import displayNotes from './display-notes.cmp.js';
 import noteSearch from '../cmps/note-search.cmp.js';
@@ -9,12 +9,12 @@ import noteSearch from '../cmps/note-search.cmp.js';
 export default {
     template: `
     <section class="keeps-app" :class="{blur:isEditing}">
-
-        <div class="focus-modal"></div>
-
-        
-        <div class="keeps-app-container">
-        <noteAdd :notes="notes"/>
+    <div class="focus-modal"></div>
+    
+    
+    <div class="keeps-app-container">
+    <noteAdd :notes="notes"/>
+    
         <noteSearch :notes="notes" @filter="filterNotes($event)" />
             <display-notes v-bind:notes="notes" :filtredNotes="filtredNotes"/>
         </div>
@@ -23,13 +23,13 @@ export default {
     `,
     data() {
         return {
-            isEditing:false,
+            isEditing: false,
             notes: null,
-            filtredNotes:null
+            filtredNotes: null
         }
     },
-    methods:{
-        filterNotes(word){
+    methods: {
+        filterNotes(word) {
             this.filtredNotes = keepsService.searchNotes(word);
             console.log(this.filtredNotes);
             console.log(word);
@@ -45,6 +45,15 @@ export default {
             if (ans === true) this.isEditing = true;
             else this.isEditing = false;
         });
+        // eventBus.$on(ADDED, (ans) => {
+        //     if (ans) {
+        //         this.isMsg = true;
+        //         this.msg = ans;
+        //         setTimeout(() => {
+        //             this.isMsg = false
+        //         }, 1000)
+        //     }
+        // });
 
     },
     components: {
@@ -54,3 +63,4 @@ export default {
     }
 }
 
+// <div class="added-msg" v-if="isMsg"><p>{{msg}}</p></div>

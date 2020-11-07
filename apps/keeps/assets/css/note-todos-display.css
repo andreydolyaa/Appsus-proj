@@ -54,3 +54,8 @@
 .note-todos-display:hover{
     box-shadow: 1px 1px 5px rgb(175, 175, 175);
 }
+
+.note-todos-display input{
+    width:10px;
+
+}

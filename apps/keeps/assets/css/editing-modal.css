@@ -1,5 +1,5 @@
 .editing-modal {
-    position: absolute;
+    position: fixed;
     overflow: auto !important;
     top: 50%;
     left: 50%;

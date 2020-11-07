@@ -58,7 +58,7 @@ var gNotes = [
         id: utilService.makeId(),
         type: 'noteVideo',
         info: {
-            title: 'Cool Video!',
+            title: 'Great Music!',
             url: "https://www.youtube.com/embed/JpJUKbhCr-A",
         },
         style: {

@@ -54,7 +54,7 @@ export default {
         //         }, 1000)
         //     }
         // });
-        console.log(this.$root.params);
+        console.log(this.$root.query);
     },
     components: {
         noteAdd,

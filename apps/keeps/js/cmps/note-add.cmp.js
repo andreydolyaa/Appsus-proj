@@ -39,10 +39,10 @@ export default {
 
         <div class="btns">
             <button class="note-add-btn" @click="save()"><i class="fas fa-check"></i></button>
-            <button class="note-add-btn" @click="noteType='noteTxt'"><i class="fas fa-font"></i></button>
-            <button class="note-add-btn" @click="noteType='noteImg'"><i class="far fa-image"></i></button>
-            <button class="note-add-btn" @click="noteType='noteTodos'"><i class="fas fa-list-ul"></i></button>
-            <button class="note-add-btn" @click="noteType='noteVideo'"><i class="fas fa-video"></i></button>
+            <button class="note-add-btn" @click="noteType='noteTxt'" :class="{'active-icon': noteType === 'noteTxt'}"><i class="fas fa-font"></i></button>
+            <button class="note-add-btn" @click="noteType='noteImg'" :class="{'active-icon': noteType === 'noteImg'}"><i class="far fa-image"></i></button>
+            <button class="note-add-btn" @click="noteType='noteTodos'" :class="{'active-icon': noteType === 'noteTodos'}"><i class="fas fa-list-ul"></i></button>
+            <button class="note-add-btn" @click="noteType='noteVideo'" :class="{'active-icon': noteType === 'noteVideo'}"><i class="fas fa-video"></i></button>
         </div>
     </div>
 

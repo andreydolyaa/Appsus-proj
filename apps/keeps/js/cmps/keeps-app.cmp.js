@@ -25,7 +25,8 @@ export default {
         return {
             isEditing: false,
             notes: null,
-            filtredNotes: null
+            filtredNotes: null,
+            emailData:''
         }
     },
     methods: {
@@ -45,7 +46,6 @@ export default {
             if (ans === true) this.isEditing = true;
             else this.isEditing = false;
         });
-        console.log('this.$route.query',this.$route.query)
     },
     components: {
         noteAdd,

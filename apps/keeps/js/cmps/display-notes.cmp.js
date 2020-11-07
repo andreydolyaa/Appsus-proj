@@ -14,6 +14,18 @@ export default {
 
     
 
+    <div >
+    <h1>{{emailData.info.txt}}</h1>
+    </div>
+
+    <div v-if="emailData" v-for="(note, idx) in emailData" >
+    <component :is="note.type"
+                :info="note.info" 
+                :note="note"/>
+                </div>
+
+
+
     <div v-if="filtredNotes" v-for="(note, idx) in filtredNotes" >
     <component :is="note.type"
                 :info="note.info" 
@@ -31,10 +43,12 @@ export default {
     `,
     data() {
         return {
-            
+            emailData:keepsService.createNewTxtNote(),
         }
     },
-    
+    methods:{
+
+    },
     computed: {
 
     },
@@ -43,6 +57,14 @@ export default {
         noteImg,
         noteTodos,
         noteVideo,
+    },
+    created(){
+        this.emailData.info.txt = this.$route.query.body;
+        console.log(this.emailData);
+        console.log('this.$route.query',this.$route.query)
     }
 
 }
+
+
+// this.emailData = this.$route.query;

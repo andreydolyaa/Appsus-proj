@@ -13,19 +13,24 @@ export default {
                 <div class="name">Keeps</div>
             </router-link>
 
-            <router-link class="LinkKeeps" to="/books" exact>
+            <router-link class="mainlink LinkKeeps" to="/books" exact>
                 <img class="logo books-logo" src="assets/img/study.png"/>
                 <div class="name">Books</div>
             </router-link>
              
 
         </nav>
+
+
     </section>
     `,
     methods: {
         showRef() {
             console.log(this.$refs,);
         }
+    },
+    components: {
+
     },
     mounted() {
 

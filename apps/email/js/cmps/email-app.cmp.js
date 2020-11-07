@@ -66,6 +66,7 @@ export default {
 
                     </compose-email> 
                 </section>
+
         </section>
         `, 
     components:{

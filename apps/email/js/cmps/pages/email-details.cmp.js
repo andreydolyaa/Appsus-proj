@@ -9,8 +9,8 @@ export default {
     template:`
         <section class="email-details" v-if="selectedEmail">
 
-            <button v-if="!selectedEmail.isDraft" v-on:click="onSendToKeeps()">Send to Keeps</button>
-            <button v-if="!selectedEmail.isDraft" v-on:click="onReply(selectedEmail.from,selectedEmail.id)">Reply</button>
+            <button class="sendToKeepsBtn"  v-if="!selectedEmail.isDraft" v-on:click="onSendToKeeps()">Send to Keeps</button>
+            <button class="replyBtn" v-if="!selectedEmail.isDraft" v-on:click="onReply(selectedEmail.from,selectedEmail.id)">Reply</button>
             <h2>{{selectedEmail.subject}}</h2>
             <div class="body">
                 <div class="header">
@@ -28,7 +28,7 @@ export default {
                 <ul class="repliesList">
                     <li v-for="reply in getReplies">   
                         <section class="email-details" >
-                            <button v-on:click="onReply(selectedEmail.from,selectedEmail.id)">Reply</button>
+                            <button class="replyBtn" v-on:click="onReply(selectedEmail.from,selectedEmail.id)">Reply</button>
                             <h2>{{reply.subject}}</h2>
                             <div class="body">
                                 <div class="header">
@@ -50,7 +50,7 @@ export default {
 
     `,
     components: {
-
+ 
     },
     data(){
         return {

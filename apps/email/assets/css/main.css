@@ -13,7 +13,7 @@
     background: antiquewhite;
     background: rgb(210,210,210);
     background: radial-gradient(circle, rgba(210,210,210,1) 0%, rgb(119, 119, 119) 100%);
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
 .emails {
@@ -70,6 +70,10 @@
     padding: 5px;
     color: #fff;
     border-radius: 10px 0 0 10px;
+}
+
+.searchBtn .fa-search{
+    color: #fff;
 }
 
 button.searchBtn:hover {
@@ -181,7 +185,7 @@ width:100%
 }
 
 .emailListLi:hover{
-    background: #f2f5f5c9;
+    background: #b3e7ff;
 }
 
 ul.emailList {
@@ -329,14 +333,42 @@ section.emails-info {
     font-weight: 500;
 }
 
-
-
 .content{
     padding: 5px 8px;
 }
 
+.repliesList{
+    list-style: none;
+}
+
 .emailReadFalse{
     font-weight: 500;
+}
+
+.sendToKeepsBtn{
+    font-size: 1.2em;
+    color: #000;
+    background: #fff0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #000;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 0 0px 10px 10px;
+}
+
+.replyBtn{
+    font-size: 1.2em;
+    color: #000;
+    background: #fff0;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #000;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 0 0px 10px 10px;
 }
 
 /* replies */
@@ -349,6 +381,7 @@ section.emails-info {
 /* compose email */
 section.email-compose {
     position: fixed;
+    z-index: 99;
     background: white;
     border: 1px solid #a0a0a0;
     bottom: 0;

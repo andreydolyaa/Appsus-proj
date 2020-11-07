@@ -13,6 +13,8 @@
 
 body{
     background-color: #fff;
+    background-image: url(../img/backgound.png);
+    background-size: cover;
 }
 
 .mainNav nav{
@@ -27,11 +29,27 @@ body{
     padding: 20px;
     text-decoration: none;
     width: min-content;
+    transition: .3s ease-in-out;
 }
 
-/* .mainApp .mainlink:hover {
-    opacity:0.7
-} */
+.mainApp .mainlink:hover {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.linkHome {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    width: min-content;
+    border-bottom: 1px solid #64b5f6;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.linkHome .name{
+    text-align: left;
+}
 
 .mainNav .mainlink img{
     max-width: 200px;
@@ -47,6 +65,18 @@ body{
 .books-logo{
     width:200px;
 }
+
+.footer{
+    margin-top: 60px;
+    background: #ffa500;
+    color: #000;
+    padding: 30px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align-last: center;
+    z-index: 0;
+}
 /************** MAIN PAGE OPTIONAL DESIGN *******************/
 .main-logo{
     font-size:3rem;
@@ -58,7 +88,10 @@ body{
 
 
 
-@media only screen and (min-width: 830px) {
+@media only screen and (min-width: 720px) {
+    section.mainNav {
+        height: 100vh;
+    }
     .mainNav nav{
         display: flex;
         flex-direction: row;

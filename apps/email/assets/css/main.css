@@ -293,7 +293,8 @@ section.emails-info {
 /* email details */
 .email-details {
     background-color: #f5f5f5;
-    padding: 20px;
+    padding: 60px 20px 30px;
+    border-bottom: 1px solid #5e5e5e;
 }  
 
 .email-details h2{
@@ -324,9 +325,18 @@ section.emails-info {
     font-weight: 500;
 }
 
+/* replies */
+.replies{
+    list-style: none;
+}
+
+.replies .repliesList{
+    
+}
+
 /* compose email */
 section.email-compose {
-    position: absolute;
+    position: fixed;
     background: white;
     border: 1px solid #a0a0a0;
     bottom: 0;

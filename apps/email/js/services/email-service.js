@@ -6,6 +6,7 @@ var gEmails = [
         id:'em01',
         fromName:'google tech',
         from:'info@gmail.com',
+        replies:['em02','em03'],
         subject: 'Security Wraning',
         body: 'Hey There, there was a suspicious activity in your linked google account',
         isRead: false,
@@ -19,6 +20,7 @@ var gEmails = [
         id:'em02',
         fromName:'goolge support',
         from:'info@gmail.com',
+        replies:[],
         subject: 'Creadit card validation',
         body: 'Billing issue: please validate your cerdit card',
         isRead: false, 
@@ -31,7 +33,8 @@ var gEmails = [
     {
         id:'em03',
         fromName:'facebook',
-        from:'info@gmail.com',
+        from:'info@facebook.com',
+        replies:[],
         subject: 'Team Trump - voter suppression',
         body: 'Help stop voter suppression, irregularities and fraud!',
         isRead: false, 
@@ -44,7 +47,8 @@ var gEmails = [
     {
         id:'em04',
         fromName:'twitter - Joe Rogan',
-        from:'info@gmail.com',
+        from:'info@twitter.com',
+        replies:[],
         subject: 'One of my absolute favorite guests and people, the great and powerful @stevenrinella.',
         body: 'Pick up!',
         isRead: false, 
@@ -57,7 +61,8 @@ var gEmails = [
     {
         id:'em05',
         fromName:'Steave Wazzniak',
-        from:'info@gmail.com',
+        from:'thewaz@apple.com',
+        replies:[],
         subject: 'Technical brilliance.',
         body: 'Technical brilliance. Creative passion. A shared dedication to the collaborative process.',
         isRead: false, 
@@ -70,7 +75,8 @@ var gEmails = [
     {
         id:'em06',
         fromName:'Tony Stark',
-        from:'info@gmail.com',
+        from:'tony.stark@gmail.com',
+        replies:[],
         subject: 'What everybody wants.',
         body: 'Everybody wants a happy ending, right? But it doesn’t always roll that way.',
         isRead: false, 
@@ -83,7 +89,8 @@ var gEmails = [
     {
         id:'em07',
         fromName:'Thor God of Thunder',
-        from:'info@gmail.com',
+        from:'thor@gmail.com',
+        replies:[],
         subject: 'Im Still Worthy',
         body: 'Declaring Im still worthy after successfully summoning the hammer ',
         isRead: true, 
@@ -96,7 +103,8 @@ var gEmails = [
     {
         id:'em08',
         fromName:'Peter Quill aka Star-Lord:',
-        from:'info@gmail.com',
+        from:'starlord@gmail.com',
+        replies:[],
         subject: 'What`s next....?',
         body: 'What Should We Do Next? Something Good, Something Bad? Bit Of Both?',
         isRead: true, 
@@ -109,7 +117,8 @@ var gEmails = [
     {
         id:'em09',
         fromName:'Gal Gadot aka Wonder women:',
-        from:'info@gmail.com',
+        from:'dal.gadot@gmail.com',
+        replies:[],
         subject: 'The Belief In Justice',
         body: 'If Loss Makes You Doubt Your Belief In Justice, Then You Never Truly Believed In Justice At All.”',
         isRead: true, 
@@ -122,7 +131,8 @@ var gEmails = [
     {
         id:'em010',
         fromName:'God',
-        from:'info@gmail.com',
+        from:'got@sky.com',
+        replies:[],
         subject: 'Genesis ',
         body: 'Let there be light',
         isRead: true, 
@@ -135,7 +145,8 @@ var gEmails = [
     {
         id:'em011',
         fromName:'Instagram draft',
-        from:'info@gmail.com',
+        from:'info@instagram.com',
+        replies:[],
         subject: 'Your account as been locked ',
         body: 'Hey supprot , my account has been locked',
         isRead: false, 
@@ -148,7 +159,8 @@ var gEmails = [
     {
         id:'em012',
         fromName:'Steave Jobs',
-        from:'info@gmail.com',
+        from:'steave.jobs@apple.com',
+        replies:[],
         subject: 'Your inner Voice',
         body: 'Don’t let the noise of others’ opinions drown out your own inner voice.',
         isRead: false, 
@@ -161,7 +173,8 @@ var gEmails = [
     {
         id:'em013',
         fromName:'Twiiter',
-        from:'info@gmail.com',
+        from:'info@twitter.com',
+        replies:[],
         subject: 'Bibi like your recent tweet...',
         body: 'Bibi like your recent tweet...',
         isRead: false, 
@@ -179,6 +192,7 @@ export const emailService = {
     getEmails,
     getEmailsInbox,
     getSelectedEmail,
+    getSelectedEmailReplies,
     getEmailsSent,
     getUnreadEamilsCount,
 
@@ -188,6 +202,7 @@ export const emailService = {
 
     updateEmailsSent,
     updateEmailsDraft,
+    updateEmailsDraftSent,
 
     removeEmail,
 }
@@ -196,6 +211,25 @@ var DATA_KEY_EMAILS ='emailsDB'
 var DATA_KEY_EMAILS_SENT ='emailsSentDB'
 
 loadEmailsFromStorage();  /// move to
+
+function updateEmailsDraftSent(sentMeail,emailID){
+    console.log('updateEmailsSent',sentMeail);
+    //set email not draft
+    var idx = getEmailInxByID(emailID)
+    gEmails[idx].isDraft = false 
+
+    // push new email 
+    sentMeail.id = utils.makeId();
+    sentMeail.sentAt =  utils.getDateTimestamp();
+    
+    sentMeail.isSent = true
+    var sentMailCopy = JSON.parse(JSON.stringify(sentMeail))
+    gEmails.push(sentMailCopy)
+    console.log('gEmails',gEmails)
+
+    saveEmailsToSorage(DATA_KEY_EMAILS_SENT, gEmails)
+    return Promise.resolve('email sent');
+}
 
 function updateEmailsDraft(sentMeail){
     sentMeail.id = utils.makeId();
@@ -210,13 +244,22 @@ function updateEmailsDraft(sentMeail){
     return Promise.resolve('email draft');
 }
 
-function updateEmailsSent(sentMeail){
 
+function updateEmailsSent(sentMeail,emailTo,emailToId){
+    console.log('updateEmailsSent',sentMeail,emailTo,emailToId);
+
+    // push new email 
     sentMeail.id = utils.makeId();
     sentMeail.sentAt =  utils.getDateTimestamp();
     sentMeail.isSent = true
     var sentMailCopy = JSON.parse(JSON.stringify(sentMeail))
     gEmails.push(sentMailCopy)
+
+    // push new email to replies
+    var idx = getEmailInxByID(emailToId)
+    console.log('updateEmailsSent',idx);
+    gEmails[idx].replies.push(sentMeail.id)
+    console.log('updateEmailsSent  gEmails', gEmails)
 
     saveEmailsToSorage(DATA_KEY_EMAILS_SENT, gEmails)
     return Promise.resolve('email sent');
@@ -262,6 +305,17 @@ function removeEmail(emailID){
 function getEmailInxByID(emailID){
     const idx = gEmails.findIndex(email => email.id === emailID);
     return idx
+}
+
+function getSelectedEmailReplies(replies){
+    var res =[]
+    for(var i = 0; i< replies.length ; i++){
+        var idx = getEmailInxByID(replies[i]);
+        res.push(gEmails[idx])
+    }
+    //console.log('getSelectedEmailReplies res',res)
+    return res
+    //return Promise.resolve(res);
 }
 
 function getSelectedEmail(emailID){

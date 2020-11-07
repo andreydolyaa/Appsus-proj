@@ -48,15 +48,19 @@ export default {
                             <email-info></email-info>
                         </div>
                         <div class="router-view-container">
-                            <router-view v-bind:filterBy="filter" v-bind:filterByInput="filterInputValue"
-                             v-bind:sortByValue="sortByValue" @replyEmail="replyEmail($event)">
-
+                            <router-view v-bind:filterBy="filter" 
+                            v-bind:filterByInput="filterInputValue"
+                            v-bind:sortByValue="sortByValue" 
+                            @replyEmail="replyEmail($event)"
+                            @replyEmailDraft="replyEmailDraft($event)"
+                            >
                             </router-view>
                         </div>
                     </div>
                     <!-- v-bind:selected="selectedEmail" -->
                     <compose-email v-if="isCompose"
-                    v-bind:emailFrom="emailFrom"
+                    v-bind:emailTo="emailTo"
+                    v-bind:emailToId="emailToId"
                      @closeEmail="setCloseEmail($event)">
 
                     </compose-email> 
@@ -79,7 +83,8 @@ export default {
             filter:'isNew',
             filterInputValue:null,
             sortByValue:null,
-            emailFrom:null
+            emailTo:null,
+            emailToId:null,
         }
     },
     methods:{
@@ -93,11 +98,17 @@ export default {
             this.isCompose = !this.isCompose
         },
         replyEmail(arg){
-            var [isCompose,from] = [...arg]
-            console.log('isCompose',isCompose,from)
+            var [isCompose,relpyToEmail,relpyToId] = [...arg]
+            //console.log('isCompose',isCompose,from)
             this.isCompose = isCompose;
-            this.emailFrom = from
+            this.emailTo = relpyToEmail
+            this.emailToId = relpyToId
             //this.isCompose = isCompose;
+        },
+        replyEmailDraft(arg){
+            var [isCompose,relpyToEmail,relpyToId] = [...arg]
+            this.isCompose = isCompose;
+            this.emailTo = relpyToEmail;
         },
         setCloseEmail(isCompose){
             console.log('isCompose',isCompose)
@@ -129,7 +140,7 @@ export default {
     },
     created(){
         this.getEmails()
-
+        console.log('this.$route.params',this.$route.params)
     },
 }
 

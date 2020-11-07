@@ -1,7 +1,7 @@
 import { emailService } from '../../services/email-service.js';
  
 export default {
-    props: ['emailFrom'],
+    props: ['emailTo','emailToId'],
     name:'email-compose',
     template:`
         <section class="email-compose">
@@ -58,7 +58,7 @@ export default {
     }, 
     methods:{
         sendEmail(){       
-            emailService.updateEmailsSent(this.newEmail)
+            emailService.updateEmailsSent(this.newEmail,this.emailTo,this.emailToId)
             .then(res =>{
                 console.log('res',res)
                 this.resetNewEmail()
@@ -95,7 +95,7 @@ export default {
     },
     created(){
         this.setEmailTo()
-        console.log('this.emailFrom',this.emailFrom)
+        console.log('this.emailFrom',this.emailTo, this.emailToId)
     },
 }
 

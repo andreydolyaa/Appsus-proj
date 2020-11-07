@@ -45,16 +45,8 @@ export default {
             if (ans === true) this.isEditing = true;
             else this.isEditing = false;
         });
-        // eventBus.$on(ADDED, (ans) => {
-        //     if (ans) {
-        //         this.isMsg = true;
-        //         this.msg = ans;
-        //         setTimeout(() => {
-        //             this.isMsg = false
-        //         }, 1000)
-        //     }
-        // });
-        console.log(this.$root.query);
+
+        console.log('this.$route.query',this.$route.query)
     },
     components: {
         noteAdd,

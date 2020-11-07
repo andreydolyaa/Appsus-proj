@@ -20,7 +20,7 @@ export default {
 
 
         <div class="note-todo1" v-if="noteType === 'noteTodos'">
-        <label for="title">Label:</label>
+        <h1>Label</h1>
              <input id="title" type="text" placeholder="Label" v-model="note.info.label" @keyup.enter="emitSave()"/>
              <h1>Todos:</h1>
              <div>

@@ -4,6 +4,7 @@ import noteAdd from './note-add.cmp.js';
 import displayNotes from './display-notes.cmp.js';
 
 
+
 export default {
     template: `
     <section class="keeps-app" :class="{blur:isEditing}">
@@ -38,6 +39,7 @@ export default {
     components: {
         noteAdd,
         displayNotes,
+        
     }
 }
 

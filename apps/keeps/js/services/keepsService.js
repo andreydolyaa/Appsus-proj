@@ -10,9 +10,13 @@ export const keepsService = {
     deleteNote,
     editedNote,
     placeNoteOnTop,
-    changeVideoUrl
+    changeVideoUrl,
+    searchNotes
 }
 
+
+
+var gFiltredNotes = [];
 var gNotes = [
     {
         id: utilService.makeId(),
@@ -121,9 +125,21 @@ var gNotes = [
 
 
 
-function changeVideoUrl(url){
+function searchNotes(word) {
+    gFiltredNotes = gNotes.filter(note =>
+        note.type === 'noteTxt' && note.info.txt.toLowerCase().includes(word.toLowerCase())
+        || note.type === 'noteImg' && note.info.title.toLowerCase().includes(word.toLowerCase())
+        || note.type === 'noteTodos' && note.info.label.toLowerCase().includes(word.toLowerCase())
+        || note.type === 'noteVideo' && note.info.title.toLowerCase().includes(word.toLowerCase())
+        );
+    return gFiltredNotes;
+}
+
+
+
+function changeVideoUrl(url) {
     console.log(url);
-    return url.replace('watch?v=','embed/');
+    return url.replace('watch?v=', 'embed/');
 }
 
 

@@ -1,4 +1,5 @@
 import noteEditingBar from '../cmps/note-editing-bar.cmp.js';
+import noteSendEmail from '../cmps/note-send-email.cmp.js';
 
 export default{
     props:['note'],
@@ -7,6 +8,7 @@ export default{
     :style="{'background-color':note.style.backgroundColor}">
         <h1>{{note.info.txt}}</h1>
        <noteEditingBar v-bind:note="note" />
+       <noteSendEmail :note="note"/>
     </section>
     `,
     data(){
@@ -18,7 +20,8 @@ export default{
         
     },
     components:{
-        noteEditingBar
+        noteEditingBar,
+        noteSendEmail
     }
 }
 

@@ -10,6 +10,7 @@ export default{
     <section>
         <button @click="openModal()" ><i class="fas fa-pen"></i></button>
         
+        
         <transition name="slide-fade" mode="out-in">
             <noteEditModal v-if="isEditing" v-bind:note="note" @saveNote="saveNote($event)"/>
         </transition>

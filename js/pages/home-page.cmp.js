@@ -5,16 +5,17 @@ export default {
         <nav>
             <router-link class="mainlink LinkGmail" to="/email/inbox" exact>
                 <img class="logo" src="assets/img/Gmail-logo.png"/>
-                <div class="name">gmail</div>
+                <div class="name">Email</div>
             </router-link>
             
             <router-link class="mainlink LinkKeeps" to="/keeps" exact>
                 <img class="logo" src="assets/img/keeps-logo.jpg"/>
-                <div class="name">keeps</div>
+                <div class="name">Keeps</div>
             </router-link>
 
             <router-link class="LinkKeeps" to="/books" exact>
                 <img class="logo books-logo" src="assets/img/books-logo.png"/>
+                <div class="name">Books</div>
             </router-link>
              
 

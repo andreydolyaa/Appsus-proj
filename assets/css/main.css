@@ -29,9 +29,9 @@ body{
     width: min-content;
 }
 
-.mainApp .mainlink:hover {
+/* .mainApp .mainlink:hover {
     opacity:0.7
-}
+} */
 
 .mainNav .mainlink img{
     max-width: 200px;
@@ -47,6 +47,13 @@ body{
 .books-logo{
     width:200px;
 }
+/************** MAIN PAGE OPTIONAL DESIGN *******************/
+.main-logo{
+    font-size:3rem;
+    color:orange;
+}
+
+
 
 @media only screen and (min-width: 720px) {
     .mainNav nav{
@@ -54,3 +61,4 @@ body{
         flex-direction: row;
     }
 }
+

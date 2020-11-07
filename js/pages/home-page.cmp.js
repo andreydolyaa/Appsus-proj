@@ -13,10 +13,10 @@ export default {
                 <div class="name">keeps</div>
             </router-link>
 
-            <!-- <router-link class="LinkKeeps" to="/books" exact>
-                <img class="logo" src="assets/img/books-logo.jpg"/>
+            <router-link class="LinkKeeps" to="/books" exact>
+                <img class="logo books-logo" src="assets/img/books-logo.png"/>
             </router-link>
-             -->
+             
 
         </nav>
     </section>

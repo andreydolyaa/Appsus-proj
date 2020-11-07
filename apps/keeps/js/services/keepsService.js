@@ -37,7 +37,7 @@ var gNotes = [
             title: "Me playing Mi"
         },
         style: {
-            backgroundColor: "#FAE5D3"
+            backgroundColor: "#D4EFDF"
         }
     },
     {

@@ -7,9 +7,10 @@ export default {
     template:
         `
     <div class="book-details" v-if="book">
-
+    <router-link to="/books"><button>Back to books list</button></router-link>
     <router-link v-bind:to="'/book/'+nextBookId">
          <button @click="prevBook(book.id)">Previous Book</button>
+         
          <button @click="nextBook(book.id)">Next Book</button>
     </router-link>
 

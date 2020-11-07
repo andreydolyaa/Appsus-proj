@@ -7,7 +7,7 @@ import showMsg from '../pages/show-msg.cmp.js';
 export default {
     props:['book'],
     template: `
-    <section>
+    <section class="book-review">
         <h1>add a review!</h1>
             <form @submit.prevent="addReview">
                 <input type="text" placeholder="user name" v-model="review.name"/>

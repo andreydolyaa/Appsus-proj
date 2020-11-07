@@ -2,7 +2,7 @@ export default {
     props:['review'],
     template:
         `
-     <section>
+     <section >
         <p>user name: {{review.name}}</p>
         <p>rate: {{review.rate}}</p>
         <p>review: {{review.review}}</p>

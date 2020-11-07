@@ -3,10 +3,12 @@ import bookList from '../book/book-list.cmp.js';
 import bookDetails from '../book/book-details.cmp.js';
 import bookFilter from '../book/book-filter.cmp.js';
 import bookAdd from '../pages/book-add.cmp.js';
+import appHeader from '../pages/app-header.cmp.js';
 
 export default {
     template: `
     <section class="book-app container">
+    
     <book-add/>
     <book-filter @doFilter="setFilter"/>
     <book-list  v-bind:books="booksToShow"  /> 
@@ -47,10 +49,12 @@ export default {
         bookList,
         bookDetails,
         bookFilter,
-        bookAdd
+        bookAdd,
+        appHeader
     }
 
 }
 
 
 
+// <appHeader/>

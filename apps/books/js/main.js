@@ -1,5 +1,5 @@
 
-import {myRouter} from './routes.js';
+import {myRouter} from '../../../js/routes.js'
 import navbar from './pages/app-header.cmp.js';
 
 

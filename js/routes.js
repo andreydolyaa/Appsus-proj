@@ -8,6 +8,12 @@ import emailList from '../apps/email/js/cmps/email-list.cmp.js';
 import emailDetails from '../apps/email/js/cmps/pages/email-details.cmp.js';
 
 
+//books imports 
+// import bookApp from '../apps/books/js/pages/book-app.cmp.js'
+import bookHomePage from '../apps/books/js/pages/home-page.cmp.js'
+import aboutPage from '../apps/books/js/pages/about-page.cmp.js';
+import bookDetails from '../apps/books/js/book/book-details.cmp.js';
+// import manBook from '../apps/books/js/main.js';
 
 const myRoutes = [
     {
@@ -46,7 +52,11 @@ const myRoutes = [
     },
     {
         path:'/books',
-        component: bookApp
+        component: bookApp,
+    },
+    {
+        path:'/book/:bookId',
+        component:bookDetails
     }
 
    

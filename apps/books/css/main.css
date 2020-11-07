@@ -45,6 +45,27 @@
     height: 200px;
     object-fit: cover;
     padding: 1rem;
+    border-radius: 20px;
+}
+
+.book-preview h4{
+    color:rgb(107, 107, 107);
+}
+
+.book-preview a{
+    color:rgb(95, 95, 95);
+    text-decoration: none;
+    outline: none;
+    border:1px solid rgb(118, 118, 118);
+    border-radius: 5px;
+    padding:3px 20px 3px 20px;
+    margin:1rem;
+    transition: 0.3s;
+}
+.book-preview a:hover{
+    background-color: rgb(201, 201, 201);
+    border:1px solid  rgb(201, 201, 201);
+    color:white;
 }
 
 .book-details {
@@ -75,6 +96,14 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(240, 240, 240);
+    border-radius: 5px;
+    color:gray;
+}
+.book-filter input{
+    border:1px solid rgb(196, 196, 196);
+    border-radius: 5px;
+    outline: none;
+    padding:3px;
 }
 
 .book-filter>* {
@@ -205,4 +234,94 @@
     padding:1rem;
     background-color: rgb(226, 226, 226);
     color:rgb(43, 192, 13);
+}
+
+.book-add input{
+    border:none;
+    border-bottom:1px solid rgb(194, 194, 194);
+    font-size:1rem;
+    width:300px;
+}
+.book-add button{
+    border:none;
+    height:25px;
+    width:100px;
+    border-radius:5px;
+    cursor: pointer;
+    margin-left:1rem;
+    transition: 0.3s;
+    background-color: rgb(177, 177, 177);
+    outline:none;
+}
+.book-add button:hoveR{
+    background-color: gray;
+}
+.book-add .addbook{
+    width:50px;
+    color:rgb(87, 87, 87);
+    background-color: white;;
+}
+.book-add .addbook:hover{
+    background-color: #fff;
+    color:rgb(186, 186, 186);
+}
+.google-search  li{
+    border-bottom:1px solid rgb(218, 218, 218);
+    font-size:12px;
+    width:420px
+}
+.google-search{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-details button{
+    border:none;
+    padding:5px 20px 5px 20px;
+    margin:1rem;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.book-details a{
+    text-decoration: none;
+}
+
+.book-details button:hover{
+    background-color: gray;
+    color:white;
+}
+.book-details h1{
+    font-size:1.5rem;
+}
+
+.book-review form{
+    display: flex;
+    flex-direction: column;
+    margin:1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-review form > * {
+    margin:.5rem;
+}
+
+@media(max-width:495px){
+    .book-filter{
+        flex-direction: column;
+        height:200px;
+    }
+    .book-add > *{
+        margin:1rem;
+    }
+    .book-add input{
+        width:200px;
+        font-size: 14px;
+    }
+    .book-details textarea{
+        width:200px;
+    }
 }

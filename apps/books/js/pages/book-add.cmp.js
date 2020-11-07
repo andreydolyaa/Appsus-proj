@@ -6,15 +6,14 @@ export default {
     template: `
     <section class="book-add">
     <showMsg/>
-    <label for="googleSearch">Search book: </label>
-    <input type="text" v-on:input="isSearching = true" v-model="searchTxt"/>
+    <input type="text" v-on:input="isSearching = true" v-model="searchTxt" placeholder="Search for more books..."/>
 
-    <button @click="startSearch()">Search</button>
+    <button @click="startSearch()" >Search</button>
 
         <ul v-if="googleBooks" class="google-search">
             <li v-for="book in googleBooks.items">
                 {{book.volumeInfo.title}}
-                <button @click="addBook(book.id)">+</button>
+                <button class="addbook" @click="addBook(book.id)"><i class="fas fa-plus"></i></button>
             </li>
         </ul>
 

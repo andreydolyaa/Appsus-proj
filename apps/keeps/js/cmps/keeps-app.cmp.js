@@ -44,8 +44,10 @@ export default {
             if (ans === true) this.isEditing = true;
             else this.isEditing = false;
         });
-        this.emailData.info.txt = `${this.$route.query.keep}, ${this.$route.query.body}`;
-        keepsService.addNewNote(this.emailData);
+        if (Object.keys(this.$route.query).length > 0) {
+            this.emailData.info.txt = `${this.$route.query.keep}, ${this.$route.query.body}`;
+            keepsService.addNewNote(this.emailData);
+        }
     },
     components: {
         noteAdd,

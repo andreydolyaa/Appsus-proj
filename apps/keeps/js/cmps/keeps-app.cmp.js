@@ -55,6 +55,7 @@ export default {
         //     }
         // });
         console.log(this.$root.query);
+        console.log('this.$route.query',this.$route.query)
     },
     components: {
         noteAdd,

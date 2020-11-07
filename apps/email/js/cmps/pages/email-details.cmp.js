@@ -62,9 +62,10 @@ export default {
         }
     },
     methods:{
-        onSendToKeeps(){
-            this.$router.push(`/keeps/?title=${this.selectedEmail.subject}&body=${this.selectedEmail.body}`);
-            
+        onSendToKeeps(){//}
+            //this.$router.push(`/keeps/?title=${this.selectedEmail.subject}`);
+            console.log('this.selectedEmail.subject',this.selectedEmail.subject)
+            this.$router.push(`/keeps/?keep=${this.selectedEmail.subject}&body=${this.selectedEmail.body}`);
         },
         creatNewEmailFromDraft(){
             this.newEmailFromDraft = {
@@ -90,7 +91,7 @@ export default {
             this.newEmail.isSent = false;
             this.newEmail.isDraft = false;
         },
-       getEmail(){
+        getEmail(){
             //console.log('emailID');
             this.selectedEmailId = this.$route.params.emailID
             //console.log('this.selectedEmailId',this.$route.params,this.selectedEmailId)

@@ -273,9 +273,6 @@ section.emails-info {
     padding: 0px 0px 0 10px;
 }
 
-.starBtn img{
- 
-}
 
 .stared{
     content:url('../img/star_googyellow500_20dp.png');
@@ -313,9 +310,7 @@ section.emails-info {
     font-weight: 500;
 }
 
-.header .date{
-    
-}
+
 
 .content{
     padding: 5px 8px;
@@ -330,9 +325,7 @@ section.emails-info {
     list-style: none;
 }
 
-.replies .repliesList{
-    
-}
+
 
 /* compose email */
 section.email-compose {

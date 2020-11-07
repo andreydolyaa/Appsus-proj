@@ -12,7 +12,8 @@ export default{
     `,
     methods:{
         sendToEmail(){
-            this.$router.push(`/email/?email=${this.note.info.txt}`);
+            this.$router.push(`/email/inbox/?email=${this.note.info.txt}`);
+            
         }
     }
 }

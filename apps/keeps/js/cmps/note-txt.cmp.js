@@ -22,7 +22,9 @@ export default{
     components:{
         noteEditingBar,
         noteSendEmail
-    }
+    },
+    
 }
 
 
+// console.log('this.$route.query',this.$route.query)

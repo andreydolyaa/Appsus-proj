@@ -22,11 +22,9 @@ export default {
 
 
     <div v-if="!filtredNotes" v-for="(note, idx) in notes" class="notes-dynamic-cmp">
-    <transition name="list" tag="div">
     <component :is="note.type"
                 :info="note.info" 
                 :note="note" />
-                </transition>
                 </div>
     </section>
     `,

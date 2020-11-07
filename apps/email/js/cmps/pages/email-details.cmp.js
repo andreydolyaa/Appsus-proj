@@ -14,8 +14,10 @@ export default {
             <h2>{{selectedEmail.subject}}</h2>
             <div class="body">
                 <div class="header">
-                    <p class="from">{{selectedEmail.fromName}}</p>
-                    <p class="from">{{selectedEmail.from}}</p>
+                    <div class="fromContainer">
+                        <p class="from">{{selectedEmail.fromName}}</p>
+                        <p class="from">({{selectedEmail.from}})</p>
+                    </div>
                     <p class="date">{{getDateFromTimeStamp(selectedEmail.sentAt)}}</p>
                 </div>
                 <div class="content">
@@ -32,9 +34,12 @@ export default {
                             <h2>{{reply.subject}}</h2>
                             <div class="body">
                                 <div class="header">
-                                    <p class="from">{{reply.fromName}}</p>
-                                    <p class="from">{{reply.from}}</p>
+                                    <div class="fromContainer">
+                                        <p class="from">{{reply.fromName}}</p>
+                                        <p class="from">({{reply.from}})</p>
+                                    </div>
                                     <p class="date">{{getDateFromTimeStamp(reply.sentAt)}}</p>
+                                    
                                 </div>
                                 <div class="content">
                                     <p>{{reply.body}}</p>

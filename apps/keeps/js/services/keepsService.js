@@ -152,14 +152,12 @@ function getIdxById(noteId) {
 function deleteNote(noteId) {
     var noteIdx = getIdxById(noteId)
     gNotes.splice(noteIdx, 1);
-    console.log(gNotes);
 }
 
 
 
 function addNewNote(note) {
     gNotes.unshift(note);
-    console.log(gNotes);
 }
 
 
@@ -169,7 +167,6 @@ function placeNoteOnTop(noteId) {
     var note = gNotes[noteIdx];
     gNotes.splice(noteIdx, 1);
     gNotes.unshift(note);
-    console.log(noteId);
 }
 
 
@@ -186,7 +183,6 @@ function getNotes() {
 function editedNote(noteId, newNote) {
     var currNoteIdx = getIdxById(noteId);
     gNotes.splice(currNoteIdx, 1, newNote)
-    console.log(gNotes);
 }
 
 

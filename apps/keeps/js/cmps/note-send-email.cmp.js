@@ -6,7 +6,7 @@ export default{
     template:`
     <section class="send-to-email">
 
-        <button @click="sendToEmail()"><i class="far fa-share-square"></i></button>
+        <button @click="sendToEmail()"><i class="fas fa-share-alt"></i></button>
 
     </section>
     `,

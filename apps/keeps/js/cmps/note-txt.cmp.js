@@ -7,7 +7,7 @@ export default{
     <section class="note-txt-display" 
     :style="{'background-color':note.style.backgroundColor}">
         <h1>{{note.info.txt}}</h1>
-       <noteEditingBar v-bind:note="note" />
+        <noteEditingBar v-bind:note="note" />
        
     </section>
     `,

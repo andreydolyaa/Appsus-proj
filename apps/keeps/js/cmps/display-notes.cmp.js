@@ -12,7 +12,7 @@ export default {
     template: `
     <section class="display-notes" >
 
-
+    
 
     <div v-if="filtredNotes" v-for="(note, idx) in filtredNotes" >
     <component :is="note.type"
@@ -21,11 +21,12 @@ export default {
                 </div>
 
 
-
     <div v-if="!filtredNotes" v-for="(note, idx) in notes" class="notes-dynamic-cmp">
+    <transition name="list" tag="div">
     <component :is="note.type"
                 :info="note.info" 
-                :note="note"/>
+                :note="note" />
+                </transition>
                 </div>
     </section>
     `,

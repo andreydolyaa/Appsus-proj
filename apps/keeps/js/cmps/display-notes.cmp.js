@@ -12,18 +12,6 @@ export default {
     template: `
     <section class="display-notes" >
 
-    
-
-    <div >
-    <h1>{{emailData.info.txt}}</h1>
-    </div>
-
-    <div v-if="emailData" v-for="(note, idx) in emailData" >
-    <component :is="note.type"
-                :info="note.info" 
-                :note="note"/>
-                </div>
-
 
 
     <div v-if="filtredNotes" v-for="(note, idx) in filtredNotes" >
@@ -43,14 +31,13 @@ export default {
     `,
     data() {
         return {
-            emailData:keepsService.createNewTxtNote(),
+            
         }
     },
     methods:{
 
     },
     computed: {
-
     },
     components: {
         noteTxt,
@@ -59,12 +46,18 @@ export default {
         noteVideo,
     },
     created(){
-        this.emailData.info.txt = this.$route.query.body;
-        console.log(this.emailData);
-        console.log('this.$route.query',this.$route.query)
+            
     }
 
 }
 
 
 // this.emailData = this.$route.query;
+
+// this.emailData.info.txt = this.$route.query.body;
+// console.log(this.emailData);
+// console.log('this.$route.query',this.$route.query)
+// console.log(this.emailDataBody);
+//         console.log(this.emailDataTitle);
+//         this.emailData.info.txt = this.emailDataBody;
+//         console.log(this.emailData.info.txt);

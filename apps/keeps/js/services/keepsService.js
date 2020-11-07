@@ -176,6 +176,7 @@ function placeNoteOnTop(noteId) {
 
 
 
+
 function getNotes() {
     return Promise.resolve(gNotes);
 }
@@ -255,6 +256,6 @@ function createNewVideoNote() {
 
 
 
-console.log(gNotes);
+console.log('sdfsdfsdfsdf',gNotes);
 // https://cdn.pixabay.com/photo/2017/09/25/13/12/dog-2785074_960_720.jpg
 // https://media.istockphoto.com/photos/black-french-bulldog-picture-id936319476

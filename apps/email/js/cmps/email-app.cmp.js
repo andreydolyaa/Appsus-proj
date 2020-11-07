@@ -140,7 +140,7 @@ export default {
     },
     created(){
         this.getEmails()
-        console.log('this.$route.params',this.$route.params)
+        console.log('this.$route.query',this.$route.query)
     },
 }
 

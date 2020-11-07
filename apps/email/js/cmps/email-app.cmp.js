@@ -61,6 +61,7 @@ export default {
                     <compose-email v-if="isCompose"
                     v-bind:emailTo="emailTo"
                     v-bind:emailToId="emailToId"
+                    v-bind:emailBody="emailBody"
                      @closeEmail="setCloseEmail($event)">
 
                     </compose-email> 
@@ -83,8 +84,9 @@ export default {
             filter:'isNew',
             filterInputValue:null,
             sortByValue:null,
-            emailTo:null,
+            emailTo:'harelwn@gmail.com',
             emailToId:null,
+            emailBody:'Lorem ipsum',
         }
     },
     methods:{
@@ -134,13 +136,24 @@ export default {
             this.sortByValue = $event.target.value
             console.log(' this.sortByValue', this.sortByValue)         
         },
+        composeEmailFromKeeps(){
+            if (Object.keys(this.$route.query).length > 0 ){
+                console.log('this.$route.query',this.$route.query)
+                console.log('this.$route.query email',this.$route.query.email)
+                this.emailTo ='andrey@gmail.com';
+                this.emailBody = this.$route.query.email
+                console.log('this.emailBody',this.emailBody)
+                this.isCompose = true;
+            }
+        }
     },
     computed:{
 
     },
     created(){
         this.getEmails()
-        console.log('this.$route.query',this.$route.query)
+        this.composeEmailFromKeeps()
+        //console.log('this.$route.query',this.$route.query)
     },
 }
 

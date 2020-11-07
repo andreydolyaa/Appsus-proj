@@ -97,6 +97,7 @@ export default {
             //console.log('this.selectedEmailId',this.$route.params,this.selectedEmailId)
             emailService.getSelectedEmail(this.selectedEmailId)
                                 .then(res =>{ 
+                                    if(!res) return
                                     this.selectedEmail = res; 
                                     this.markEmailAaRead()                                
                                     console.log( 'selectedEmail',this.selectedEmail)

@@ -31,7 +31,7 @@ const myRoutes = [
                 component: emailList
             },
             {
-                path: ':emailID',
+                path: ':emailID?',
                 component: emailDetails
             },
         ]

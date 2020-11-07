@@ -1,7 +1,7 @@
 import { emailService } from '../../services/email-service.js';
  
 export default {
-    props: ['emailTo','emailToId'],
+    props: ['emailTo','emailToId','emailBody'],
     name:'email-compose',
     template:`
         <section class="email-compose">
@@ -44,9 +44,9 @@ export default {
             newEmail:{
                 id:null,
                 from:'harelwn@gmail.com',
-                to:'harelwn@gmail.com',
+                to:this.emailTo,
                 subject: 'Subject',
-                body: 'Lorem ipsum',
+                body: this.emailBody,
                 isRead: false, 
                 isNew: false,
                 isSent : false,
@@ -83,7 +83,7 @@ export default {
             this.newEmail.from='harelwn@gmail.com';
             this.newEmail.to='harelwn@gmail.com';
             this.newEmail.subject= 'Subject';
-            this.newEmail.body= 'Lorem ipsum';
+            this.newEmail.body= null;
             this.newEmail.isRead= false; 
             this.newEmail.isNew= false;
             this.newEmail.isSent = false;

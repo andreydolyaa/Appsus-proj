@@ -18,8 +18,10 @@ export default {
                         <img class="star" src="apps/email/assets/img/star_border_black_20dp.png" v-bind:class="{ stared: currEmail.isStar }"/> 
                     </button>
                     <email-item v-on:click.native="onEmailSelect(currEmail.id)"  v-bind:email="currEmail"></email-item> 
-                    <button class="mark" v-on:click=markAsUnread(currEmail.id) v-bind:class="{ read: !currEmail.isRead }"></button>
-                    <button class="deleteBtn" v-on:click=deleteEmail(currEmail.id)><i class="fas fa-trash"></i></button>
+                    <div class="btnsContainer">
+                        <button class="mark" v-on:click=markAsUnread(currEmail.id) v-bind:class="{ read: !currEmail.isRead }"></button>
+                        <button class="deleteBtn" v-on:click=deleteEmail(currEmail.id)><i class="fas fa-trash"></i></button>
+                    </div>
                 </li>    
             </ul>  
         </section>

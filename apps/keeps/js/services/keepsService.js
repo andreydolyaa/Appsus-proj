@@ -69,7 +69,7 @@ var gNotes = [
         id: utilService.makeId(),
         type: "noteTodos",
         info: {
-            label: "Thing to buy today:",
+            label: "Things to buy today:",
             todos: [
                 { txt: "Milk", doneAt: false },
                 { txt: "Bread", doneAt: false },
@@ -131,7 +131,7 @@ function searchNotes(word) {
         || note.type === 'noteImg' && note.info.title.toLowerCase().includes(word.toLowerCase())
         || note.type === 'noteTodos' && note.info.label.toLowerCase().includes(word.toLowerCase())
         || note.type === 'noteVideo' && note.info.title.toLowerCase().includes(word.toLowerCase())
-        );
+    );
     return gFiltredNotes;
 }
 
@@ -158,7 +158,7 @@ function deleteNote(noteId) {
 
 
 function addNewNote(note) {
-    gNotes.push(note);
+    gNotes.unshift(note);
     console.log(gNotes);
 }
 

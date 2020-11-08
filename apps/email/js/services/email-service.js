@@ -253,13 +253,18 @@ function updateEmailsSent(sentMeail,emailTo,emailToId){
     sentMeail.sentAt =  utils.getDateTimestamp();
     sentMeail.isSent = true
     var sentMailCopy = JSON.parse(JSON.stringify(sentMeail))
-    gEmails.push(sentMailCopy)
 
     // push new email to replies
-    var idx = getEmailInxByID(emailToId)
-    console.log('updateEmailsSent',idx);
-    gEmails[idx].replies.push(sentMeail.id)
-    console.log('updateEmailsSent  gEmails', gEmails)
+    if(emailToId){
+        console.log('reply');
+        var idx = getEmailInxByID(emailToId)
+        gEmails[idx].replies.push(sentMeail.id)
+        //console.log('updateEmailsSent reply  gEmails',idx, gEmails)
+    }else{
+       
+        gEmails.push(sentMailCopy)
+        console.log('normal',gEmails);
+    }
 
     saveEmailsToSorage(DATA_KEY_EMAILS_SENT, gEmails)
     return Promise.resolve('email sent');

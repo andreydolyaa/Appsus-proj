@@ -1,5 +1,5 @@
 import { emailService } from '../../services/email-service.js';
- 
+  
 export default {
     props: ['emailTo','emailToId','emailBody'],
     name:'email-compose',
@@ -7,9 +7,9 @@ export default {
         <section class="email-compose">
           <div class="headerCompose">
             <h2>New Messege</h2> 
-            <button v-on:click="onCloseEmail()" class="close">X</button>
+            <button v-on:click="onCloseEmail" class="close">X</button>
           </div>
-          <div class="formContainer"  v-on:submit.prevent="sendEmail()">
+          <div class="formContainer"  v-on:submit.prevent="sendEmail">
               <form>
                     <div class="rub">
                         <label>From:</label>
@@ -55,7 +55,7 @@ export default {
             },
             isCompose:false,
         }
-    }, 
+    },  
     methods:{
         sendEmail(){       
             emailService.updateEmailsSent(this.newEmail,this.emailTo,this.emailToId)
